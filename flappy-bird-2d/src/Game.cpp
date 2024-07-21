@@ -46,7 +46,7 @@ void Game::Playing()
 {
 	if (flappy_bird_2D::MouseClick())
 	{
-		// some thing
+		// something
 	}
 
 
