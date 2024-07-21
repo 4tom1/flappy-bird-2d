@@ -1,8 +1,10 @@
-#include "flappy-engine/flappy-engine.h"
+#include "Game.h"
 
 int main()
 {
-	flappy_engine::print(10);
-
+	flappy_bird_2D::Game* game = new flappy_bird_2D::Game();
+	game->Run();
+	delete game;
+	
 	return 0;
 }
