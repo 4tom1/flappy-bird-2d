@@ -2,6 +2,7 @@
 #define _GAME_
 
 #include <flappy_engine.h>
+#include "GameEnums.h"
 
 namespace flappy_bird_2D {
 
@@ -13,11 +14,6 @@ namespace flappy_bird_2D {
 			void Run();
 		
 		private:
-
-			enum GameState
-			{
-				start = 1, playing, game_over
-			};
 
 			// functions
 			void Update();

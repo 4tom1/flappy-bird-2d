@@ -72,7 +72,7 @@ void Game::Playing()
 
 	flappy_engine::UpdateAllObj();
 
-	if (pipe_c_stk->BirdGetsHit())
+	if (pipe_c_stk->PipeIsTriggered())
 	{
 		ChangeGameState(game_over);
 	}
@@ -121,8 +121,7 @@ void Game::CreatePlayingScene()
 {
 	score = new GameObj_Score();
 	pipe_c_stk = new GameObj_Pipe_c_stack();
-
-	bird->State(playing);
+	
 	bird->Jump();
 }
 
