@@ -52,7 +52,7 @@ void Game::Start()
 {
 	flappy_engine::UpdateAllObj();
 
-	if (flappy_bird_2D::MouseClick())
+	if (flappy_engine::MouseClick())
 	{
 		ChangeGameState(playing);
 	}
@@ -60,7 +60,7 @@ void Game::Start()
 
 void Game::Playing()
 {
-	if (flappy_bird_2D::MouseClick())
+	if (flappy_engine::MouseClick())
 	{
 		bird->Jump();
 	}
@@ -112,15 +112,15 @@ void Game::CreateStartScene()
 {
 	flappy_engine::DeleteAllObj();
 
-	bird = new Bird();
-	background = new Background();
-	m_base = new MultiBase();
+	bird = new GameObj_Bird();
+	background = new GameObj_Background();
+	base_m = new GameObj_Base_multi();
 }
 
 void Game::CreatePlayingScene()
 {
-	score = new Score();
-	pipe_c_stk = new Pipe_c_stack();
+	score = new GameObj_Score();
+	pipe_c_stk = new GameObj_Pipe_c_stack();
 
 	bird->State(playing);
 	bird->Jump();
@@ -129,10 +129,10 @@ void Game::CreatePlayingScene()
 void Game::CreateGameOverScene()
 {
 	delete score;
-	board = new Board();
+	board = new GameObj_Board();
 
 	pipe_c_stk->Stop();
-	m_base->Stop();
+	base_m->Stop();
 
 	if (score_points > best_score)
 	{

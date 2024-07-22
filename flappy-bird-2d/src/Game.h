@@ -36,13 +36,13 @@ namespace flappy_bird_2D {
 			int score_points;
 			int best_score;
 
-			Bird* bird;
-			Background* background;
-			Score* score;
-			Board* board;
-			RestartButton* res_but;
-			MultiBase* m_base;
-			Pipe_c_stack* pipe_c_stk;
+			GameObj_Bird* bird;
+			GameObj_Background* background;
+			GameObj_Score* score;
+			GameObj_Board* board;
+			GameObj_RestartButton* res_but;
+			GameObj_Base_multi* base_m;
+			GameObj_Pipe_c_stack* pipe_c_stk;
 	};
 
 }
