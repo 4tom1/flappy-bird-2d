@@ -6,12 +6,18 @@ using namespace flappy_bird_2D;
 
 Game::Game()
 {
-	flappy_engine::F_engine = flappy_engine::InitEngine();
+	flappy_engine::InitEngine();
+	ChangeGameState(start);
+}
+
+Game::~Game()
+{
+	flappy_engine::DeleteEngine();
 }
 
 void Game::Run()
 {
-	while (IsRunning())
+	while (is_running)
 	{
 		Update();
 	}
@@ -19,6 +25,11 @@ void Game::Run()
 
 void Game::Update()
 {
+	if (flappy_engine::KeyIsPressed(flappy_engine::Key::ESC))
+	{
+		SetIsRunning(false);
+	}
+	
 	switch (game_state)
 	{
 		case flappy_bird_2D::Game::start:
@@ -39,22 +50,42 @@ void Game::Update()
 
 void Game::Start()
 {
+	flappy_engine::UpdateAllObj();
 
+	if (flappy_bird_2D::MouseClick())
+	{
+		ChangeGameState(playing);
+	}
 }
 
 void Game::Playing()
 {
 	if (flappy_bird_2D::MouseClick())
 	{
-		// something
+		bird->Jump();
 	}
 
+	if (pipe_c_stk->PointColliderIsTriggered())
+	{
+		score++;
+	}
 
+	flappy_engine::UpdateAllObj();
+
+	if (pipe_c_stk->BirdGetsHit())
+	{
+		ChangeGameState(game_over);
+	}
 }
 
 void Game::GameOver()
 {
+	flappy_engine::UpdateAllObj();
 
+	if (res_but->IsPressed())
+	{
+		ChangeGameState(start);
+	}
 }
 
 void Game::ChangeGameState(GameState state)
@@ -63,16 +94,53 @@ void Game::ChangeGameState(GameState state)
 
 	switch (game_state)
 	{
-	case flappy_bird_2D::Game::start:
-		CreateStartScene();
-		break;
-	case flappy_bird_2D::Game::playing:
-		CreatePlayingScene();
-		break;
-	case flappy_bird_2D::Game::game_over:
-		CreateGameOverScene();
-		break;
-	default:
-		break;
+		case flappy_bird_2D::Game::start:
+			CreateStartScene();
+			break;
+		case flappy_bird_2D::Game::playing:
+			CreatePlayingScene();
+			break;
+		case flappy_bird_2D::Game::game_over:
+			CreateGameOverScene();
+			break;
+		default:
+			break;
 	}
+}
+
+void Game::CreateStartScene()
+{
+	flappy_engine::DeleteAllObj();
+
+	bird = new Bird();
+	background = new Background();
+	m_base = new MultiBase();
+}
+
+void Game::CreatePlayingScene()
+{
+	score = new Score();
+	pipe_c_stk = new Pipe_c_stack();
+
+	bird->State(playing);
+	bird->Jump();
+}
+
+void Game::CreateGameOverScene()
+{
+	delete score;
+	board = new Board();
+
+	pipe_c_stk->Stop();
+	m_base->Stop();
+
+	if (score_points > best_score)
+	{
+		best_score = score_points;
+	}
+}
+
+void Game::SetIsRunning(bool set)
+{
+	is_running = set;
 }

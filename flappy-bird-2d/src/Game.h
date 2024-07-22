@@ -9,6 +9,7 @@ namespace flappy_bird_2D {
 	{
 		public:	
 			Game();
+			~Game();
 			void Run();
 		
 		private:
@@ -23,8 +24,7 @@ namespace flappy_bird_2D {
 			void Start();
 			void Playing();
 			void GameOver();
-			inline bool IsRunning();
-			inline void IsRunning(bool);
+			inline void SetIsRunning(bool);
 			void ChangeGameState(GameState);
 			void CreateStartScene();
 			void CreatePlayingScene();
@@ -32,20 +32,19 @@ namespace flappy_bird_2D {
 
 			// variables
 			bool is_running = true;
-			GameState game_state = start;
-			int score;
+			GameState game_state;
+			int score_points;
 			int best_score;
 
-			GameObj* bird;
-			GameObj* background;
-			GameObj* score;
-			GameObj* board;
-			GameObj* ResBut;
-			Pipe_stack* pipe_stk;
+			Bird* bird;
+			Background* background;
+			Score* score;
+			Board* board;
+			RestartButton* res_but;
+			MultiBase* m_base;
+			Pipe_c_stack* pipe_c_stk;
 	};
 
 }
 
-#endif 
-
-
+#endif
