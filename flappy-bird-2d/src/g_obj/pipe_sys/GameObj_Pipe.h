@@ -2,6 +2,7 @@
 #define _GAMEOBJ_PIPE_
 
 #include <flappy_engine.h>
+#include "../../Settings.h"
 
 namespace flappy_bird_2D {
 

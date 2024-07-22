@@ -3,6 +3,7 @@
 
 #include <flappy_engine.h>
 #include "../GameEnums.h"
+#include "../Settings.h"
 
 namespace flappy_bird_2D {
 

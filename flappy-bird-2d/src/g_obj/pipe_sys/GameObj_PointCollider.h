@@ -2,6 +2,7 @@
 #define _GAMEOBJ_POINTCOLLIDER_
 
 #include <flappy_engine.h>
+#include "../../Settings.h"
 
 namespace flappy_bird_2D {
 
@@ -14,8 +15,8 @@ namespace flappy_bird_2D {
 			void Move();
 
 		private:
-			static float* speed;
-			static bool* move;
+			static float speed;
+			static bool move;
 	};
 }
 
