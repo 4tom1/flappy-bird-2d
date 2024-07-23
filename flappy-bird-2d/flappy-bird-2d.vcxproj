@@ -153,10 +153,10 @@
   <ItemGroup>
     <ClCompile Include="src\g_obj\base_sys\GameObj_Base.cpp" />
     <ClCompile Include="src\g_obj\pipe_sys\GameObj_Pipe.cpp" />
-    <ClCompile Include="src\g_obj\pipe_sys\GameObj_Pipe_c.cpp" />
+    <ClCompile Include="src\g_obj\pipe_sys\Pipe_c.cpp" />
     <ClCompile Include="src\g_obj\pipe_sys\GameObj_PointCollider.cpp" />
-    <ClCompile Include="src\g_obj\base_sys\GameObj_Base_multi.cpp" />
-    <ClCompile Include="src\g_obj\pipe_sys\GameObj_Pipe_c_stack.cpp" />
+    <ClCompile Include="src\g_obj\base_sys\Base_multi.cpp" />
+    <ClCompile Include="src\g_obj\pipe_sys\Pipe_c_queue.cpp" />
     <ClCompile Include="src\g_obj\GameObj_Board.cpp" />
     <ClCompile Include="src\g_obj\GameObj_RestartButton.cpp" />
     <ClCompile Include="src\g_obj\GameObj_Background.cpp" />
@@ -174,16 +174,17 @@
     <ClInclude Include="src\GameEnums.h" />
     <ClInclude Include="src\g_obj\base_sys\GameObj_Base.h" />
     <ClInclude Include="src\g_obj\pipe_sys\GameObj_Pipe.h" />
-    <ClInclude Include="src\g_obj\pipe_sys\GameObj_Pipe_c.h" />
+    <ClInclude Include="src\g_obj\pipe_sys\Pipe_c.h" />
     <ClInclude Include="src\g_obj\pipe_sys\GameObj_PointCollider.h" />
-    <ClInclude Include="src\g_obj\base_sys\GameObj_Base_multi.h" />
-    <ClInclude Include="src\g_obj\pipe_sys\GameObj_Pipe_c_stack.h" />
+    <ClInclude Include="src\g_obj\base_sys\Base_multi.h" />
+    <ClInclude Include="src\g_obj\pipe_sys\Pipe_c_queue.h" />
     <ClInclude Include="src\g_obj\GameObj_Board.h" />
     <ClInclude Include="src\g_obj\GameObj_RestartButton.h" />
     <ClInclude Include="src\g_obj\GameObj_Background.h" />
     <ClInclude Include="src\g_obj\GameObj_Score.h" />
     <ClInclude Include="src\g_obj\GameObj_Bird.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Settings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

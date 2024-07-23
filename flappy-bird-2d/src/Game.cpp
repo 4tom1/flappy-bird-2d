@@ -1,13 +1,15 @@
 #include <flappy_engine.h>
 
 #include "Game.h"
+#include "Settings.h"
 
 using namespace flappy_bird_2D;
 
 Game::Game()
 {
 	flappy_engine::InitEngine();
-	ChangeGameState(start);
+
+	pipe_distance = flappy_engine::Time((int)PIPE_CONSISTENCY);
 }
 
 Game::~Game()
@@ -17,6 +19,10 @@ Game::~Game()
 
 void Game::Run()
 {
+	flappy_engine::TimerStart();
+	
+	ChangeGameState(start);
+	
 	while (is_running)
 	{
 		Update();
@@ -60,20 +66,27 @@ void Game::Start()
 
 void Game::Playing()
 {
+	if (pipe_distance => pipe_c_q->LastPipeCreatedTime())
+	{
+
+	}
+	
 	if (flappy_engine::MouseClick())
 	{
 		bird->Jump();
 	}
 
-	if (pipe_c_stk->PointColliderIsTriggered())
+	flappy_engine::UpdateAllObj();
+
+	if (pipe_c_q->PointColliderIsTriggered())
 	{
+		flappy_engine::PlaySound("audio_point.waw");
 		score++;
 	}
 
-	flappy_engine::UpdateAllObj();
-
-	if (pipe_c_stk->PipeIsTriggered())
+	if (pipe_c_q->PipeColliderIsTriggered())
 	{
+		flappy_engine::PlaySound("audio_hit.waw");
 		ChangeGameState(game_over);
 	}
 }
@@ -84,6 +97,7 @@ void Game::GameOver()
 
 	if (res_but->IsPressed())
 	{
+		flappy_engine::PlaySound("audio_wing.waw");
 		ChangeGameState(start);
 	}
 }
@@ -129,9 +143,6 @@ void Game::CreateGameOverScene()
 {
 	delete score;
 	board = new GameObj_Board();
-
-	pipe_c_stk->Stop();
-	base_m->Stop();
 
 	if (score_points > best_score)
 	{

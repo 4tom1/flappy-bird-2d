@@ -3,7 +3,6 @@
 
 #include <flappy_engine.h>
 #include "../GameEnums.h"
-#include "../Settings.h"
 
 namespace flappy_bird_2D {
 
@@ -16,8 +15,6 @@ namespace flappy_bird_2D {
 		
 		private:
 			static GameState* game_state;
-			static float* speed;
-			static bool* move;
 	};
 }
 

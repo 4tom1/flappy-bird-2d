@@ -2,7 +2,7 @@
 #define _GAMEOBJ_PIPE_
 
 #include <flappy_engine.h>
-#include "../../Settings.h"
+#include "../../GameEnums.h"
 
 namespace flappy_bird_2D {
 
@@ -11,12 +11,12 @@ namespace flappy_bird_2D {
 		public:
 			GameObj_Pipe();
 			void Update();
-			void Stop();
-			void Move();
+
+			static inline bool IsTriggered();
 
 		private:
-			static float* speed;
-			static bool* move;
+			static GameState* game_state;
+			static bool is_triggered;
 	};
 }
 

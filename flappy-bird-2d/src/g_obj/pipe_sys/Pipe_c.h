@@ -10,14 +10,13 @@ namespace flappy_bird_2D {
 	{
 		public:
 			GameObj_Pipe_c();
-			
-			void Stop();
-			inline bool PipeIsTriggered();
-			inline bool PointColliderIsTriggered();
 
 			GameObj_Pipe pipe1;
 			GameObj_Pipe pipe2;
 			GameObj_PointCollider point_c;
+
+		private:
+			static int pipe_closeness;
 	};
 }
 

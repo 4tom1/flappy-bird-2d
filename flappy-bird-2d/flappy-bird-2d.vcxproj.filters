@@ -36,13 +36,13 @@
     <ClCompile Include="src\g_obj\GameObj_RestartButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\g_obj\base_sys\GameObj_Base_multi.cpp">
+    <ClCompile Include="src\g_obj\base_sys\Base_multi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\g_obj\pipe_sys\GameObj_Pipe_c_stack.cpp">
+    <ClCompile Include="src\g_obj\pipe_sys\Pipe_c_queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\g_obj\pipe_sys\GameObj_Pipe_c.cpp">
+    <ClCompile Include="src\g_obj\pipe_sys\Pipe_c.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\g_obj\pipe_sys\GameObj_Pipe.cpp">
@@ -74,13 +74,13 @@
     <ClInclude Include="src\g_obj\GameObj_RestartButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\g_obj\base_sys\GameObj_Base_multi.h">
+    <ClInclude Include="src\g_obj\base_sys\Base_multi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\g_obj\pipe_sys\GameObj_Pipe_c_stack.h">
+    <ClInclude Include="src\g_obj\pipe_sys\Pipe_c_queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\g_obj\pipe_sys\GameObj_Pipe_c.h">
+    <ClInclude Include="src\g_obj\pipe_sys\Pipe_c.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\g_obj\pipe_sys\GameObj_Pipe.h">
@@ -93,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\GameEnums.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Settings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
