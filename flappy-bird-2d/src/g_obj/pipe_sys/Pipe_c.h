@@ -8,11 +8,10 @@
 
 namespace flappy_bird_2D {
 
-	class GameObj_Pipe_c
+	class Pipe_c
 	{
 		public:
-			GameObj_Pipe_c();
-
+			
 			inline flappy_engine::Time LifeTime() { return life_time; }
 
 			GameObj_Pipe pipe1;
@@ -21,7 +20,6 @@ namespace flappy_bird_2D {
 
 		private:
 			flappy_engine::Time life_time;
-			static int pipe_closeness;
 	};
 }
 

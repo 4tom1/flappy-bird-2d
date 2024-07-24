@@ -10,11 +10,8 @@ namespace flappy_bird_2D {
 	class GameObj_Base : public flappy_engine::GameObj
 	{
 		public:
-			GameObj_Base();
+			GameObj_Base(int);
 			void Update();
-
-		private:
-			flappy_engine::Time life_time;
 	};
 }
 

@@ -9,10 +9,9 @@
 
 namespace flappy_bird_2D {
 
-	class Pipe_c_queue : public std::queue<GameObj_Pipe_c>
+	class Pipe_c_queue : public std::queue<Pipe_c>
 	{
 		public:
-			Pipe_c_queue();
 
 			inline bool PointColliderIsTriggered() { return GameObj_PointCollider::IsTriggered(); }
 			inline bool PipeColliderIsTriggered() { return GameObj_Pipe::IsTriggered(); }

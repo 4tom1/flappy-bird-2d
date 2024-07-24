@@ -2,7 +2,17 @@
 #define _GAME_
 
 #include <flappy_engine.h>
+
 #include "GameEnums.h"
+
+#include "g_obj/GameObj_Bird.h"
+#include "g_obj/GameObj_Background.h"
+#include "g_obj/GameObj_Board.h"
+#include "g_obj/GameObj_RestartButton.h"
+#include "g_obj/GameObj_Score.h"
+#include "g_obj/pipe_sys/Pipe_c_queue.h"
+#include "g_obj/base_sys/Base_vec.h"
+
 
 namespace flappy_bird_2D {
 
@@ -21,6 +31,7 @@ namespace flappy_bird_2D {
 			void Playing();
 			void GameOver();
 			inline void SetIsRunning(bool);
+			inline bool IsRunning();
 			void ChangeGameState(GameState);
 			void CreateStartScene();
 			void CreatePlayingScene();
@@ -37,7 +48,7 @@ namespace flappy_bird_2D {
 			GameObj_Score* score;
 			GameObj_Board* board;
 			GameObj_RestartButton* res_but;
-			Base_multi* base_m;
+			Base_vec* base_v;
 			Pipe_c_queue* pipe_c_q;
 	};
 

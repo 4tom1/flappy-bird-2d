@@ -68,7 +68,7 @@ void Game::Playing()
 {
 	pipe_c_q->PipeCSys();
 	
-	if (flappy_engine::MouseClick())
+	if (flappy_engine::MouseClick() || flappy_engine::KeyIsPressed(flappy_engine::Key::SPACEBAR))
 	{
 		bird->Jump();
 	}
@@ -125,13 +125,13 @@ void Game::CreateStartScene()
 
 	bird = new GameObj_Bird();
 	background = new GameObj_Background();
-	base_m = new GameObj_Base_multi();
+	base_v = new Base_vec();
 }
 
 void Game::CreatePlayingScene()
 {
 	score = new GameObj_Score();
-	pipe_c_stk = new GameObj_Pipe_c_stack();
+	pipe_c_q = new Pipe_c_q();
 	
 	bird->Jump();
 }
@@ -150,4 +150,9 @@ void Game::CreateGameOverScene()
 void Game::SetIsRunning(bool set)
 {
 	is_running = set;
+}
+
+bool Game::IsRunning()
+{
+	return is_running && flappy_engine::WindowIsOpen();
 }
