@@ -9,19 +9,24 @@
 
 namespace flappy_bird_2D {
 
-	class GameObj_Pipe_c_queue : public std::queue<GameObj_Pipe_c>
+	class Pipe_c_queue : public std::queue<GameObj_Pipe_c>
 	{
 		public:
-			GameObj_Pipe_c_queue();
+			Pipe_c_queue();
 
 			inline bool PointColliderIsTriggered() { return GameObj_PointCollider::IsTriggered(); }
 			inline bool PipeColliderIsTriggered() { return GameObj_Pipe::IsTriggered(); }
-			inline flappy_engine::Time LastPipeCreated();
 			
-			void Delete_Pipe_c();
-			void Add_Pipe_c();
+			void Delete();
+			void Create();
+			void PipeCSys();
+			bool Possible();
+			
 
 		private:
+
+			static flappy_engine::Time last_pipe_created;
+			static flappy_engine::Time pipe_distance;
 	};
 }
 

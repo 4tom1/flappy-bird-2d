@@ -30,9 +30,7 @@ namespace flappy_bird_2D {
 			bool is_running = true;
 			GameState game_state;
 			int score_points;
-			int best_score;
-
-			flappy_engine::Time pipe_distance;
+			int best_score;		
 
 			GameObj_Bird* bird;
 			GameObj_Background* background;

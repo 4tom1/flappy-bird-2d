@@ -66,10 +66,7 @@ void Game::Start()
 
 void Game::Playing()
 {
-	if (pipe_distance >= pipe_c_q->LastPipeCreatedTime())
-	{
-		pipe_c_q->Add_Pipe_c();
-	}
+	pipe_c_q->PipeCSys();
 	
 	if (flappy_engine::MouseClick())
 	{
