@@ -15,6 +15,8 @@ namespace flappy_bird_2D {
 		
 		private:
 			static GameState* game_state;
+			flappy_enigne::Time timer;
+			int speed;
 	};
 }
 
