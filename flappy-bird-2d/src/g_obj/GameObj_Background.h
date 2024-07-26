@@ -8,7 +8,6 @@ namespace flappy_bird_2D {
 	class GameObj_Background : public flappy_engine::GameObj
 	{
 		public:
-
 			GameObj_Background();
 	};
 }
