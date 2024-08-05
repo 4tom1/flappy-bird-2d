@@ -94,7 +94,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -109,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +125,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,7 +141,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\$(ProjectName)\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,12 +151,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\g_obj\score_sys\Board_c.cpp" />
+    <ClCompile Include="src\g_obj\score_sys\GameObj_Number.cpp" />
+    <ClCompile Include="src\g_obj\base_sys\Base_vec.cpp" />
+    <ClCompile Include="src\g_obj\base_sys\GameObj_Base.cpp" />
+    <ClCompile Include="src\g_obj\pipe_sys\GameObj_Pipe.cpp" />
+    <ClCompile Include="src\g_obj\pipe_sys\Pipe_c.cpp" />
+    <ClCompile Include="src\g_obj\pipe_sys\GameObj_PointCollider.cpp" />
+    <ClCompile Include="src\g_obj\pipe_sys\Pipe_c_queue.cpp" />
+    <ClCompile Include="src\g_obj\score_sys\GameObj_Board.cpp" />
+    <ClCompile Include="src\g_obj\GameObj_RestartButton.cpp" />
+    <ClCompile Include="src\g_obj\GameObj_Background.cpp" />
+    <ClCompile Include="src\g_obj\score_sys\Score_c.cpp" />
+    <ClCompile Include="src\g_obj\GameObj_Bird.cpp" />
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\flappy-engine\flappy-engine.vcxproj">
       <Project>{247be4b4-e301-41b0-8e7b-a749ae007157}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\g_obj\score_sys\Board_c.h" />
+    <ClInclude Include="src\g_obj\score_sys\GameObj_Number.h" />
+    <ClInclude Include="src\g_obj\base_sys\Base_vec.h" />
+    <ClInclude Include="src\GameEnums.h" />
+    <ClInclude Include="src\g_obj\base_sys\GameObj_Base.h" />
+    <ClInclude Include="src\g_obj\pipe_sys\GameObj_Pipe.h" />
+    <ClInclude Include="src\g_obj\pipe_sys\Pipe_c.h" />
+    <ClInclude Include="src\g_obj\pipe_sys\GameObj_PointCollider.h" />
+    <ClInclude Include="src\g_obj\pipe_sys\Pipe_c_queue.h" />
+    <ClInclude Include="src\g_obj\score_sys\GameObj_Board.h" />
+    <ClInclude Include="src\g_obj\GameObj_RestartButton.h" />
+    <ClInclude Include="src\g_obj\GameObj_Background.h" />
+    <ClInclude Include="src\g_obj\score_sys\Score_c.h" />
+    <ClInclude Include="src\g_obj\GameObj_Bird.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Settings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
