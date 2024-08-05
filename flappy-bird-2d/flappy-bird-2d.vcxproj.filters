@@ -110,5 +110,8 @@
     <ClInclude Include="src\g_obj\score_sys\Board_c.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="dependencies\include\flappy-engine\flappy_engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

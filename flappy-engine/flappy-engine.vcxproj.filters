@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="flappy_engine.h">
+    <ClInclude Include="src\flappy_engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
