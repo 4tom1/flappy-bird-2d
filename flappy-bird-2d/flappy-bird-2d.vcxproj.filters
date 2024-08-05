@@ -27,10 +27,10 @@
     <ClCompile Include="src\g_obj\GameObj_Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\g_obj\GameObj_Score.cpp">
+    <ClCompile Include="src\g_obj\score_sys\Score_c.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\g_obj\GameObj_Board.cpp">
+    <ClCompile Include="src\g_obj\score_sys\GameObj_Board.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\g_obj\GameObj_RestartButton.cpp">
@@ -54,6 +54,12 @@
     <ClCompile Include="src\g_obj\base_sys\Base_vec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\g_obj\score_sys\GameObj_Number.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\g_obj\score_sys\Board_c.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -65,10 +71,10 @@
     <ClInclude Include="src\g_obj\GameObj_Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\g_obj\GameObj_Score.h">
+    <ClInclude Include="src\g_obj\score_sys\Score_c.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\g_obj\GameObj_Board.h">
+    <ClInclude Include="src\g_obj\score_sys\GameObj_Board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\g_obj\GameObj_RestartButton.h">
@@ -96,6 +102,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\g_obj\base_sys\Base_vec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g_obj\score_sys\GameObj_Number.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g_obj\score_sys\Board_c.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

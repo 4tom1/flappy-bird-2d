@@ -38,13 +38,13 @@ void Game::Update()
 	
 	switch (game_state)
 	{
-		case flappy_bird_2D::Game::start:
+		case start:
 			Start();
 			break;
-		case flappy_bird_2D::Game::playing:
+		case playing:
 			Playing();
 			break;
-		case flappy_bird_2D::Game::game_over:
+		case game_over:
 			GameOver();
 			break;
 		default:
@@ -105,13 +105,13 @@ void Game::ChangeGameState(GameState state)
 
 	switch (game_state)
 	{
-		case flappy_bird_2D::Game::start:
+		case start:
 			CreateStartScene();
 			break;
-		case flappy_bird_2D::Game::playing:
+		case playing:
 			CreatePlayingScene();
 			break;
-		case flappy_bird_2D::Game::game_over:
+		case game_over:
 			CreateGameOverScene();
 			break;
 		default:
