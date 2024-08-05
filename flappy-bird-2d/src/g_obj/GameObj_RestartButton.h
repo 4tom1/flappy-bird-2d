@@ -5,9 +5,8 @@ namespace flappy_bird_2D {
 
 	class GameObj_RestartButton : public flappy_engine::Button
 	{
-	public:
-
-		GameObj_RestartButton();
+		public:
+			GameObj_RestartButton();
 	};
 }
 

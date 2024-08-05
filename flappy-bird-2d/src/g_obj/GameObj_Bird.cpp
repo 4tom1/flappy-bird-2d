@@ -16,6 +16,19 @@ flappy_bird_2D::GameObj_Bird::GameObj_Bird()
 
 void flappy_bird_2D::GameObj_Bird::Update()
 {
+	switch (*game_state)
+	{
+		case start:
+
+			break;
+		case playing:
+			break;
+		case game_over:
+			break;
+		default:
+			break;
+	}
+	
 	if (*game_state == start)
 	{
 		// movement up, down
@@ -23,7 +36,7 @@ void flappy_bird_2D::GameObj_Bird::Update()
 
 	else if (*game_state == playing)
 	{
-		animator->On();
+		animator->Update();
 
 		transform.position.y += speed;
 
@@ -32,7 +45,7 @@ void flappy_bird_2D::GameObj_Bird::Update()
 
 	else
 	{
-		animator->Off();
+		// fall and dying
 	}
 }
 

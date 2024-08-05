@@ -1,11 +1,11 @@
 #ifndef _SETTINGS_
 #define _SETTINGS_
 
-// **Window & graphics***
+// ***Window & graphics***
 #define HIGHT 600 // pixels
 #define WIDTH 400 // pixels
 #define FRAME_RATE 60
-#define BIRD_ANIM_SPEED 6
+#define BIRD_ANIM_SPEED 6 // frames per sec.
 
 // ***Sound***
 #define VOLUME 100 // % proc.
