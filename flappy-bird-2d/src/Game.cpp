@@ -7,19 +7,19 @@ using namespace flappy_bird_2D;
 
 Game::Game()
 {
-	flappy_engine::InitEngine();
+	engine = flappy_engine::InitEngine();
 }
 
 Game::~Game()
 {
-	flappy_engine::DeleteEngine();
+	delete engine;
 }
 
 void Game::Run()
 {	
 	ChangeGameState(start);
 	
-	while (IsRunning())
+	while (is_running && engine->window->IsOpen())
 	{
 		Update();
 	}
@@ -27,9 +27,9 @@ void Game::Run()
 
 void Game::Update()
 {
-	if (flappy_engine::KeyIsPressed(flappy_engine::Key::ESC))
+	if (engine->input.KeyIsPressed(flappy_engine::Input::Key::ESC))
 	{
-		SetIsRunning(false);
+		is_running = false;
 	}
 	
 	switch (game_state)
@@ -141,14 +141,4 @@ void Game::CreateGameOverScene()
 	{
 		best_score = score_points;
 	}
-}
-
-void Game::SetIsRunning(bool set)
-{
-	is_running = set;
-}
-
-bool Game::IsRunning()
-{
-	return is_running && flappy_engine::WindowIsOpen();
 }

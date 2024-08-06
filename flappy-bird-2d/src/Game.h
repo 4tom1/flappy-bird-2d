@@ -30,14 +30,14 @@ namespace flappy_bird_2D {
 			void Start();
 			void Playing();
 			void GameOver();
-			inline void SetIsRunning(bool);
-			inline bool IsRunning();
 			void ChangeGameState(GameState);
 			void CreateStartScene();
 			void CreatePlayingScene();
 			void CreateGameOverScene();
 
 			// variables
+			flappy_engine::Engine* engine;
+
 			bool is_running = true;
 			GameState game_state;
 			int score_points;
