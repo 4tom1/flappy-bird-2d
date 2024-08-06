@@ -8,10 +8,10 @@
 
 namespace flappy_bird_2D {
 
-	class GameObj_Score
+	class Score
 	{
 		public:
-			GameObj_Score();
+			Score();
 		
 			GameObj_Number numbers[3];
 	};

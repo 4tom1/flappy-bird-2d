@@ -8,8 +8,6 @@ using namespace flappy_bird_2D;
 Game::Game()
 {
 	flappy_engine::InitEngine();
-
-	pipe_distance = flappy_engine::Time((int)PIPE_CONSISTENCY);
 }
 
 Game::~Game()
@@ -18,12 +16,10 @@ Game::~Game()
 }
 
 void Game::Run()
-{
-	flappy_engine::TimerStart();
-	
+{	
 	ChangeGameState(start);
 	
-	while (is_running)
+	while (IsRunning())
 	{
 		Update();
 	}
