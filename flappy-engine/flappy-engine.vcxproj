@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\Core.h" />
+    <ClInclude Include="src\GameObj\Button.h" />
     <ClInclude Include="dependencies\include\SFML\Audio.hpp" />
     <ClInclude Include="dependencies\include\SFML\Audio\AlResource.hpp" />
     <ClInclude Include="dependencies\include\SFML\Audio\Export.hpp" />
@@ -119,10 +121,19 @@
     <ClInclude Include="dependencies\include\SFML\Window\WindowBase.hpp" />
     <ClInclude Include="dependencies\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="dependencies\include\SFML\Window\WindowStyle.hpp" />
+    <ClInclude Include="src\Sound\Sound.h" />
+    <ClInclude Include="src\Renderer\Renderer.h" />
+    <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\GameObj\GameObj.h" />
     <ClInclude Include="src\flappy_engine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\flappy_engine.cpp" />
+    <ClCompile Include="src\GameObj\Button.cpp" />
+    <ClCompile Include="src\Sound\Sound.cpp" />
+    <ClCompile Include="src\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\GameObj\GameObj.cpp" />
+    <ClCompile Include="src\Core\Core.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\SFML\Audio\SoundFileFactory.inl" />
@@ -210,20 +221,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)/bin/$(ProjectName)/$(Platform)-$(Configuration)/</OutDir>
-    <IntDir>$(SolutionDir)/bin/$(ProjectName)/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <OutDir>$(SolutionDir)/flappy-bird-2d/dependencies/lib/$(Platform)</OutDir>
+    <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)/bin/$(ProjectName)/$(Platform)-$(Configuration)/</OutDir>
-    <IntDir>$(SolutionDir)/bin/$(ProjectName)/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <OutDir>$(SolutionDir)/flappy-bird-2d/dependencies/lib/$(Platform)</OutDir>
+    <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(SolutionDir)/bin/$(ProjectName)/intermediates/$(Platform)-$(Configuration)/</IntDir>
-    <OutDir>$(SolutionDir)/bin/$(ProjectName)/$(Platform)-$(Configuration)/</OutDir>
+    <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <OutDir>$(SolutionDir)/flappy-bird-2d/dependencies/lib/$(Platform)</OutDir>
+    <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(SolutionDir)/bin/$(ProjectName)/intermediates/$(Platform)-$(Configuration)/</IntDir>
-    <OutDir>$(SolutionDir)/bin/$(ProjectName)/$(Platform)-$(Configuration)/</OutDir>
+    <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <OutDir>$(SolutionDir)/flappy-bird-2d/dependencies/lib/$(Platform)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -231,7 +244,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -250,7 +263,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -269,7 +282,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -288,7 +301,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
