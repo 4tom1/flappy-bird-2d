@@ -170,6 +170,7 @@
     <ClCompile Include="src\g_obj\score_sys\GameObj_Board.cpp" />
     <ClCompile Include="src\g_obj\GameObj_RestartButton.cpp" />
     <ClCompile Include="src\g_obj\GameObj_Background.cpp" />
+    <ClCompile Include="src\g_obj\score_sys\Score.cpp" />
     <ClCompile Include="src\g_obj\score_sys\Score_c.cpp" />
     <ClCompile Include="src\g_obj\GameObj_Bird.cpp" />
     <ClCompile Include="src\Game.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="src\g_obj\score_sys\GameObj_Board.h" />
     <ClInclude Include="src\g_obj\GameObj_RestartButton.h" />
     <ClInclude Include="src\g_obj\GameObj_Background.h" />
+    <ClInclude Include="src\g_obj\score_sys\Score.h" />
     <ClInclude Include="src\g_obj\score_sys\Score_c.h" />
     <ClInclude Include="src\g_obj\GameObj_Bird.h" />
     <ClInclude Include="src\Game.h" />

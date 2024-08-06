@@ -60,6 +60,9 @@
     <ClCompile Include="src\g_obj\score_sys\Board_c.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\g_obj\score_sys\Score.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -111,6 +114,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dependencies\include\flappy-engine\flappy_engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\g_obj\score_sys\Score.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
