@@ -7,7 +7,7 @@ using namespace flappy_bird_2D;
 
 Game::Game()
 {
-	engine = flappy_engine::InitEngine();
+	engine = flappy_engine::InitEngine(HIGHT, WIDTH, FRAME_RATE, (VOLUME * 0.01));
 }
 
 Game::~Game()
@@ -19,42 +19,37 @@ void Game::Run()
 {	
 	ChangeGameState(start);
 	
-	while (is_running && engine->window->IsOpen())
+	while (is_running && engine->window.IsOpen())
 	{
-		Update();
-	}
-}
+		if (engine->input.KeyIsPressed(flappy_engine::Key::ESC))
+		{
+			is_running = false;
+		}
 
-void Game::Update()
-{
-	if (engine->input.KeyIsPressed(flappy_engine::Input::Key::ESC))
-	{
-		is_running = false;
+		switch (game_state)
+		{
+			case start:
+				Start();
+				break;
+			case playing:
+				Playing();
+				break;
+			case game_over:
+				GameOver();
+				break;
+			default:
+				break;
+		}
+
+		engine->RenderAllObj();
 	}
-	
-	switch (game_state)
-	{
-		case start:
-			Start();
-			break;
-		case playing:
-			Playing();
-			break;
-		case game_over:
-			GameOver();
-			break;
-		default:
-			break;
-	}
-	
-	flappy_engine::RenderAll();
 }
 
 void Game::Start()
 {
-	flappy_engine::UpdateAllObj();
+	engine->UpdateAllObj();
 
-	if (flappy_engine::MouseClick())
+	if (engine->input.MouseClick())
 	{
 		ChangeGameState(playing);
 	}
@@ -64,33 +59,33 @@ void Game::Playing()
 {
 	pipe_c_q->PipeCSys();
 	
-	if (flappy_engine::MouseClick() || flappy_engine::KeyIsPressed(flappy_engine::Key::SPACEBAR))
+	if (engine->input.MouseClick() || engine->input.KeyIsPressed(flappy_engine::Key::SPACEBAR))
 	{
 		bird->Jump();
 	}
 
-	flappy_engine::UpdateAllObj();
+	engine->UpdateAllObj();
 
 	if (pipe_c_q->PointColliderIsTriggered())
 	{
-		flappy_engine::PlaySound("audio_point.waw");
+		engine->sound.PlaySound("audio_point.waw");
 		score++;
 	}
 
 	if (pipe_c_q->PipeColliderIsTriggered())
 	{
-		flappy_engine::PlaySound("audio_hit.waw");
+		engine->sound.PlaySound("audio_hit.waw");
 		ChangeGameState(game_over);
 	}
 }
 
 void Game::GameOver()
 {
-	flappy_engine::UpdateAllObj();
+	engine->UpdateAll();
 
 	if (res_but->IsPressed())
 	{
-		flappy_engine::PlaySound("audio_wing.waw");
+		engine->sound.PlaySound("audio_wing.waw");
 		ChangeGameState(start);
 	}
 }
@@ -117,7 +112,7 @@ void Game::ChangeGameState(GameState state)
 
 void Game::CreateStartScene()
 {
-	flappy_engine::DeleteAllObj();
+	engine->DeleteAllObj();
 
 	bird = new GameObj_Bird();
 	background = new GameObj_Background();
@@ -126,19 +121,19 @@ void Game::CreateStartScene()
 
 void Game::CreatePlayingScene()
 {
-	score = new GameObj_Score();
-	pipe_c_q = new Pipe_c_q();
+	score = new Score(&score_points);
+	pipe_c_q = new Pipe_c_queue();
 	
 	bird->Jump();
 }
 
 void Game::CreateGameOverScene()
 {
-	delete score;
-	board = new GameObj_Board();
-
 	if (score_points > best_score)
 	{
 		best_score = score_points;
 	}
+
+	delete score;
+	board = new Board_c(&score_points, &best_score);
 }

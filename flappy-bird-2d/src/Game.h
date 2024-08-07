@@ -26,7 +26,6 @@ namespace flappy_bird_2D {
 		private:
 
 			// functions
-			void Update();
 			void Start();
 			void Playing();
 			void GameOver();
