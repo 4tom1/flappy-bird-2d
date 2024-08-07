@@ -127,6 +127,7 @@
     <ClInclude Include="src\Input\Input.h" />
     <ClInclude Include="src\GameObj\GameObj.h" />
     <ClInclude Include="src\flappy_engine.h" />
+    <ClInclude Include="src\Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameObjManager\GameObjManager.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\GameObj\GameObj.cpp" />
     <ClCompile Include="src\Core\Core.cpp" />
+    <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\SFML\Audio\SoundFileFactory.inl" />
@@ -228,7 +230,7 @@
     <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)/flappy-bird-2d/dependencies/lib/$(Platform)</OutDir>
+    <OutDir>$(SolutionDir)/flappy-engine-lib/$(Platform)</OutDir>
     <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -238,7 +240,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
-    <OutDir>$(SolutionDir)/flappy-bird-2d/dependencies/lib/$(Platform)</OutDir>
+    <OutDir>$(SolutionDir)/flappy-engine-lib/$(Platform)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -1,7 +1,7 @@
 #ifndef _GAME_
 #define _GAME_
 
-#include <flappy_engine.h>
+#include <flappy-engine/flappy_engine.h>
 
 #include "GameEnums.h"
 

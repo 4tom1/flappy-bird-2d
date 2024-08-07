@@ -1,3 +1,2 @@
-#include <SFML\Main.hpp>
+#include "Core.h"
 
-#include "flappy_engine.h"
