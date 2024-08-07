@@ -12,10 +12,10 @@ void flappy_engine::Sound::PlaySound(const char* file_name)
 		return;
 	}
 
+	music.play();
+
 	std::cout << "Success." << std::endl;
 	std::getchar();
-		
-	music.play();
 }
 
 void flappy_engine::Sound::SetVolume(float volume)
