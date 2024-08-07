@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GameObjManager\GameObjManager.h" />
     <ClInclude Include="src\Core\Core.h" />
     <ClInclude Include="src\GameObj\Button.h" />
     <ClInclude Include="dependencies\include\SFML\Audio.hpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="src\flappy_engine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameObjManager\GameObjManager.cpp" />
     <ClCompile Include="src\GameObj\Button.cpp" />
     <ClCompile Include="src\Sound\Sound.cpp" />
     <ClCompile Include="src\Renderer\Renderer.cpp" />
