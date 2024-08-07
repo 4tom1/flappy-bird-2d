@@ -11,6 +11,9 @@ void flappy_engine::Sound::PlaySound(const char* file_name)
 
 		return;
 	}
+
+	std::cout << "Success." << std::endl;
+	std::getchar();
 		
 	music.play();
 }
