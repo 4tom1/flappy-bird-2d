@@ -363,7 +363,31 @@
     <ClInclude Include="src\Sound\Sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\flappy_engine.h">
+    <ClInclude Include="src\flappy_engine\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\Core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\flappy_engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\GameObj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\GameObjManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\Sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -390,6 +414,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Sound\Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObjManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -95,7 +95,7 @@
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src;$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -113,7 +113,7 @@
       <PreprocessorDefinitions>
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src;$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
@@ -133,7 +133,7 @@
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src;$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,7 +152,7 @@
       </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src;$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

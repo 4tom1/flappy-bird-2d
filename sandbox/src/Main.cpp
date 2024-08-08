@@ -6,5 +6,5 @@ int main()
 {
 	flappy_engine::Window window(800, 600, "No Name");
 
-	return 0;
+	while (1);
 }

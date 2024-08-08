@@ -120,7 +120,15 @@
     <ClInclude Include="dependencies\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="dependencies\include\SFML\Window\WindowStyle.hpp" />
     <ClInclude Include="src\Core\Core.h" />
-    <ClInclude Include="src\flappy_engine.h" />
+    <ClInclude Include="src\flappy_engine\Button.h" />
+    <ClInclude Include="src\flappy_engine\Core.h" />
+    <ClInclude Include="src\flappy_engine\flappy_engine.h" />
+    <ClInclude Include="src\flappy_engine\GameObj.h" />
+    <ClInclude Include="src\flappy_engine\GameObjManager.h" />
+    <ClInclude Include="src\flappy_engine\Input.h" />
+    <ClInclude Include="src\flappy_engine\Renderer.h" />
+    <ClInclude Include="src\flappy_engine\Sound.h" />
+    <ClInclude Include="src\flappy_engine\Window.h" />
     <ClInclude Include="src\GameObjManager\GameObjManager.h" />
     <ClInclude Include="src\GameObj\Button.h" />
     <ClInclude Include="src\GameObj\GameObj.h" />
@@ -138,13 +146,21 @@
     <ClInclude Include="src\_Include\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\Core.cpp" />
     <ClCompile Include="src\Core\Core.cpp" />
+    <ClCompile Include="src\GameObj.cpp" />
+    <ClCompile Include="src\GameObjManager.cpp" />
     <ClCompile Include="src\GameObjManager\GameObjManager.cpp" />
     <ClCompile Include="src\GameObj\Button.cpp" />
     <ClCompile Include="src\GameObj\GameObj.cpp" />
+    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Sound.cpp" />
     <ClCompile Include="src\Sound\Sound.cpp" />
+    <ClCompile Include="src\Window.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -233,22 +249,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)/flappy-engine-dependencies/lib/$(Platform)</OutDir>
-    <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <OutDir>$(ProjectDir)/bin/$(Platform)</OutDir>
+    <IntDir>$(ProjectDir)/bin/intermediates/$(Platform)-$(Configuration)/</IntDir>
     <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)/flappy-engine-dependencies/lib/$(Platform)</OutDir>
-    <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <OutDir>$(ProjectDir)/bin/$(Platform)</OutDir>
+    <IntDir>$(ProjectDir)/bin/intermediates/$(Platform)-$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
-    <OutDir>$(SolutionDir)/flappy-engine-dependencies/lib/$(Platform)</OutDir>
+    <IntDir>$(ProjectDir)/bin/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <OutDir>$(ProjectDir)/bin/$(Platform)</OutDir>
     <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
-    <OutDir>$(SolutionDir)/flappy-engine-dependencies/lib/$(Platform)</OutDir>
+    <IntDir>$(ProjectDir)/bin/intermediates/$(Platform)-$(Configuration)/</IntDir>
+    <OutDir>$(ProjectDir)/bin/$(Platform)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -256,7 +272,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include;$(ProjectDir)\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -275,7 +291,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include;$(ProjectDir)\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -294,7 +310,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include;$(ProjectDir)\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -313,7 +329,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\dependencies\include;$(ProjectDir)\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
