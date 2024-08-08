@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\GameObjManager\GameObjManager.h" />
-    <ClInclude Include="src\Core\Core.h" />
-    <ClInclude Include="src\GameObj\Button.h" />
     <ClInclude Include="dependencies\include\SFML\Audio.hpp" />
     <ClInclude Include="dependencies\include\SFML\Audio\AlResource.hpp" />
     <ClInclude Include="dependencies\include\SFML\Audio\Export.hpp" />
@@ -122,11 +119,14 @@
     <ClInclude Include="dependencies\include\SFML\Window\WindowBase.hpp" />
     <ClInclude Include="dependencies\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="dependencies\include\SFML\Window\WindowStyle.hpp" />
-    <ClInclude Include="src\Sound\Sound.h" />
-    <ClInclude Include="src\Renderer\Renderer.h" />
-    <ClInclude Include="src\Input\Input.h" />
-    <ClInclude Include="src\GameObj\GameObj.h" />
+    <ClInclude Include="src\Core\Core.h" />
     <ClInclude Include="src\flappy_engine.h" />
+    <ClInclude Include="src\GameObjManager\GameObjManager.h" />
+    <ClInclude Include="src\GameObj\Button.h" />
+    <ClInclude Include="src\GameObj\GameObj.h" />
+    <ClInclude Include="src\Input\Input.h" />
+    <ClInclude Include="src\Renderer\Renderer.h" />
+    <ClInclude Include="src\Sound\Sound.h" />
     <ClInclude Include="src\Window\Window.h" />
     <ClInclude Include="src\_Include\Core.h" />
     <ClInclude Include="src\_Include\flappy_engine.h" />
@@ -138,13 +138,13 @@
     <ClInclude Include="src\_Include\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\Core.cpp" />
     <ClCompile Include="src\GameObjManager\GameObjManager.cpp" />
     <ClCompile Include="src\GameObj\Button.cpp" />
-    <ClCompile Include="src\Sound\Sound.cpp" />
-    <ClCompile Include="src\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\GameObj\GameObj.cpp" />
-    <ClCompile Include="src\Core\Core.cpp" />
+    <ClCompile Include="src\Input\Input.cpp" />
+    <ClCompile Include="src\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Sound\Sound.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
