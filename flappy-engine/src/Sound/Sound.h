@@ -14,7 +14,7 @@ namespace flappy_engine {
 
 		private:
 			
-			sf::Music music;
+			sf::Music sound;
 	};
 }
 

@@ -4,21 +4,16 @@
 
 void flappy_engine::Sound::PlaySound(const char* file_name)
 {
-	if (!music.openFromFile(file_name))
+	if (sound.openFromFile(file_name))
 	{
-		std::cout << "Error: Cannot open a file." << std::endl;
-		std::getchar();
-
+		sound.play();
 		return;
 	}
 
-	music.play();
-
-	std::cout << "Success." << std::endl;
-	std::getchar();
+	std::cout << "Error: Cannot open a file." << std::endl;
 }
 
 void flappy_engine::Sound::SetVolume(float volume)
 {
-	music.setVolume(volume);
+	sound.setVolume(volume);
 }

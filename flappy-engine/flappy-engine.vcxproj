@@ -233,22 +233,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)/flappy-engine-lib/$(Platform)</OutDir>
+    <OutDir>$(SolutionDir)/flappy-engine-dependencies/lib/$(Platform)</OutDir>
     <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
     <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)/flappy-engine-lib/$(Platform)</OutDir>
+    <OutDir>$(SolutionDir)/flappy-engine-dependencies/lib/$(Platform)</OutDir>
     <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
-    <OutDir>$(SolutionDir)/flappy-engine-lib/$(Platform)</OutDir>
+    <OutDir>$(SolutionDir)/flappy-engine-dependencies/lib/$(Platform)</OutDir>
     <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(ProjectDir)/intermediates/$(Platform)-$(Configuration)/</IntDir>
-    <OutDir>$(SolutionDir)/flappy-engine-lib/$(Platform)</OutDir>
+    <OutDir>$(SolutionDir)/flappy-engine-dependencies/lib/$(Platform)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
