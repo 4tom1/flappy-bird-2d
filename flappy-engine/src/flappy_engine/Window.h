@@ -9,7 +9,7 @@ namespace flappy_engine {
 	{
 		public:
 
-			Window(int, int, const char*);
+			Window(int width, int high, const char* name);
 
 			void Update();
 			bool IsOpen();

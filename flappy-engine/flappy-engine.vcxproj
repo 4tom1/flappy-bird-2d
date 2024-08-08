@@ -146,22 +146,14 @@
     <ClInclude Include="src\_Include\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Core.cpp" />
-    <ClCompile Include="src\Core\Core.cpp" />
-    <ClCompile Include="src\GameObj.cpp" />
     <ClCompile Include="src\GameObjManager.cpp" />
-    <ClCompile Include="src\GameObjManager\GameObjManager.cpp" />
-    <ClCompile Include="src\GameObj\Button.cpp" />
-    <ClCompile Include="src\GameObj\GameObj.cpp" />
+    <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\GameObj.cpp" />
     <ClCompile Include="src\Input.cpp" />
-    <ClCompile Include="src\Input\Input.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
-    <ClCompile Include="src\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Sound.cpp" />
-    <ClCompile Include="src\Sound\Sound.cpp" />
     <ClCompile Include="src\Window.cpp" />
-    <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\SFML\Audio\SoundFileFactory.inl" />
@@ -280,7 +272,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;User32.lib;Advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -301,7 +293,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -318,7 +310,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;User32.lib;Advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -339,7 +331,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
