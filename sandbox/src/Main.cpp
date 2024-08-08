@@ -1,18 +1,10 @@
 #include <iostream>
 
-#include <flappy-engine/Sound.h>
+#include <flappy_engine/Window.h>
 
 int main()
 {
-	flappy_engine::Sound sound;
-
-	float vol;
-	std::cin >> vol;
-
-	sound.SetVolume(vol);
-	sound.PlaySound("assets/sounds/endofline.mp3");
-	
-	while (1);
+	flappy_engine::Window window(800, 600, "No Name");
 
 	return 0;
 }
