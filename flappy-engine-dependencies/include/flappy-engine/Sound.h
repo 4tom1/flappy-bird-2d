@@ -1,7 +1,7 @@
 #ifndef _FLAPPY_ENGINE_SOUND_
 #define _FLAPPY_ENGINE_SOUND_
 
-#include "SFML/Audio.hpp"
+#include <SFML/Audio.hpp>
 
 namespace flappy_engine {
 
