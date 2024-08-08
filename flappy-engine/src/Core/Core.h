@@ -1,11 +1,11 @@
 #ifndef _FLAPPY_ENGINE_CORE_
 #define _FLAPPY_ENGINE_CORE_
 
-#include "../Input/Input.h"
-#include "../Renderer/Renderer.h"
-#include "../Sound/Sound.h"
-#include "../GameObjManager/GameObjManager.h"
-#include "../Window/Window.h"
+#include <flappy_engine/Input.h>
+#include <flappy_engine/Renderer.h>
+#include <flappy_engine/Sound.h>
+#include <flappy_engine/GameObjManager.h>
+#include <flappy_engine/Window.h>
 
 
 namespace flappy_engine {
