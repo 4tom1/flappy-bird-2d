@@ -1,7 +1,7 @@
 #ifndef _FLAPPY_ENGINE_WINDOW_
 #define _FLAPPY_ENGINE_WINDOW_
 
-#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 
 namespace flappy_engine {
 
@@ -16,9 +16,12 @@ namespace flappy_engine {
 
 		private:
 
-			sf::Window window;
+			sf::RenderWindow window;
 			sf::Event event;
 	};
+
+	class MySprite : public sf::Sprite
+	{};
 }
 
 #endif

@@ -466,5 +466,13 @@
     <Library Include="dependencies\lib\vorbis.lib" />
     <Library Include="dependencies\lib\vorbisenc.lib" />
     <Library Include="dependencies\lib\vorbisfile.lib" />
+    <Library Include="dependencies\lib\sfml-window-d.lib" />
+    <Library Include="dependencies\lib\sfml-audio.lib" />
+    <Library Include="dependencies\lib\sfml-audio-d.lib" />
+    <Library Include="dependencies\lib\sfml-graphics.lib" />
+    <Library Include="dependencies\lib\sfml-graphics-d.lib" />
+    <Library Include="dependencies\lib\sfml-system.lib" />
+    <Library Include="dependencies\lib\sfml-system-d.lib" />
+    <Library Include="dependencies\lib\sfml-window.lib" />
   </ItemGroup>
 </Project>
