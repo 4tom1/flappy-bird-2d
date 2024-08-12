@@ -9,5 +9,5 @@ int main()
 	while (window.IsOpen())
 	{
 		window.Update();
-	}
+	}  
 }

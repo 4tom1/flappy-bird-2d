@@ -19,9 +19,6 @@ namespace flappy_engine {
 			sf::RenderWindow window;
 			sf::Event event;
 	};
-
-	class MySprite : public sf::Sprite
-	{};
 }
 
 #endif
