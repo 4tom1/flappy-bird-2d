@@ -16,6 +16,11 @@ void flappy_engine::Window::Update()
 	}
 }
 
+void flappy_engine::Window::Render(sf::Sprite sprite)
+{
+	window.draw(sprite);
+}
+
 bool flappy_engine::Window::IsOpen()
 {
 	return window.isOpen();

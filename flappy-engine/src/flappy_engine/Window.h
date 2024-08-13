@@ -12,6 +12,7 @@ namespace flappy_engine {
 			Window(int width, int high, const char* name);
 
 			void Update();
+			void Render(sf::Sprite sprite);
 			bool IsOpen();
 
 		private:

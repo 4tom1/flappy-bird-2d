@@ -171,14 +171,14 @@
     <Library Include="dependencies\lib\freetype.lib" />
     <Library Include="dependencies\lib\ogg.lib" />
     <Library Include="dependencies\lib\openal32.lib" />
-    <Library Include="dependencies\lib\sfml-audio-s-d.lib" />
-    <Library Include="dependencies\lib\sfml-audio-s.lib" />
-    <Library Include="dependencies\lib\sfml-graphics-s-d.lib" />
-    <Library Include="dependencies\lib\sfml-graphics-s.lib" />
-    <Library Include="dependencies\lib\sfml-system-s-d.lib" />
-    <Library Include="dependencies\lib\sfml-system-s.lib" />
-    <Library Include="dependencies\lib\sfml-window-s-d.lib" />
-    <Library Include="dependencies\lib\sfml-window-s.lib" />
+    <Library Include="dependencies\lib\debug\sfml-audio-s-d.lib" />
+    <Library Include="dependencies\lib\release\sfml-audio-s.lib" />
+    <Library Include="dependencies\lib\debug\sfml-graphics-s-d.lib" />
+    <Library Include="dependencies\lib\release\sfml-graphics-s.lib" />
+    <Library Include="dependencies\lib\debug\sfml-system-s-d.lib" />
+    <Library Include="dependencies\lib\release\sfml-system-s.lib" />
+    <Library Include="dependencies\lib\debug\sfml-window-s-d.lib" />
+    <Library Include="dependencies\lib\release\sfml-window-s.lib" />
     <Library Include="dependencies\lib\vorbis.lib" />
     <Library Include="dependencies\lib\vorbisenc.lib" />
     <Library Include="dependencies\lib\vorbisfile.lib" />
@@ -269,7 +269,7 @@
       <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib;$(ProjectDir)\dependencies\lib\debug;$(ProjectDir)\dependencies\lib\release</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;User32.lib;Advapi32.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
@@ -292,7 +292,7 @@
       <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib;$(ProjectDir)\dependencies\lib\debug;$(ProjectDir)\dependencies\lib\release</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;User32.lib;Advapi32.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
@@ -311,7 +311,7 @@
       <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib;$(ProjectDir)\dependencies\lib\debug;$(ProjectDir)\dependencies\lib\release</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;User32.lib;Advapi32.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
@@ -334,7 +334,7 @@
       <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)\dependencies\lib;$(ProjectDir)\dependencies\lib\debug;$(ProjectDir)\dependencies\lib\release</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;User32.lib;Advapi32.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
