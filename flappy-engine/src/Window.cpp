@@ -18,6 +18,7 @@ void flappy_engine::Window::Update()
 
 void flappy_engine::Window::Render(sf::Sprite sprite)
 {
+	window.clear(sf::Color::Blue);
 	window.draw(sprite);
 }
 
