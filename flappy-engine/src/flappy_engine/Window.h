@@ -5,19 +5,17 @@
 
 namespace flappy_engine {
 
-	class Window
+	class Window : public sf::RenderWindow
 	{
 		public:
 
-			Window(int width, int high, const char* name);
+			Window(unsigned int width, unsigned int high, const char* name, unsigned int frame_rate);
 
 			void Update();
-			void Render(sf::Sprite sprite);
-			bool IsOpen();
+			void Clear();
 
 		private:
 
-			sf::RenderWindow window;
 			sf::Event event;
 	};
 }

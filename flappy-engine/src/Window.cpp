@@ -1,28 +1,23 @@
 #include "flappy_engine/Window.h"
 
-flappy_engine::Window::Window(int width, int high, const char* name)
+flappy_engine::Window::Window(unsigned int width, unsigned int high, const char* name, unsigned int frame_rate)
 {
-	window.create(sf::VideoMode(width, high), name);
+	create(sf::VideoMode(width, high), name, sf::Style::Close);
+	setFramerateLimit(frame_rate);
 }
 
 void flappy_engine::Window::Update()
 {
-	while (window.pollEvent(event))
+	while (pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
 		{
-			window.close();
+			close();
 		}
 	}
 }
 
-void flappy_engine::Window::Render(sf::Sprite sprite)
+void flappy_engine::Window::Clear()
 {
-	window.clear(sf::Color::Blue);
-	window.draw(sprite);
-}
-
-bool flappy_engine::Window::IsOpen()
-{
-	return window.isOpen();
+	clear(sf::Color::Magenta);
 }

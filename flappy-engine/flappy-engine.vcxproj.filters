@@ -315,54 +315,6 @@
     <ClInclude Include="dependencies\include\SFML\Window\WindowStyle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\_Include\flappy_engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\_Include\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\_Include\GameObj.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\_Include\GameObjManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\_Include\Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\_Include\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\_Include\Sound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\_Include\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Window\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObj\Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObj\GameObj.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObjManager\GameObjManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Input\Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Renderer\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sound\Sound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\flappy_engine\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -381,13 +333,16 @@
     <ClInclude Include="src\flappy_engine\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\flappy_engine\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\flappy_engine\Sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\flappy_engine\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\GameObjComponents\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\flappy_engine\GameObjComponents\Collider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -410,10 +365,13 @@
     <ClCompile Include="src\Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Renderer.cpp">
+    <ClCompile Include="src\Sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sound.cpp">
+    <ClCompile Include="src\GameObjComponents\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObjComponents\Collider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -451,16 +409,16 @@
     <Library Include="dependencies\lib\freetype.lib" />
     <Library Include="dependencies\lib\ogg.lib" />
     <Library Include="dependencies\lib\openal32.lib" />
-    <Library Include="dependencies\lib\sfml-audio-s.lib" />
-    <Library Include="dependencies\lib\sfml-audio-s-d.lib" />
-    <Library Include="dependencies\lib\sfml-graphics-s.lib" />
-    <Library Include="dependencies\lib\sfml-graphics-s-d.lib" />
-    <Library Include="dependencies\lib\sfml-system-s.lib" />
-    <Library Include="dependencies\lib\sfml-system-s-d.lib" />
-    <Library Include="dependencies\lib\sfml-window-s.lib" />
-    <Library Include="dependencies\lib\sfml-window-s-d.lib" />
     <Library Include="dependencies\lib\vorbis.lib" />
     <Library Include="dependencies\lib\vorbisenc.lib" />
     <Library Include="dependencies\lib\vorbisfile.lib" />
+    <Library Include="dependencies\lib\debug\sfml-audio-s-d.lib" />
+    <Library Include="dependencies\lib\release\sfml-audio-s.lib" />
+    <Library Include="dependencies\lib\debug\sfml-graphics-s-d.lib" />
+    <Library Include="dependencies\lib\release\sfml-graphics-s.lib" />
+    <Library Include="dependencies\lib\debug\sfml-system-s-d.lib" />
+    <Library Include="dependencies\lib\release\sfml-system-s.lib" />
+    <Library Include="dependencies\lib\debug\sfml-window-s-d.lib" />
+    <Library Include="dependencies\lib\release\sfml-window-s.lib" />
   </ItemGroup>
 </Project>
