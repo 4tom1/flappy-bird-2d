@@ -11,7 +11,7 @@ int main()
 
 	if (!sprite.Create("assets/sprites/bird-midflap.png")) return 1;
 	
-	window.Clear();
+	window.clear();
 	window.draw(sprite);
 	window.display();
 

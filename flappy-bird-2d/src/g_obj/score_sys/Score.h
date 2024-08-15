@@ -1,8 +1,6 @@
 #ifndef _GAMEOBJ_SCORE_
 #define _GAMEOBJ_SCORE_
 
-#include <flappy_engine.h>
-
 #include "GameObj_Number.h"
 
 

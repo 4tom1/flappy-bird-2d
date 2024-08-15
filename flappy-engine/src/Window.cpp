@@ -16,8 +16,3 @@ void flappy_engine::Window::Update()
 		}
 	}
 }
-
-void flappy_engine::Window::Clear()
-{
-	clear(sf::Color::Magenta);
-}

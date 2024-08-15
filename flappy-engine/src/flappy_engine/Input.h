@@ -1,16 +1,22 @@
 #ifndef _FLAPPY_ENGINE_INPUT_
 #define _FLAPPY_ENGINE_INPUT_
 
-#include <SFML/Window.hpp>
+#include <SFML/Window/Keyboard.hpp>
+#include <SFML/Window/Mouse.hpp>
 
-namespace {
+namespace flappy_engine {
+	
+	enum Key
+	{
+		ESC, SPACEBAR
+	};
 	
 	class Input
 	{
 		public:
-
-		private:
-
+			
+            bool MouseClick();
+			bool IsKeyPressed(Key key);
 	};
 }
 

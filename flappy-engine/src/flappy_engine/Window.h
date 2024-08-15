@@ -12,7 +12,6 @@ namespace flappy_engine {
 			Window(unsigned int width, unsigned int high, const char* name, unsigned int frame_rate);
 
 			void Update();
-			void Clear();
 
 		private:
 

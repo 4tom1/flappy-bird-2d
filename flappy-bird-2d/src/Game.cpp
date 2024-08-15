@@ -1,4 +1,4 @@
-#include <flappy_engine.h>
+#include <flappy_engine/flappy_engine.h>
 
 #include "Game.h"
 #include "Settings.h"
@@ -7,7 +7,7 @@ using namespace flappy_bird_2D;
 
 Game::Game()
 {
-	engine = flappy_engine::InitEngine(HIGHT, WIDTH, FRAME_RATE, (VOLUME * 0.01));
+	engine = flappy_engine::InitEngine(HIGHT, WIDTH, FRAME_RATE, VOLUME);
 }
 
 Game::~Game()
@@ -19,9 +19,9 @@ void Game::Run()
 {	
 	ChangeGameState(start);
 	
-	while (is_running && engine->window.IsOpen())
+	while (is_running && engine->window.isOpen())
 	{
-		if (engine->input.KeyIsPressed(flappy_engine::Key::ESC))
+		if (engine->input.IsKeyPressed(flappy_engine::Key::ESC))
 		{
 			is_running = false;
 		}
@@ -59,7 +59,7 @@ void Game::Playing()
 {
 	pipe_c_q->PipeCSys();
 	
-	if (engine->input.MouseClick() || engine->input.KeyIsPressed(flappy_engine::Key::SPACEBAR))
+	if (engine->input.MouseClick() || engine->input.IsKeyPressed(flappy_engine::Key::SPACEBAR))
 	{
 		bird->Jump();
 	}
@@ -81,7 +81,7 @@ void Game::Playing()
 
 void Game::GameOver()
 {
-	engine->UpdateAll();
+	engine->UpdateAllObj();
 
 	if (res_but->IsPressed())
 	{
