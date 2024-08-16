@@ -18,7 +18,17 @@ void flappy_engine::GameObjManager::DeleteAll()
 	game_obj_ptr_vec.clear();
 }
 
-flappy_engine::GameObj flappy_engine::GameObjManager::operator[](int idx) const
+flappy_engine::GameObj& flappy_engine::GameObjManager::operator[](int idx) const
 {
 	return *(game_obj_ptr_vec[idx]);
+}
+
+size_t flappy_engine::GameObjManager::VectorSize()
+{
+	return game_obj_ptr_vec.size();
+}
+
+flappy_engine::GameObj::GameObj()
+{
+	game_obj_manager->AddGameObj(this);
 }

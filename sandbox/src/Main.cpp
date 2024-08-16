@@ -1,34 +1,27 @@
 #include <iostream>
 
 #include <flappy_engine/Window.h>
-#include <flappy_engine/Input.h>
-#include <flappy_engine/Sound.h>
-#include <flappy_engine/GameObj.h>
+#include <flappy_engine/flappy_engine.h>
+
+#define BIRD_IMG "assets/sprites/bird-midflap.png"
+#define HIT_AUDIO "assets/audio/audio_hit.wav"
 
 int main()
 {
-	flappy_engine::Window window(600, 800, "No Name", 60);
-	flappy_engine::Sound sound;
-	flappy_engine::Input input;
+	flappy_engine::Engine* engine = flappy_engine::InitEngine(600, 800, 60, "No name", 100);
 
-	input.SetWindow(&window);
+	flappy_engine::GameObj obj;
+	obj.AddComponent(flappy_engine::sprite);
+	obj.sprite->Create(BIRD_IMG);
 
-	flappy_engine::GameObj game_obj;
-	game_obj.AddComponent(flappy_engine::sprite);
-
-	if (!game_obj.sprite->Create("assets/sprites/bird-midflap.png")) return 1;
-	
-	window.clear();
-	window.draw(*game_obj.sprite);
-	window.display();
-
-	while (window.isOpen())
+	while (engine->window.isOpen())
 	{
-		window.Update();
-
-		if (input.MouseClick())
+		if (engine->input.MouseClick() || engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
 		{
-			sound.PlaySound("assets/audio/audio_hit.wav");
+			engine->sound.PlaySound(HIT_AUDIO);
 		}
+		
+		engine->UpdateAll();
+		engine->RenderAllObj();
 	}
 }

@@ -14,8 +14,9 @@ namespace flappy_engine {
 			void AddGameObj(GameObj* new_game_obj);
 			void DeleteAll();
 			void UpdateAll();
+			size_t VectorSize();
 
-			GameObj operator [](int idx) const;
+			GameObj& operator [](int idx) const;
 
 		private:
 

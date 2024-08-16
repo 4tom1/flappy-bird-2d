@@ -13,9 +13,9 @@ namespace flappy_engine {
 	{
 		public:
 			
-			Engine(unsigned int width, unsigned int high, unsigned int frame_rate, unsigned int volume);
+			Engine(unsigned int width, unsigned int high, unsigned int frame_rate, const char* window_name, float volume);
 
-			void UpdateAllObj();
+			void UpdateAll();
 			void RenderAllObj();
 			void DeleteAllObj();
 			
@@ -25,7 +25,7 @@ namespace flappy_engine {
 			GameObjManager game_obj_manager;
 	};
 
-	Engine* InitEngine(unsigned int width, unsigned int high, unsigned int frame_rate, unsigned int volume);
+	Engine* InitEngine(unsigned int width, unsigned int high, unsigned int frame_rate, const char* window_name, float volume);
 }
 
 #endif
