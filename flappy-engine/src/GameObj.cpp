@@ -1,10 +1,10 @@
 #include "flappy_engine/GameObj.h"
 
-GameObjManager* flappy_engine::GameObj::game_obj_manager = nullptr;
+flappy_engine::GameObjManager* flappy_engine::GameObj::game_obj_manager = nullptr;
 
 flappy_engine::GameObj::GameObj()
 {
-	game_obj_manager->AddGameObj(this);
+	// game_obj_manager->AddGameObj(this);
 }
 
 flappy_engine::GameObj::~GameObj()

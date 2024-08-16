@@ -377,6 +377,9 @@
     <ClCompile Include="src\GameObjComponents\Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\SFML\Audio\SoundFileFactory.inl">

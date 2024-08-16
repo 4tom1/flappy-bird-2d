@@ -4,10 +4,10 @@
 #include <flappy_engine/GameObjComponents/Sprite.h>
 #include <flappy_engine/GameObjComponents/Collider.h>
 #include <flappy_engine/GameObjComponents/Transform.h>
-#include <flappy_engine/GameObjManager.h>
-
 
 namespace flappy_engine {
+
+	class GameObjManager;
 
 	enum Components
 	{

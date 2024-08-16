@@ -3,7 +3,7 @@
 #include <flappy_engine/Window.h>
 #include <flappy_engine/Input.h>
 #include <flappy_engine/Sound.h>
-#include <flappy_engine/GameObjComponents/Sprite.h>
+#include <flappy_engine/GameObj.h>
 
 int main()
 {
@@ -13,12 +13,13 @@ int main()
 
 	input.SetWindow(&window);
 
-	flappy_engine::Sprite sprite;
+	flappy_engine::GameObj game_obj;
+	game_obj.AddComponent(flappy_engine::sprite);
 
-	if (!sprite.Create("assets/sprites/bird-midflap.png")) return 1;
+	if (!game_obj.sprite->Create("assets/sprites/bird-midflap.png")) return 1;
 	
 	window.clear();
-	window.draw(sprite);
+	window.draw(*game_obj.sprite);
 	window.display();
 
 	while (window.isOpen())

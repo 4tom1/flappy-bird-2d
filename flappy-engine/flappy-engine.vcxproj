@@ -132,6 +132,7 @@
     <ClInclude Include="src\flappy_engine\GameObjComponents\Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameObj.cpp" />
     <ClCompile Include="src\GameObjComponents\Collider.cpp" />
     <ClCompile Include="src\GameObjComponents\Sprite.cpp" />
     <ClCompile Include="src\Core.cpp" />

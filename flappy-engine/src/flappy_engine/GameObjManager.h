@@ -15,7 +15,7 @@ namespace flappy_engine {
 			void DeleteAll();
 			void UpdateAll();
 
-			GameObj operator[](int);
+			GameObj operator [](int idx) const;
 
 		private:
 
