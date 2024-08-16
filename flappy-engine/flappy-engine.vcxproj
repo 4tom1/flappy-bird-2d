@@ -129,6 +129,7 @@
     <ClInclude Include="src\flappy_engine\Input.h" />
     <ClInclude Include="src\flappy_engine\Sound.h" />
     <ClInclude Include="src\flappy_engine\Window.h" />
+    <ClInclude Include="src\flappy_engine\GameObjComponents\Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameObjComponents\Collider.cpp" />
@@ -136,10 +137,10 @@
     <ClCompile Include="src\Core.cpp" />
     <ClCompile Include="src\GameObjManager.cpp" />
     <ClCompile Include="src\Button.cpp" />
-    <ClCompile Include="src\GameObj.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Sound.cpp" />
     <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="src\GameObjComponents\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\include\SFML\Audio\SoundFileFactory.inl" />

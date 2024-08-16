@@ -9,8 +9,8 @@ namespace flappy_engine {
 	{
 		public:
 
-			void PlaySound(const char*);
-			void SetVolume(float);
+			void PlaySound(const char* file_path);
+			void SetVolume(float volume);
 
 		private:
 			
