@@ -61,7 +61,7 @@ void flappy_engine::GameObjManager::Sort()
 
 		for (size_t i = 0; i < game_obj_ptr_vec.size() - 1; i++)
 		{
-			if (game_obj_ptr_vec[i]->transform.position.z < game_obj_ptr_vec[i + 1]->transform.position.z)
+			if (game_obj_ptr_vec[i]->transform.position.z > game_obj_ptr_vec[i + 1]->transform.position.z)
 			{
 				GameObj* helper = game_obj_ptr_vec[i];
 				game_obj_ptr_vec[i] = game_obj_ptr_vec[i + 1];

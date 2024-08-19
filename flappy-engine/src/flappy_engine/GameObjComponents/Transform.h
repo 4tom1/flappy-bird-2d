@@ -5,7 +5,7 @@ namespace flappy_engine {
 
 	struct Scale
 	{
-		float x = 0.f, y = 0.f;
+		float x = 1.f, y = 1.f;
 	};
 
 	struct Position
