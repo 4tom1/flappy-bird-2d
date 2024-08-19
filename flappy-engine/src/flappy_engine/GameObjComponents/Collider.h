@@ -7,11 +7,13 @@ namespace flappy_engine {
 
 	class Collider
 	{
-	public:
+		public:
 
 		Collider(Transform* transform) : transform(transform) {}
 
-	private:
+		void Update() {};
+
+		private:
 
 		Transform* transform;
 	};

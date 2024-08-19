@@ -22,9 +22,4 @@ void flappy_engine::GameObj::SetGameObjManager(GameObjManager* gom)
 	game_obj_manager = gom;
 }
 
-void flappy_engine::GameObj::UpdateSpritePosition()
-{
-	if (sprite) sprite->UpdatePosition();
-}
-
 void flappy_engine::GameObj::Update() {}

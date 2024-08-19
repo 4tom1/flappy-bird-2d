@@ -19,9 +19,10 @@ int main()
 		if (engine->input.MouseClick() || engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
 		{
 			engine->sound.PlaySound(HIT_AUDIO);
+			obj.transform.position.y += 10;
 		}
 		
 		engine->UpdateAll();
-		engine->RenderAllObj();
+		engine->RenderAll();
 	}
 }

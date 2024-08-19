@@ -16,7 +16,9 @@ void flappy_engine::GameObjManager::UpdateAllObj()
 	for (std::list<GameObj*>::iterator it = game_obj_ptr_list.begin(); it != game_obj_ptr_list.end(); ++it)
 	{
 		(*it)->Update();
-		(*it)->UpdateSpritePosition();
+		
+		if ((*it)->sprite) (*it)->sprite->Update();
+		if ((*it)->collider) (*it)->collider->Update();
 	}
 }
 

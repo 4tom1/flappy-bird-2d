@@ -21,7 +21,7 @@ void flappy_engine::Engine::UpdateAll()
 	window.Update();
 }
 
-void flappy_engine::Engine::RenderAllObj()
+void flappy_engine::Engine::RenderAll()
 {
 	window.clear();
 	

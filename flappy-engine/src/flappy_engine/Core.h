@@ -16,7 +16,7 @@ namespace flappy_engine {
 			Engine(unsigned int width, unsigned int high, unsigned int frame_rate, const char* window_name, float volume);
 
 			void UpdateAll();
-			void RenderAllObj();
+			void RenderAll();
 			void DeleteAllObj();
 			
 			Input input;

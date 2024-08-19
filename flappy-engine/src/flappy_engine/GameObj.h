@@ -26,7 +26,6 @@ namespace flappy_engine {
 
 			static void SetGameObjManager(GameObjManager* gom);
 
-			void UpdateSpritePosition();
 			virtual void Update();
 
 			Transform transform;
