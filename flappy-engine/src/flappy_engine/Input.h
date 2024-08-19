@@ -10,7 +10,7 @@ namespace flappy_engine {
 	
 	enum Key
 	{
-		ESC, SPACEBAR
+		ESC, SPACEBAR, LEFT, RIGHT, DOWN, UP
 	};
 	
 	class Input

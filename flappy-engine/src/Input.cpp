@@ -20,6 +20,16 @@ bool flappy_engine::Input::IsKeyPressed(Key key)
 				return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape);
 			case Key::SPACEBAR:
 				return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space);
+			case Key::UP:
+				return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
+			case Key::DOWN:
+				return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down);
+			case Key::LEFT:
+				return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
+			case Key::RIGHT:
+				return sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right);
+			default:
+				return false;
 		}
 	}
 
