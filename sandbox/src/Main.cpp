@@ -15,12 +15,21 @@ int main()
 	flappy_engine::GameObj bird;
 	bird.AddComponent(flappy_engine::sprite);
 	bird.sprite->Create(BIRD_IMG);
-	
+	bird.transform.SetScale(2);
+
+	flappy_engine::GameObj background;
+	background.AddComponent(flappy_engine::sprite);
+	background.sprite->Create(BACKGROUND_IMG);
+	bird.transform.SetScale(2);
+
 	while (engine->window.isOpen())
 	{
+		if (engine->input.IsKeyPressed(flappy_engine::UP)) bird.transform.position.x -= SPEED / FRAME_RATE;
+		if (engine->input.IsKeyPressed(flappy_engine::DOWN)) bird.transform.position.x += SPEED / FRAME_RATE;
+		if (engine->input.IsKeyPressed(flappy_engine::LEFT)) bird.transform.position.x -= SPEED / FRAME_RATE;
+		if (engine->input.IsKeyPressed(flappy_engine::RIGHT)) bird.transform.position.x += SPEED / FRAME_RATE;
+		
 		engine->UpdateAll();
 		engine->RenderAll();
 	}
-
-	std::getchar();
 }

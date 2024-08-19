@@ -120,7 +120,6 @@
     <ClInclude Include="dependencies\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="dependencies\include\SFML\Window\WindowStyle.hpp" />
     <ClInclude Include="src\flappy_engine\GameObjComponents\Collider.h" />
-    <ClInclude Include="src\flappy_engine\GameObjComponents\Position.h" />
     <ClInclude Include="src\flappy_engine\GameObjComponents\Sprite.h" />
     <ClInclude Include="src\flappy_engine\Button.h" />
     <ClInclude Include="src\flappy_engine\Core.h" />

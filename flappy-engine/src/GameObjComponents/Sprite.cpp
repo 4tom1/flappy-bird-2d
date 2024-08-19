@@ -21,4 +21,5 @@ void flappy_engine::Sprite::Update()
 {
 	setPosition(transform->position.x, transform->position.y);
 	setRotation(transform->rotation);
+	setScale(transform->scale.x, transform->scale.y);
 }
