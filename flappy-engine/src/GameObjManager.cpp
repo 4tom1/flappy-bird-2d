@@ -2,78 +2,76 @@
 
 void flappy_engine::GameObjManager::AddGameObj(GameObj* new_game_obj)
 {
-	game_obj_ptr_list.push_back(new_game_obj);
-	Sort();
+	game_obj_ptr_vec.push_back(new_game_obj);
 }
 
 void flappy_engine::GameObjManager::DeleteGameObj(GameObj* old_game_obj)
 {
-	game_obj_ptr_list.remove(old_game_obj);
+	for (size_t i = 0; i < game_obj_ptr_vec.size(); i++)
+	{
+		if (game_obj_ptr_vec[i] == old_game_obj)
+		{
+			for (size_t j = i; j < game_obj_ptr_vec.size() - 1; j++)
+			{
+				game_obj_ptr_vec[j] = game_obj_ptr_vec[j + 1];
+			}
+
+			game_obj_ptr_vec.pop_back();
+			break;
+		}
+	}
 }
 
 void flappy_engine::GameObjManager::UpdateAllObj()
 {
-	for (std::list<GameObj*>::iterator it = game_obj_ptr_list.begin(); it != game_obj_ptr_list.end(); ++it)
+	for (size_t i = 0; i < game_obj_ptr_vec.size(); i++)
 	{
-		(*it)->Update();
+		game_obj_ptr_vec[i]->Update();
 		
-		if ((*it)->sprite) (*it)->sprite->Update();
-		if ((*it)->collider) (*it)->collider->Update();
+		if (game_obj_ptr_vec[i]->sprite) game_obj_ptr_vec[i]->sprite->Update();
+		if (game_obj_ptr_vec[i]->collider) game_obj_ptr_vec[i]->collider->Update();
 	}
 }
 
 void flappy_engine::GameObjManager::DeleteAllObj()
 {
-	for (std::list<GameObj*>::iterator it = game_obj_ptr_list.begin(); it != game_obj_ptr_list.end(); ++it)
+	for (size_t i = 0; i < game_obj_ptr_vec.size(); i++)
 	{
-		delete (*it);
+		delete game_obj_ptr_vec[i];
 	}
 }
 
-flappy_engine::GameObj* flappy_engine::GameObjManager::operator[](size_t  idx)
+flappy_engine::GameObj* flappy_engine::GameObjManager::operator[](size_t idx)
 {
-	std::list<GameObj*>::iterator it = game_obj_ptr_list.begin();
-
-	for (size_t i = 0; i < idx; i++)
-	{
-		it++;
-	}
-	
-	return *(it);
+	return game_obj_ptr_vec[idx];
 }
 
 size_t flappy_engine::GameObjManager::Size()
 {
-	return game_obj_ptr_list.size();
+	return game_obj_ptr_vec.size();
 }
 
 void flappy_engine::GameObjManager::Sort()
 {
-	//bool unsolved;
+	bool unsolved;
 
-	//do
-	//{
-	//	unsolved = false;
+	do
+	{
+		unsolved = false;
 
-	//	std::list<GameObj*>::iterator it1 = game_obj_ptr_list.begin();
-	//	std::list<GameObj*>::iterator it2 = it1;
+		for (size_t i = 0; i < game_obj_ptr_vec.size() - 1; i++)
+		{
+			if (game_obj_ptr_vec[i]->transform.position.z < game_obj_ptr_vec[i + 1]->transform.position.z)
+			{
+				GameObj* helper = game_obj_ptr_vec[i];
+				game_obj_ptr_vec[i] = game_obj_ptr_vec[i + 1];
+				game_obj_ptr_vec[i + 1] = helper;
 
-	//	for (; it1 != --game_obj_ptr_list.end(); ++it1)
-	//	{
-	//		it2 = it1;
-	//		it2++;
+				unsolved = true;
+			}
+		}
 
-	//		if ((*it1)->transform.position.z < (*it2)->transform.position.z)
-	//		{
-	//			GameObj* helper = *it1;
-	//			*it1 = *it2;
-	//			*it2 = helper;
-
-	//			unsolved = true;
-	//		}
-	//	}
-
-	//} while (unsolved);
+	} while (unsolved);
 }
 
 flappy_engine::GameObj::GameObj()

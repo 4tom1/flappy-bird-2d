@@ -7,10 +7,10 @@ void flappy_engine::GameObj::AddComponent(flappy_engine::Component com)
 	switch (com)
 	{
 		case flappy_engine::sprite:
-			sprite = new Sprite(&transform);
+			if (!sprite) sprite = new Sprite(&transform);
 			break;
 		case flappy_engine::collider:
-			collider = new Collider(&transform);
+			if (!collider) collider = new Collider(&transform);
 			break;
 		default:
 			break;

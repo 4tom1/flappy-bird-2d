@@ -1,7 +1,7 @@
 #ifndef _FLAPPY_ENGINE_GAMEOBJMANAGER_
 #define _FLAPPY_ENGINE_GAMEOBJMANAGER_
 
-#include <list>
+#include <vector>
 
 #include <flappy_engine/GameObj.h>
 
@@ -22,7 +22,7 @@ namespace flappy_engine {
 
 		private:
 
-			std::list<GameObj*> game_obj_ptr_list;
+			std::vector<GameObj*> game_obj_ptr_vec;
 	};
 }
 

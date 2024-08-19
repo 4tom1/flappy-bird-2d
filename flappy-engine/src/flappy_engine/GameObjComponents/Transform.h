@@ -9,13 +9,8 @@ namespace flappy_engine {
 	{
 		public:
 
-			Transform(float x = 0.f, float y = 0.f, float z = 0.f, float angle = 0.f)
-			{
-				position.x = x;
-				position.y = y;
-				position.z = z;
-				rotation = angle;
-			}
+			void SetPosition3(float x, float y, float z);
+			void SetPosition2(float x, float y);
 
 			Position position;
 			float rotation = 0.f;

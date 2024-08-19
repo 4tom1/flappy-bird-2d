@@ -137,6 +137,7 @@
     <ClCompile Include="src\GameObjComponents\Collider.cpp" />
     <ClCompile Include="src\GameObjComponents\Sprite.cpp" />
     <ClCompile Include="src\Core.cpp" />
+    <ClCompile Include="src\GameObjComponents\Transform.cpp" />
     <ClCompile Include="src\GameObjManager.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Input.cpp" />
