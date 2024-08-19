@@ -1,7 +1,7 @@
 #ifndef _FLAPPY_ENGINE_GAMEOBJMANAGER_
 #define _FLAPPY_ENGINE_GAMEOBJMANAGER_
 
-#include <vector>
+#include <list>
 
 #include <flappy_engine/GameObj.h>
 
@@ -12,15 +12,17 @@ namespace flappy_engine {
 		public:
 
 			void AddGameObj(GameObj* new_game_obj);
-			void DeleteAll();
-			void UpdateAll();
-			size_t VectorSize();
+			void DeleteGameObj(GameObj* old_game_obj);
+			void DeleteAllObj();
+			void UpdateAllObj();
+			void Sort();
+			size_t Size();
 
-			GameObj& operator [](int idx) const;
+			GameObj* operator[](size_t idx);
 
 		private:
 
-			std::vector<GameObj*> game_obj_ptr_vec;
+			std::list<GameObj*> game_obj_ptr_list;
 	};
 }
 

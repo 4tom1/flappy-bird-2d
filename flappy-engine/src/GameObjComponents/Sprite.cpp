@@ -16,3 +16,9 @@ bool flappy_engine::Sprite::Create(const char* file_path)
 
 	return true;
 }
+
+void flappy_engine::Sprite::UpdatePosition()
+{
+	setPosition(transform->position.x, transform->position.y);
+	setRotation(transform->rotation);
+}

@@ -17,7 +17,7 @@ flappy_engine::Engine::Engine(unsigned int width, unsigned int high, unsigned in
 
 void flappy_engine::Engine::UpdateAll()
 {
-	game_obj_manager.UpdateAll();
+	game_obj_manager.UpdateAllObj();
 	window.Update();
 }
 
@@ -25,9 +25,9 @@ void flappy_engine::Engine::RenderAllObj()
 {
 	window.clear();
 	
-	for (size_t i = 0; i < game_obj_manager.VectorSize(); i++)
+	for (size_t i = 0; i < game_obj_manager.Size(); i++)
 	{
-		if (game_obj_manager[i].sprite) window.draw(*(game_obj_manager[i].sprite));
+		if (game_obj_manager[i]->sprite) window.draw(*(game_obj_manager[i]->sprite));
 	}
 	
 	window.display();
@@ -35,5 +35,5 @@ void flappy_engine::Engine::RenderAllObj()
 
 void flappy_engine::Engine::DeleteAllObj()
 {
-	game_obj_manager.DeleteAll();
+	game_obj_manager.DeleteAllObj();
 }

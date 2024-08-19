@@ -2,21 +2,15 @@
 
 flappy_engine::GameObjManager* flappy_engine::GameObj::game_obj_manager = nullptr;
 
-flappy_engine::GameObj::~GameObj()
-{
-	if (sprite) delete sprite;
-	if (collider) delete collider;
-}
-
-void flappy_engine::GameObj::AddComponent(flappy_engine::Components com)
+void flappy_engine::GameObj::AddComponent(flappy_engine::Component com)
 {
 	switch (com)
 	{
 		case flappy_engine::sprite:
-			sprite = new Sprite();
+			sprite = new Sprite(&transform);
 			break;
 		case flappy_engine::collider:
-			collider = new Collider();
+			collider = new Collider(&transform);
 			break;
 		default:
 			break;
@@ -26,6 +20,11 @@ void flappy_engine::GameObj::AddComponent(flappy_engine::Components com)
 void flappy_engine::GameObj::SetGameObjManager(GameObjManager* gom)
 {
 	game_obj_manager = gom;
+}
+
+void flappy_engine::GameObj::UpdateSpritePosition()
+{
+	if (sprite) sprite->UpdatePosition();
 }
 
 void flappy_engine::GameObj::Update() {}

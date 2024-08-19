@@ -9,7 +9,7 @@ namespace flappy_engine {
 
 	class GameObjManager;
 
-	enum Components
+	enum Component
 	{
 		sprite,
 		collider
@@ -22,10 +22,11 @@ namespace flappy_engine {
 			GameObj();
 			~GameObj();
 
-			void AddComponent(Components com);
+			void AddComponent(Component com);
 
 			static void SetGameObjManager(GameObjManager* gom);
 
+			void UpdateSpritePosition();
 			virtual void Update();
 
 			Transform transform;
