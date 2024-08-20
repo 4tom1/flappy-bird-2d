@@ -16,9 +16,9 @@ namespace flappy_engine {
 			void DeleteAllObj();
 			void UpdateAllObj();
 			void Sort();
-			size_t Size();
+			size_t Size() const;
 
-			GameObj* operator[](size_t idx);
+			GameObj* operator[](size_t idx) const;
 
 		private:
 

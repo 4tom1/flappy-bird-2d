@@ -11,13 +11,17 @@ namespace flappy_engine {
 
 		typedef Scale Size;
 
-		Collider(Transform* transform) : transform(transform) {}
+		Collider(Transform* transform) : transform(transform)
+		{
+			size.x = 0.f;
+			size.y = 0.f;
+		}
 
 		void Update(Collider& another_collider);
 
 		void SetSize(float x, float y);
-		inline bool IsTriggered();
 
+		inline bool IsTriggered() const { return is_triggered; }
 
 		private:
 

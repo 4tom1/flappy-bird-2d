@@ -32,9 +32,9 @@ void flappy_engine::GameObjManager::UpdateAllObj()
 		
 		for (size_t j = 0; j < game_obj_ptr_vec.size(); j++)
 		{
-			if (game_obj_ptr_vec[i]->collider && i != j)
+			if (i != j)
 			{
-				game_obj_ptr_vec[i]->collider->Update(*game_obj_ptr_vec[j]->collider);
+				if (game_obj_ptr_vec[i]->collider && game_obj_ptr_vec[j]->collider) game_obj_ptr_vec[i]->collider->Update(*game_obj_ptr_vec[j]->collider);
 			}
 		}
 	}
@@ -48,12 +48,12 @@ void flappy_engine::GameObjManager::DeleteAllObj()
 	}
 }
 
-flappy_engine::GameObj* flappy_engine::GameObjManager::operator[](size_t idx)
+flappy_engine::GameObj* flappy_engine::GameObjManager::operator[](size_t idx) const
 {
 	return game_obj_ptr_vec[idx];
 }
 
-size_t flappy_engine::GameObjManager::Size()
+size_t flappy_engine::GameObjManager::Size() const
 {
 	return game_obj_ptr_vec.size();
 }
