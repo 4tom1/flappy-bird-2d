@@ -8,14 +8,15 @@
 #define FRAME_RATE 60
 #define SPEED 600
 
-int main()
+
+int WinMain()
 {
 	flappy_engine::Engine* engine = flappy_engine::InitEngine(600, 800, FRAME_RATE, "Sandbox", 100);
 
 	flappy_engine::GameObj background;
 	background.AddComponent(flappy_engine::sprite);
 	background.sprite->Create(BACKGROUND_IMG);
-	background.transform.SetScale(2.2, 2);
+	background.transform.SetScale(2.2f, 2);
 	
 	flappy_engine::GameObj bird;
 	bird.AddComponent(flappy_engine::sprite);
