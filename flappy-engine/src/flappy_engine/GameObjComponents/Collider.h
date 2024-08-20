@@ -9,12 +9,20 @@ namespace flappy_engine {
 	{
 		public:
 
+		typedef Scale Size;
+
 		Collider(Transform* transform) : transform(transform) {}
 
-		void Update() {};
+		void Update(Collider& another_collider);
+
+		void SetSize(float x, float y);
+		inline bool IsTriggered();
+
 
 		private:
 
+		bool is_triggered = false;
+		Size size;
 		Transform* transform;
 	};
 }

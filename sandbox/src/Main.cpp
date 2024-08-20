@@ -15,13 +15,13 @@ int main()
 	flappy_engine::GameObj background;
 	background.AddComponent(flappy_engine::sprite);
 	background.sprite->Create(BACKGROUND_IMG);
-	background.transform.SetScale(2, 2.2);
+	background.transform.SetScale(2.2, 2);
 	
 	flappy_engine::GameObj bird;
 	bird.AddComponent(flappy_engine::sprite);
 	bird.sprite->Create(BIRD_IMG);
 	bird.transform.SetPosition(300, 400, 1);
-	bird.transform.SetScale(2);
+	bird.transform.SetScale(1.5);
 
 	while (engine->window.isOpen())
 	{
