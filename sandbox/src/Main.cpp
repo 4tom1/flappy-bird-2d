@@ -10,7 +10,7 @@
 
 int main()
 {
-	flappy_engine::Engine* engine = flappy_engine::InitEngine(600, 800, FRAME_RATE, "No name", 100);
+	flappy_engine::Engine* engine = flappy_engine::InitEngine(600, 800, FRAME_RATE, "Sandbox", 100);
 
 	flappy_engine::GameObj background;
 	background.AddComponent(flappy_engine::sprite);
