@@ -96,7 +96,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src;$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\flappy-engine\bin\$(Platform);$(SolutionDir)\flappy-engine\dependencies\lib;$(SolutionDir)\flappy-engine\dependencies\lib\debug;$(SolutionDir)\flappy-engine\dependencies\lib\release</AdditionalLibraryDirectories>
       <AdditionalDependencies>flappy-engine-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;User32.lib;Advapi32.lib</AdditionalDependencies>
@@ -130,7 +130,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\flappy-engine\src;$(SolutionDir)\flappy-engine\dependencies\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\flappy-engine\bin\$(Platform);$(SolutionDir)\flappy-engine\dependencies\lib;$(SolutionDir)\flappy-engine\dependencies\lib\debug;$(SolutionDir)\flappy-engine\dependencies\lib\release</AdditionalLibraryDirectories>
       <AdditionalDependencies>flappy-engine-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;User32.lib;Advapi32.lib</AdditionalDependencies>
