@@ -32,6 +32,8 @@ struct Player : public flappy_engine::GameObj
 		transform.SetScale(2.f);
 		sprite->Create(BIRD_IMG);
 		collider->SetSize(50.f);
+
+		transform.position.z = 3.f;
 	}
 
 	void Update()
@@ -45,7 +47,7 @@ struct Player : public flappy_engine::GameObj
 
 struct Coin : public flappy_engine::GameObj
 {
-	Coin(float x, float y)
+	Coin()
 	{
 		AddComponent(flappy_engine::sprite);
 		AddComponent(flappy_engine::collider);
@@ -54,8 +56,7 @@ struct Coin : public flappy_engine::GameObj
 		sprite->Create(COIN_IMG);
 		collider->SetSize(30.f);
 
-		transform.position.x = x;
-		transform.position.y = y;
+		transform.position.z = 2.f;
 	}
 };
 
@@ -66,12 +67,26 @@ struct Points : public flappy_engine::GameObj
 
 	}
 
-	Points& operator++()
+	Points& operator++(int)
 	{
 		points++;
+		return *this;
 	}
 
 	unsigned points = 0;
+};
+
+struct Background : public flappy_engine::GameObj
+{
+	Background()
+	{
+		AddComponent(flappy_engine::sprite);
+
+		transform.SetScale(2.f, 2.2f);
+		sprite->Create(BACKGROUND_IMG);
+
+		transform.position.z = 1.f;
+	}
 };
 
 struct GameManager : public flappy_engine::GameObj
@@ -87,64 +102,38 @@ struct GameManager : public flappy_engine::GameObj
 	{
 		delete background;
 		delete player;
-
-		for (size_t i = 0; i < COIN_LIMIT; i++)
-		{
-			if (coin_ptr_array[i]) delete coin_ptr_array[i];
-		}
+		delete points;
 	}
 	
 	void Update()
 	{
 		for (size_t i = 0; i < COIN_LIMIT; i++)
 		{
-			if (coin_ptr_array[i])
+			if (coin_array[i].collider->IsTriggered())
 			{
-				if (coin_ptr_array[i]->collider->IsTriggered())
-				{
-					delete coin_ptr_array[i];
-					coin_ptr_array[i] = nullptr;
-
-					coins--;
-					*points++;
-				}
+				coin_array[i].transform.position.z = 0.f;
 			}
 		}
 
-		if (coins < COIN_LIMIT)
+		for (size_t i = 0; i < COIN_LIMIT; i++)
 		{
-			for (size_t i = 0; i < COIN_LIMIT; i++)
+			if (coin_array[i].transform.position.z == 0.f)
 			{
-				if (!coin_ptr_array[i])
-				{
-					int x;
-					int y;
+				float x;
+				float y;
 					
-					x = rand() % WINDOW_WIDTH;
-					y = rand() % WINDOW_HIGH;
+				x = rand() % WINDOW_WIDTH;
+				y = rand() % WINDOW_HIGH;
 
-					coin_ptr_array[i] = new Coin(x, y);
-				}
+				coin_array[i].transform.SetPosition(x, y, 2.f);
 			}
 		}
 	}
 
-	unsigned int coins = 6;
-	Coin* coin_ptr_array[COIN_LIMIT];
+	Coin coin_array[COIN_LIMIT];
 	Points* points;
 	Background* background;
 	Player* player;
-};
-
-struct Background : public flappy_engine::GameObj
-{
-	Background()
-	{
-		AddComponent(flappy_engine::sprite);
-
-		transform.SetScale(2.f, 2.2f);
-		sprite->Create(BACKGROUND_IMG);
-	}
 };
 
 int main()

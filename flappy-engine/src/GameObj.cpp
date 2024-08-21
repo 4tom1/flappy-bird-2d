@@ -17,6 +17,24 @@ void flappy_engine::GameObj::AddComponent(flappy_engine::Component com)
 	}
 }
 
+void flappy_engine::GameObj::DeleteComponent(flappy_engine::Component com)
+{
+	switch (com)
+	{
+		case flappy_engine::sprite:
+			if (sprite) delete sprite;
+			sprite = nullptr;
+			break;
+		case flappy_engine::collider:
+			if (collider) delete collider;
+			collider = nullptr;
+			break;
+		default:
+			break;
+	}
+}
+
+
 void flappy_engine::GameObj::SetGameObjManager(GameObjManager* gom)
 {
 	game_obj_manager = gom;

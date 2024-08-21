@@ -23,6 +23,7 @@ namespace flappy_engine {
 			~GameObj();
 
 			void AddComponent(Component com);
+			void DeleteComponent(Component com);
 
 			static void SetGameObjManager(GameObjManager* gom);
 
