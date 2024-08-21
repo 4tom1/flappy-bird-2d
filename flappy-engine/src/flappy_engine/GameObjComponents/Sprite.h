@@ -14,6 +14,9 @@ namespace flappy_engine {
 			Sprite(Transform* transform) : transform(transform) {}
 
 			bool Create(const char* file_path);
+			void FlipX();
+			void FlipY();
+
 			void Update();
 
 		private:

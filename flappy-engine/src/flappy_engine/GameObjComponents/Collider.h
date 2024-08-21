@@ -19,7 +19,8 @@ namespace flappy_engine {
 
 		void Update(Collider& another_collider);
 
-		void SetSize(float x, float y);
+		void SetSize(float factor_x, float factor_y);
+		void SetSize(float factor);
 
 		inline bool IsTriggered() const { return is_triggered; }
 

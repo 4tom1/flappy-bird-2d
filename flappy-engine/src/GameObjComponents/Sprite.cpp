@@ -17,6 +17,16 @@ bool flappy_engine::Sprite::Create(const char* file_path)
 	return true;
 }
 
+void flappy_engine::Sprite::FlipX()
+{
+	transform->scale.x * -1;
+}
+
+void flappy_engine::Sprite::FlipY()
+{
+	transform->scale.y * -1;
+}
+
 void flappy_engine::Sprite::Update()
 {
 	setPosition(transform->position.x, transform->position.y);

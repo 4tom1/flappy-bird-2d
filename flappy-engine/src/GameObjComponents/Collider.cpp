@@ -37,8 +37,14 @@ void flappy_engine::Collider::Update(Collider& another_collider)
 	}
 }
 
-void flappy_engine::Collider::SetSize(float x, float y)
+void flappy_engine::Collider::SetSize(float factor_x, float factor_y)
 {
-	size.x = x;
-	size.y = y;
+	size.x = factor_x;
+	size.y = factor_y;
+}
+
+void flappy_engine::Collider::SetSize(float factor)
+{
+	size.x = factor;
+	size.y = factor;
 }
