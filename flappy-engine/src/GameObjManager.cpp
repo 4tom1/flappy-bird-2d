@@ -29,6 +29,7 @@ void flappy_engine::GameObjManager::UpdateAllObj()
 		game_obj_ptr_vec[i]->Update();
 		
 		if (game_obj_ptr_vec[i]->sprite) game_obj_ptr_vec[i]->sprite->Update();
+		if (game_obj_ptr_vec[i]->animator) game_obj_ptr_vec[i]->animator->Update();
 		
 		for (size_t j = 0; j < game_obj_ptr_vec.size(); j++)
 		{

@@ -2,6 +2,7 @@
 #define _FLAPPY_ENGINE_GAMEOBJ_
 
 #include <flappy_engine/GameObjComponents/Sprite.h>
+#include <flappy_engine/GameObjComponents/Animator.h>
 #include <flappy_engine/GameObjComponents/Collider.h>
 #include <flappy_engine/GameObjComponents/Transform.h>
 
@@ -12,7 +13,8 @@ namespace flappy_engine {
 	enum Component
 	{
 		sprite,
-		collider
+		collider,
+		animator
 	};
 	
 	class GameObj
@@ -30,9 +32,9 @@ namespace flappy_engine {
 			virtual void Update();
 
 			Transform transform;
-			
 			Sprite* sprite = nullptr;
 			Collider* collider = nullptr;
+			Animator* animator = nullptr;
 
 			static Engine* engine;
 	};

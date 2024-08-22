@@ -13,9 +13,10 @@ namespace flappy_engine {
 
 			Sprite(Transform* transform) : transform(transform) {}
 
-			bool Create(const char* file_path);
+			void Create(const char* file_path);
 
 			sf::Vector2f GetSize();
+			void DefaultTex();
 			void Update();
 
 		private:

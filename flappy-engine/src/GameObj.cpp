@@ -12,6 +12,9 @@ void flappy_engine::GameObj::AddComponent(flappy_engine::Component com)
 		case flappy_engine::collider:
 			if (!collider) collider = new Collider(&transform);
 			break;
+		case flappy_engine::animator:
+			if (!animator) animator = new Animator(sprite);
+			break;
 		default:
 			break;
 	}
@@ -28,6 +31,10 @@ void flappy_engine::GameObj::DeleteComponent(flappy_engine::Component com)
 		case flappy_engine::collider:
 			if (collider) delete collider;
 			collider = nullptr;
+			break;
+		case flappy_engine::animator:
+			if (animator) delete animator;
+			animator = nullptr;
 			break;
 		default:
 			break;

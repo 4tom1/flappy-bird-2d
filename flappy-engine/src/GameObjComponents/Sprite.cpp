@@ -2,19 +2,22 @@
 
 #include "flappy_engine/GameObjComponents/Sprite.h"
 
-bool flappy_engine::Sprite::Create(const char* file_path)
+void flappy_engine::Sprite::Create(const char* file_path)
 {
 	if (!texture.loadFromFile(file_path))
 	{
 		std::cout << "Error: cannot open a file " << file_path << ";" << std::endl;
-		getchar();
-		
-		return false;
+		std::getchar();
+	
+		return;
 	}
 
 	setTexture(texture);
+}
 
-	return true;
+void flappy_engine::Sprite::DefaultTex()
+{
+	setTexture(texture);
 }
 
 void flappy_engine::Sprite::Update()
