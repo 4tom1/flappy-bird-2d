@@ -10,7 +10,7 @@ flappy_engine::Engine* flappy_engine::InitEngine(unsigned int width, unsigned in
 flappy_engine::Engine::Engine(unsigned int width, unsigned int high, unsigned int frame_rate, const char* window_name, float volume) 
 	: window(width, high, window_name, frame_rate)
 {
-	GameObj::SetGameObjManager(&game_obj_manager);
+	GameObj::SetEngine(this);
 	input.SetWindow(&window);
 	sound.SetVolume(volume);
 }
@@ -38,4 +38,17 @@ void flappy_engine::Engine::RenderAll()
 void flappy_engine::Engine::DeleteAllObj()
 {
 	game_obj_manager.DeleteAllObj();
+}
+
+flappy_engine::GameObj::GameObj()
+{
+	engine->game_obj_manager.AddGameObj(this);
+}
+
+flappy_engine::GameObj::~GameObj()
+{
+	engine->game_obj_manager.DeleteGameObj(this);
+
+	DeleteComponent(flappy_engine::sprite);
+	DeleteComponent(flappy_engine::collider);
 }

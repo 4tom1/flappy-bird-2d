@@ -80,16 +80,3 @@ void flappy_engine::GameObjManager::Sort()
 
 	} while (unsolved);
 }
-
-flappy_engine::GameObj::GameObj()
-{
-	game_obj_manager->AddGameObj(this);
-}
-
-flappy_engine::GameObj::~GameObj()
-{
-	game_obj_manager->DeleteGameObj(this);
-
-	if (sprite) delete sprite;
-	if (collider) delete collider;
-}

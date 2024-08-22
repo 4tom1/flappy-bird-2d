@@ -7,7 +7,7 @@
 
 namespace flappy_engine {
 
-	class GameObjManager;
+	class Engine;
 
 	enum Component
 	{
@@ -25,7 +25,7 @@ namespace flappy_engine {
 			void AddComponent(Component com);
 			void DeleteComponent(Component com);
 
-			static void SetGameObjManager(GameObjManager* gom);
+			static void SetEngine(Engine* engine);
 
 			virtual void Update();
 
@@ -33,10 +33,8 @@ namespace flappy_engine {
 			
 			Sprite* sprite = nullptr;
 			Collider* collider = nullptr;
-		
-		private:
 
-			static GameObjManager* game_obj_manager;
+			static Engine* engine;
 	};
 }
 

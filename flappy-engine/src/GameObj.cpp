@@ -1,6 +1,6 @@
 #include "flappy_engine/GameObj.h"
 
-flappy_engine::GameObjManager* flappy_engine::GameObj::game_obj_manager = nullptr;
+flappy_engine::Engine* flappy_engine::GameObj::engine = nullptr;
 
 void flappy_engine::GameObj::AddComponent(flappy_engine::Component com)
 {
@@ -35,9 +35,9 @@ void flappy_engine::GameObj::DeleteComponent(flappy_engine::Component com)
 }
 
 
-void flappy_engine::GameObj::SetGameObjManager(GameObjManager* gom)
+void flappy_engine::GameObj::SetEngine(Engine* engine_ptr)
 {
-	game_obj_manager = gom;
+	engine = engine_ptr;
 }
 
 void flappy_engine::GameObj::Update() {}

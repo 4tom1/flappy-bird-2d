@@ -11,12 +11,14 @@ void flappy_engine::Collider::Update(Collider& another_collider)
 			transform->position.y + size.y >= another_collider.transform->position.y)
 		{
 			is_triggered = true;
+			another_collider.is_triggered = true;
 		}
 
 		if (transform->position.y <= another_collider.transform->position.y + another_collider.size.y && 
 			transform->position.y + size.y >= another_collider.transform->position.y + another_collider.size.y)
 		{
 			is_triggered = true;
+			another_collider.is_triggered = true;
 		}
 	}
 	
@@ -27,12 +29,14 @@ void flappy_engine::Collider::Update(Collider& another_collider)
 			transform->position.y + size.y >= another_collider.transform->position.y)
 		{
 			is_triggered = true;
+			another_collider.is_triggered = true;
 		}
 
 		if (transform->position.y <= another_collider.transform->position.y + another_collider.size.y &&
 			transform->position.y + size.y >= another_collider.transform->position.y + another_collider.size.y)
 		{
 			is_triggered = true;
+			another_collider.is_triggered = true;
 		}
 	}
 }

@@ -29,14 +29,37 @@ struct Player : public flappy_engine::GameObj
 		AddComponent(flappy_engine::sprite);
 		AddComponent(flappy_engine::collider);
 
-		transform.SetScale(-1, 1);
+		transform.SetScale(3.f);
 		sprite->Create(BIRD_IMG);
-		collider->SetSize(50.f);
+		collider->SetSize(sprite->GetSize().x, sprite->GetSize().y);
 
 		transform.position.z = 3.f;
+
+		std::cout << ' ' << sprite->GetSize().y;
 	}
 
-	bool direction = true;
+	void Update()
+	{
+		if (engine->input.IsKeyPressed(flappy_engine::UP))
+		{
+			transform.position.y -= SPEED / FRAME_RATE;
+		}
+
+		if (engine->input.IsKeyPressed(flappy_engine::DOWN))
+		{
+			transform.position.y += SPEED / FRAME_RATE;
+		}
+
+		if (engine->input.IsKeyPressed(flappy_engine::LEFT))
+		{
+			transform.position.x -= SPEED / FRAME_RATE;
+		}
+
+		if (engine->input.IsKeyPressed(flappy_engine::RIGHT))
+		{
+			transform.position.x += SPEED / FRAME_RATE;
+		}
+	}
 };
 
 struct Coin : public flappy_engine::GameObj
@@ -48,7 +71,7 @@ struct Coin : public flappy_engine::GameObj
 
 		transform.SetScale(1.f);
 		sprite->Create(COIN_IMG);
-		collider->SetSize(30.f);
+		collider->SetSize((sprite->GetSize().x, sprite->GetSize().y));
 
 		transform.position.z = 2.f;
 	}
@@ -96,6 +119,8 @@ struct GameManager : public flappy_engine::GameObj
 				coin_array[i].picked_up = true;
 				points++;
 
+				engine->sound.PlaySound(HIT_AUDIO);
+
 				std::cout << points.points << ' ';
 			}
 			
@@ -104,8 +129,8 @@ struct GameManager : public flappy_engine::GameObj
 				float x;
 				float y;
 					
-				x = rand() % WINDOW_WIDTH;
-				y = rand() % WINDOW_HIGH;
+				x = (rand() % WINDOW_WIDTH / 50) * 50;
+				y = (rand() % WINDOW_HIGH / 50) * 50;
 
 				coin_array[i].transform.SetPosition(x, y);
 				coin_array[i].picked_up = false;
@@ -127,27 +152,9 @@ int main()
 
 	while (engine->window.isOpen())
 	{
-		if (engine->input.IsKeyPressed(flappy_engine::UP))
-		{
-			game_manager->player.transform.position.y -= SPEED / FRAME_RATE;
-		}
-			
-		if (engine->input.IsKeyPressed(flappy_engine::DOWN))
-		{
-			game_manager->player.transform.position.y += SPEED / FRAME_RATE;
-		}
-			
-		if (engine->input.IsKeyPressed(flappy_engine::LEFT))
-		{
-			game_manager->player.transform.position.x -= SPEED / FRAME_RATE;
-		}
-		
-		if (engine->input.IsKeyPressed(flappy_engine::RIGHT))
-		{
-			game_manager->player.transform.position.x += SPEED / FRAME_RATE;
-		}
-
 		engine->UpdateAll();
 		engine->RenderAll();
 	}
+
+	delete game_manager;
 }
