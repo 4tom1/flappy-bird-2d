@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cstdlib>
-
 #include <flappy_engine/flappy_engine.h>
 
 #define ONE_IMG "assets/sprites/1.png"
@@ -8,193 +5,206 @@
 #define THREE_IMG "assets/sprites/3.png"
 #define FOUR_IMG "assets/sprites/4.png"
 #define FIVE_IMG "assets/sprites/5.png"
-#define RESTART_IMG "assets/sprites/restart.png"
-#define BACKGROUND_IMG "assets/sprites/background-night.png"
-#define COIN_IMG "assets/sprites/coin.png"
-
-#define BIRD_UP_IMG "assets/sprites/bird-upflap.png"
-#define BIRD_MID_IMG "assets/sprites/bird-midflap.png"
-#define BIRD_DOWN_IMG "assets/sprites/bird-downflap.png"
+#define SIX_IMG "assets/sprites/6.png"
+#define SEVEN_IMG "assets/sprites/7.png"
+#define EIGHT_IMG "assets/sprites/8.png"
+#define NINE_IMG "assets/sprites/9.png"
+#define ZERO_IMG "assets/sprites/0.png"
+#define BACKGROUND_DAY_IMG "assets/sprites/background-day.png"
+#define BACKGROUND_NIGHT_IMG "assets/sprites/background-night.png"
+#define BANANA_IMG "assets/sprites/banana.png"
+#define BAPHOMET_IMG "assets/sprites/Baphomet.png"
 
 #define HIT_AUDIO "assets/audio/audio_hit.wav"
+#define WING_AUDIO "assets/audio/audio_wing.wav"
+#define ETO_AUDIO "assets/audio/etoneht321.wav"
 
 #define FRAME_RATE 60
 #define WINDOW_HIGH 800
 #define WINDOW_WIDTH 600
 
-#define SPEED 600
-#define COIN_LIMIT 6
+using namespace flappy_engine;
 
-struct Player : public flappy_engine::GameObj
+struct Banana : public Button
 {
-	Player()
+	Banana()
 	{
-		AddComponent(flappy_engine::sprite);
-		AddComponent(flappy_engine::collider);
-		AddComponent(flappy_engine::animator);
-
-		transform.SetScale(3.f);
-		sprite->Create(BIRD_MID_IMG);
-		collider->SetSize(sprite->GetSize().x, sprite->GetSize().y);
+		AddComponent(Component::sprite);
+		sprite->Create(BANANA_IMG);
 		
-		const char* images[] = { BIRD_DOWN_IMG, BIRD_MID_IMG, BIRD_UP_IMG, BIRD_MID_IMG };
-		animator->Create(images, 12);
-
-		transform.position.z = 3.f;
-	}
-};
-
-struct Coin : public flappy_engine::GameObj
-{
-	Coin()
-	{
-		AddComponent(flappy_engine::sprite);
-		AddComponent(flappy_engine::collider);
-
-		transform.SetScale(1.f);
-		sprite->Create(COIN_IMG);
-		collider->SetSize((sprite->GetSize().x, sprite->GetSize().y));
-
-		transform.position.z = 2.f;
-	}
-
-	bool picked_up = true;
-};
-
-struct Points : public flappy_engine::GameObj
-{
-	Points()
-	{
-
-	}
-
-	Points& operator++(int)
-	{
-		points++;
-		return *this;
-	}
-
-	unsigned points = 0;
-};
-
-struct Background : public flappy_engine::GameObj
-{
-	Background()
-	{
-		AddComponent(flappy_engine::sprite);
-
-		transform.SetScale(2.2f, 1.8f);
-		sprite->Create(BACKGROUND_IMG);
-
-		transform.position.z = 1.f;
-	}
-};
-
-struct RestartButton : public flappy_engine::Button
-{
-	RestartButton()
-	{
-		AddComponent(flappy_engine::sprite);
-		
-		transform.SetPosition(WINDOW_WIDTH / 2 + sprite->GetSize().x, WINDOW_HIGH / 2 + sprite->GetSize().y, 5.f);
-		transform.SetScale(2.f);
-		sprite->Create(RESTART_IMG);
+		transform.SetScale(0.4);
+		transform.SetPosition((WINDOW_WIDTH / 2) - (sprite->GetSize().x / 2), (WINDOW_HIGH / 2) - (sprite->GetSize().y / 2), 2.f);
 		
 		SetSize(sprite->GetSize().x, sprite->GetSize().y);
 	}
 };
 
-struct GameManager : public flappy_engine::GameObj
+struct Number : public GameObj
 {
+	Number()
+	{
+		AddComponent(Component::sprite);
+		sprite->Create(ZERO_IMG);
+	}
+
+	void SetNumber(int num)
+	{
+		switch (num)
+		{
+			case 0:
+				sprite->Create(ZERO_IMG);
+				break;
+			case 1:
+				sprite->Create(ONE_IMG);
+				break;
+			case 2:
+				sprite->Create(TWO_IMG);
+				break;
+			case 3:
+				sprite->Create(THREE_IMG);
+				break;
+			case 4:
+				sprite->Create(FOUR_IMG);
+				break;
+			case 5:
+				sprite->Create(FIVE_IMG);
+				break;
+			case 6:
+				sprite->Create(SIX_IMG);
+				break;
+			case 7:
+				sprite->Create(SEVEN_IMG);
+				break;
+			case 8:
+				sprite->Create(EIGHT_IMG);
+				break;
+			case 9:
+				sprite->Create(NINE_IMG);
+				break;
+			default:
+				break;
+		}
+	}
+};
+
+struct Background : public GameObj
+{
+	Background()
+	{
+		AddComponent(Component::sprite);
+		sprite->Create(BACKGROUND_DAY_IMG);
+
+		transform.SetPosition(0, -80);
+		transform.SetScale(2.1, 2);
+	}
+
+	void Night()
+	{
+		sprite->Create(BACKGROUND_NIGHT_IMG);
+	}
+};
+
+struct Points : public GameObj
+{
+	Points()
+	{
+		numbers[0].transform.SetPosition((WINDOW_WIDTH / 2) - (numbers[0].sprite->GetSize().x * 1.5), 20, 1);
+		numbers[1].transform.SetPosition(numbers[0].transform.position.x + numbers[1].sprite->GetSize().x, 20, 1);
+		numbers[2].transform.SetPosition(numbers[1].transform.position.x + numbers[2].sprite->GetSize().x, 20, 1);
+	}
+	
 	void Update()
-	{
-		if (!game_over) MainLoop();
-		else GameOverLoop();
-	}
-
-	void MainLoop()
-	{
-		res_but.transform.position.z = 0.f;
+	{	
+		if (ones == 6 && tens == 6 && hundreds == 6)
+		{
+			reached_max = true;
+		}
 		
-		if (engine->input.IsKeyPressed(flappy_engine::UP))
-		{
-			player.transform.position.y -= SPEED / FRAME_RATE;
-		}
-
-		if (engine->input.IsKeyPressed(flappy_engine::DOWN))
-		{
-			player.transform.position.y += SPEED / FRAME_RATE;
-		}
-
-		if (engine->input.IsKeyPressed(flappy_engine::LEFT))
-		{
-			player.transform.position.x -= SPEED / FRAME_RATE;
-		}
-
-		if (engine->input.IsKeyPressed(flappy_engine::RIGHT))
-		{
-			player.transform.position.x += SPEED / FRAME_RATE;
-		}
-
-		for (size_t i = 0; i < COIN_LIMIT; i++)
-		{
-			if (coin_array[i].collider->IsTriggered())
-			{
-				coin_array[i].picked_up = true;
-				points++;
-
-				engine->sound.PlaySound(HIT_AUDIO);
-
-				std::cout << points.points << ' ';
-			}
-
-			if (coin_array[i].picked_up)
-			{
-				float x;
-				float y;
-
-				x = (rand() % WINDOW_WIDTH / 50) * 50;
-				y = (rand() % WINDOW_HIGH / 50) * 50;
-
-				coin_array[i].transform.SetPosition(x, y);
-				coin_array[i].picked_up = false;
-			}
-		}
-
-		if (points.points >= 10)
-		{
-			game_over = true;
-			points.points = 0;
-		}
+		numbers[0].SetNumber(hundreds);
+		numbers[1].SetNumber(tens);
+		numbers[2].SetNumber(ones);
 	}
 
-	void GameOverLoop()
+	Points& operator++(int)
 	{
-		res_but.transform.position.z = 5.f;
 		
-		if (res_but.IsPressed()) game_over = false;
+		if (!reached_max) ones++;
+
+		if (ones >= 10)
+		{
+			ones = 0;
+			tens++;
+
+			engine->sound.PlaySound(WING_AUDIO);
+		}
+
+		if (tens >= 10)
+		{
+			tens = 0;
+			hundreds++;
+
+			engine->sound.PlaySound(HIT_AUDIO);
+		}
+
+		return *this;
 	}
 
-	Coin coin_array[COIN_LIMIT];
-	Points points;
-	Background background;
-	Player player;
-	RestartButton res_but;
+	Number numbers[3];
 
-	bool game_over = false;
+	unsigned int ones = 0;
+	unsigned int tens = 0;
+	unsigned int hundreds = 0;
+
+	bool reached_max = false;
+};
+
+struct MysteryThing : public GameObj
+{
+	MysteryThing()
+	{
+		AddComponent(Component::sprite);
+		sprite->Create(BAPHOMET_IMG);
+		transform.SetPosition(0, 0);
+		transform.SetScale(3);
+	}
 };
 
 int main()
 {	
-	flappy_engine::Engine* engine = flappy_engine::InitEngine(WINDOW_WIDTH, WINDOW_HIGH, FRAME_RATE, "Flappy Bird", 100);
+	Engine* engine = InitEngine(WINDOW_WIDTH, WINDOW_HIGH, 60, "Banana game", 100);
 
-	GameManager* game_manager = new GameManager();
+	Banana* banana = new Banana();
+	Points* points = new Points();
+	Background* background = new Background();
+
+	bool was_pressed = false;
+	bool one_time = true;
 
 	while (engine->window.isOpen())
 	{
+		if (banana->IsPressed())
+		{
+			was_pressed = true;
+		}
+		
+		if (was_pressed && !banana->IsPressed())
+		{
+			points++;
+			was_pressed = false;
+		}
+
+		if (points->reached_max && one_time)
+		{
+			one_time = false;
+			
+			background->Night();
+			engine->sound.PlaySound(ETO_AUDIO);
+			new MysteryThing;
+
+			points->reached_max = false;
+		}
+
 		engine->UpdateAll();
 		engine->RenderAll();
 	}
-
-	delete game_manager;
 }
