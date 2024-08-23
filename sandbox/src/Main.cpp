@@ -8,10 +8,13 @@
 #define THREE_IMG "assets/sprites/3.png"
 #define FOUR_IMG "assets/sprites/4.png"
 #define FIVE_IMG "assets/sprites/5.png"
-#define BIRD_IMG "assets/sprites/bird-midflap.png"
 #define RESTART_IMG "assets/sprites/restart.png"
 #define BACKGROUND_IMG "assets/sprites/background-night.png"
 #define COIN_IMG "assets/sprites/coin.png"
+
+#define BIRD_UP_IMG "assets/sprites/bird-upflap.png"
+#define BIRD_MID_IMG "assets/sprites/bird-midflap.png"
+#define BIRD_DOWN_IMG "assets/sprites/bird-downflap.png"
 
 #define HIT_AUDIO "assets/audio/audio_hit.wav"
 
@@ -28,14 +31,16 @@ struct Player : public flappy_engine::GameObj
 	{
 		AddComponent(flappy_engine::sprite);
 		AddComponent(flappy_engine::collider);
+		AddComponent(flappy_engine::animator);
 
 		transform.SetScale(3.f);
-		sprite->Create(BIRD_IMG);
+		sprite->Create(BIRD_MID_IMG);
 		collider->SetSize(sprite->GetSize().x, sprite->GetSize().y);
+		
+		const char* images[] = { BIRD_DOWN_IMG, BIRD_MID_IMG, BIRD_UP_IMG, BIRD_MID_IMG };
+		animator->Create(images, 12);
 
 		transform.position.z = 3.f;
-
-		std::cout << ' ' << sprite->GetSize().y;
 	}
 
 	void Update()

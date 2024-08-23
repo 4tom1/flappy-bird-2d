@@ -13,7 +13,7 @@ void flappy_engine::Animator::Create(const char* file_paths[textures_limit], uns
 		if (!textures[i].loadFromFile(file_paths[i]))
 		{
 			std::cout << "Error: cannot open a file " << file_paths[i] << ";" << std::endl;
-			getchar();
+			std::getchar();
 		}
 	}
 }
@@ -29,7 +29,6 @@ void flappy_engine::Animator::Stop()
 	game_obj_sprite->DefaultTex();
 }
 
-
 void flappy_engine::Animator::Update()
 {
 	if (animation_frame_rate != 0 && play)
@@ -38,9 +37,9 @@ void flappy_engine::Animator::Update()
 
 		if (loop >= frame_rate / animation_frame_rate)
 		{
-			game_obj_sprite->setTexture(textures[++current_frame]);
+			game_obj_sprite->setTexture(textures[++current_frame % textures_limit]);
 
-			if (current_frame == textures_limit) current_frame = 0;
+			loop = 0;
 		}
 	}
 }
@@ -49,4 +48,3 @@ void flappy_engine::Animator::SetFrameRate(unsigned int frame_rate)
 {
 	Animator::frame_rate = frame_rate;
 }
-

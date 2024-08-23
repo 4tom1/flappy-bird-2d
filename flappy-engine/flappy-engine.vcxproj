@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\flappy_engine\GameObjComponents\Animator.h" />
     <ClInclude Include="dependencies\include\SFML\Audio.hpp" />
     <ClInclude Include="dependencies\include\SFML\Audio\AlResource.hpp" />
     <ClInclude Include="dependencies\include\SFML\Audio\Export.hpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="src\flappy_engine\GameObjComponents\Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameObjComponents\Animator.cpp" />
     <ClCompile Include="src\GameObj.cpp" />
     <ClCompile Include="src\GameObjComponents\Collider.cpp" />
     <ClCompile Include="src\GameObjComponents\Sprite.cpp" />

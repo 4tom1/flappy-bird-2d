@@ -1,12 +1,11 @@
 #ifndef _FLAPPY_ENGINE_ANIMATOR_
 #define _FLAPPY_ENGINE_ANIMATOR_
 
-#include <flappy_engine/GameObj.h>
 #include <flappy_engine/GameObjComponents/Sprite.h>
 
 namespace flappy_engine {
 	
-	constexpr unsigned int textures_limit = 3;
+	constexpr unsigned int textures_limit = 4;
 
 	class Animator
 	{

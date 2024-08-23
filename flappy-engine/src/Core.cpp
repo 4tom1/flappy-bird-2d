@@ -11,6 +11,7 @@ flappy_engine::Engine::Engine(unsigned int width, unsigned int high, unsigned in
 	: window(width, high, window_name, frame_rate)
 {
 	GameObj::SetEngine(this);
+	Animator::SetFrameRate(frame_rate);
 	input.SetWindow(&window);
 	sound.SetVolume(volume);
 }
