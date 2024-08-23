@@ -29,6 +29,8 @@ namespace flappy_engine {
 		bool is_triggered = false;
 		Size size;
 		Transform* transform;
+
+		friend class Button;
 	};
 }
 

@@ -19,6 +19,7 @@ namespace flappy_engine {
 			
             bool MouseClick();
 			bool IsKeyPressed(Key key);
+			sf::Vector2i GetMousePosition();
 
 			void SetWindow(Window* window_ptr);
 

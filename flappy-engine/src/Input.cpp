@@ -36,6 +36,11 @@ bool flappy_engine::Input::IsKeyPressed(Key key)
 	return false;
 }
 
+sf::Vector2i flappy_engine::Input::GetMousePosition()
+{
+	return sf::Mouse::getPosition(*window);
+}
+
 void flappy_engine::Input::SetWindow(flappy_engine::Window* window_ptr)
 {
 	window = window_ptr;

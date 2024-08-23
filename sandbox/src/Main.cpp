@@ -42,29 +42,6 @@ struct Player : public flappy_engine::GameObj
 
 		transform.position.z = 3.f;
 	}
-
-	void Update()
-	{
-		if (engine->input.IsKeyPressed(flappy_engine::UP))
-		{
-			transform.position.y -= SPEED / FRAME_RATE;
-		}
-
-		if (engine->input.IsKeyPressed(flappy_engine::DOWN))
-		{
-			transform.position.y += SPEED / FRAME_RATE;
-		}
-
-		if (engine->input.IsKeyPressed(flappy_engine::LEFT))
-		{
-			transform.position.x -= SPEED / FRAME_RATE;
-		}
-
-		if (engine->input.IsKeyPressed(flappy_engine::RIGHT))
-		{
-			transform.position.x += SPEED / FRAME_RATE;
-		}
-	}
 };
 
 struct Coin : public flappy_engine::GameObj
@@ -113,10 +90,52 @@ struct Background : public flappy_engine::GameObj
 	}
 };
 
+struct RestartButton : public flappy_engine::Button
+{
+	RestartButton()
+	{
+		AddComponent(flappy_engine::sprite);
+		
+		transform.SetPosition(WINDOW_WIDTH / 2 + sprite->GetSize().x, WINDOW_HIGH / 2 + sprite->GetSize().y, 5.f);
+		transform.SetScale(2.f);
+		sprite->Create(RESTART_IMG);
+		
+		SetSize(sprite->GetSize().x, sprite->GetSize().y);
+	}
+};
+
 struct GameManager : public flappy_engine::GameObj
 {
 	void Update()
 	{
+		if (!game_over) MainLoop();
+		else GameOverLoop();
+	}
+
+	void MainLoop()
+	{
+		res_but.transform.position.z = 0.f;
+		
+		if (engine->input.IsKeyPressed(flappy_engine::UP))
+		{
+			player.transform.position.y -= SPEED / FRAME_RATE;
+		}
+
+		if (engine->input.IsKeyPressed(flappy_engine::DOWN))
+		{
+			player.transform.position.y += SPEED / FRAME_RATE;
+		}
+
+		if (engine->input.IsKeyPressed(flappy_engine::LEFT))
+		{
+			player.transform.position.x -= SPEED / FRAME_RATE;
+		}
+
+		if (engine->input.IsKeyPressed(flappy_engine::RIGHT))
+		{
+			player.transform.position.x += SPEED / FRAME_RATE;
+		}
+
 		for (size_t i = 0; i < COIN_LIMIT; i++)
 		{
 			if (coin_array[i].collider->IsTriggered())
@@ -128,12 +147,12 @@ struct GameManager : public flappy_engine::GameObj
 
 				std::cout << points.points << ' ';
 			}
-			
+
 			if (coin_array[i].picked_up)
 			{
 				float x;
 				float y;
-					
+
 				x = (rand() % WINDOW_WIDTH / 50) * 50;
 				y = (rand() % WINDOW_HIGH / 50) * 50;
 
@@ -141,12 +160,28 @@ struct GameManager : public flappy_engine::GameObj
 				coin_array[i].picked_up = false;
 			}
 		}
+
+		if (points.points >= 10)
+		{
+			game_over = true;
+			points.points = 0;
+		}
+	}
+
+	void GameOverLoop()
+	{
+		res_but.transform.position.z = 5.f;
+		
+		if (res_but.IsPressed()) game_over = false;
 	}
 
 	Coin coin_array[COIN_LIMIT];
 	Points points;
 	Background background;
 	Player player;
+	RestartButton res_but;
+
+	bool game_over = false;
 };
 
 int main()
