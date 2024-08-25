@@ -1,158 +1,98 @@
-#include <flappy_engine.h>
-
 #include "Game.h"
 #include "Settings.h"
+#include "Assets.h"
 
-using namespace flappy_bird_2D;
+using namespace flappy_bird;
 
 Game::Game()
 {
-	flappy_engine::InitEngine();
-
-	pipe_distance = flappy_engine::Time((int)PIPE_CONSISTENCY);
+	engine = flappy_engine::InitEngine(WIDTH, HIGHT, FRAME_RATE, "Flappy Bird Game", VOLUME * 100);
 }
 
 Game::~Game()
 {
-	flappy_engine::DeleteEngine();
+	delete engine;
 }
 
 void Game::Run()
-{
-	flappy_engine::TimerStart();
+{	
+	CreateStartScene();
 	
-	ChangeGameState(start);
-	
-	while (is_running)
+	while (engine->window.isOpen())
 	{
-		Update();
-	}
-}
+		switch (game_state)
+		{
+			case start:
+				Start();
+				break;
+			case playing:
+				Playing();
+				break;
+			case game_over:
+				GameOver();
+				break;
+			default:
+				break;
+		}
 
-void Game::Update()
-{
-	if (flappy_engine::KeyIsPressed(flappy_engine::Key::ESC))
-	{
-		SetIsRunning(false);
+		engine->RenderAll();
+		engine->UpdateAll();
 	}
-	
-	switch (game_state)
-	{
-		case start:
-			Start();
-			break;
-		case playing:
-			Playing();
-			break;
-		case game_over:
-			GameOver();
-			break;
-		default:
-			break;
-	}
-	
-	flappy_engine::RenderAll();
 }
 
 void Game::Start()
 {
-	flappy_engine::UpdateAllObj();
-
-	if (flappy_engine::MouseClick())
-	{
-		ChangeGameState(playing);
-	}
+	
 }
 
 void Game::Playing()
 {
-	pipe_c_q->PipeCSys();
 	
-	if (flappy_engine::MouseClick() || flappy_engine::KeyIsPressed(flappy_engine::Key::SPACEBAR))
-	{
-		bird->Jump();
-	}
-
-	flappy_engine::UpdateAllObj();
-
-	if (pipe_c_q->PointColliderIsTriggered())
-	{
-		flappy_engine::PlaySound("audio_point.waw");
-		score++;
-	}
-
-	if (pipe_c_q->PipeColliderIsTriggered())
-	{
-		flappy_engine::PlaySound("audio_hit.waw");
-		ChangeGameState(game_over);
-	}
 }
 
 void Game::GameOver()
 {
-	flappy_engine::UpdateAllObj();
-
-	if (res_but->IsPressed())
-	{
-		flappy_engine::PlaySound("audio_wing.waw");
-		ChangeGameState(start);
-	}
-}
-
-void Game::ChangeGameState(GameState state)
-{
-	game_state = state;
-
-	switch (game_state)
-	{
-		case start:
-			CreateStartScene();
-			break;
-		case playing:
-			CreatePlayingScene();
-			break;
-		case game_over:
-			CreateGameOverScene();
-			break;
-		default:
-			break;
-	}
+	
 }
 
 void Game::CreateStartScene()
 {
-	flappy_engine::DeleteAllObj();
+	game_state = start;
+	
+	engine->DeleteAllObj();
 
-	bird = new GameObj_Bird();
-	background = new GameObj_Background();
-	base_v = new Base_vec();
+	bird = new Bird();
+	background = new Background();
+	base = new Base();
 }
 
 void Game::CreatePlayingScene()
 {
-	score = new GameObj_Score();
-	pipe_c_q = new Pipe_c_q();
+	game_state = playing;
+
+	engine->DeleteAllObj();
 	
-	bird->Jump();
+	bird = new Bird();
+	background = new Background();
+	base = new Base();
+	score = new Score();
 }
 
 void Game::CreateGameOverScene()
 {
-	delete score;
-	board = new GameObj_Board();
+	game_state = game_over;
 
-	if (score_points > best_score)
+	engine->DeleteAllObj();
+	
+	if (points > best_score)
 	{
-		best_score = score_points;
+		best_score = points;
 	}
-}
 
-void Game::SetIsRunning(bool set)
-{
-	is_running = set;
-}
+	delete score;
 
-bool Game::IsRunning()
-{
-	return is_running && flappy_engine::WindowIsOpen();
+	bird = new Bird();
+	background = new Background();
+	base = new Base();
+	board = new Board();
 }
