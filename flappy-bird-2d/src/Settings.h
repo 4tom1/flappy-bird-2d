@@ -2,25 +2,21 @@
 #define _SETTINGS_
 
 // ***Window & graphics***
-#define HIGHT 600 // pixels
-#define WIDTH 400 // pixels
+#define HIGHT 800 // pixels
+#define WIDTH 600 // pixels
 #define FRAME_RATE 60
-#define BIRD_ANIM_SPEED 6 // frames per sec.
 
 // ***Sound***
-#define VOLUME 100 // % proc.
+#define VOLUME 1 // % proc.
 
 // ***Gameplay settings***
 // Bird settings
-#define BIRD_JUMP 100 // % proc.
-#define BIRD_FALL 100 // % proc.
-#define BIRD_JUMP_LENGHT 100 // % proc.
-#define BIRD_SPEED 100 // % proc.
+#define BIRD_JUMP 1 // % proc.
+#define BIRD_FALL 1 // % proc.
+#define BIRD_JUMP_LENGHT 1 // % proc.
+#define BIRD_SPEED 1 // % proc.
 // Pipe settings
-#define PIPE_CLOSENESS 100 // % proc.
-#define PIPE_CONSISTENCY 100 // % proc.
-#define PIPE_LIFETIME 100 // % proc.
-// Base settings
-#define BASE_QUANTITY 2
+#define PIPE_CLOSENESS 1 // % proc.
+#define PIPE_CONSISTENCY 1 // % proc.
 
 #endif

@@ -2,7 +2,7 @@
 
 int main()
 {
-	flappy_bird_2D::Game* game = new flappy_bird_2D::Game();
+	flappy_bird::Game* game = new flappy_bird::Game();
 	game->Run();
 	delete game;
 }

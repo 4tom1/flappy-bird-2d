@@ -1,13 +1,12 @@
-#include <flappy_engine/flappy_engine.h>
-
 #include "Game.h"
 #include "Settings.h"
+#include "Assets.h"
 
-using namespace flappy_bird_2D;
+using namespace flappy_bird;
 
 Game::Game()
 {
-	engine = flappy_engine::InitEngine(HIGHT, WIDTH, FRAME_RATE, VOLUME);
+	engine = flappy_engine::InitEngine(WIDTH, HIGHT, FRAME_RATE, "Flappy Bird Game", VOLUME * 100);
 }
 
 Game::~Game()
@@ -17,15 +16,10 @@ Game::~Game()
 
 void Game::Run()
 {	
-	ChangeGameState(start);
+	CreateStartScene();
 	
-	while (is_running && engine->window.isOpen())
+	while (engine->window.isOpen())
 	{
-		if (engine->input.IsKeyPressed(flappy_engine::Key::ESC))
-		{
-			is_running = false;
-		}
-
 		switch (game_state)
 		{
 			case start:
@@ -41,99 +35,64 @@ void Game::Run()
 				break;
 		}
 
-		engine->RenderAllObj();
+		engine->RenderAll();
+		engine->UpdateAll();
 	}
 }
 
 void Game::Start()
 {
-	engine->UpdateAllObj();
-
-	if (engine->input.MouseClick())
-	{
-		ChangeGameState(playing);
-	}
+	
 }
 
 void Game::Playing()
 {
-	pipe_c_q->PipeCSys();
 	
-	if (engine->input.MouseClick() || engine->input.IsKeyPressed(flappy_engine::Key::SPACEBAR))
-	{
-		bird->Jump();
-	}
-
-	engine->UpdateAllObj();
-
-	if (pipe_c_q->PointColliderIsTriggered())
-	{
-		engine->sound.PlaySound("audio_point.waw");
-		score++;
-	}
-
-	if (pipe_c_q->PipeColliderIsTriggered())
-	{
-		engine->sound.PlaySound("audio_hit.waw");
-		ChangeGameState(game_over);
-	}
 }
 
 void Game::GameOver()
 {
-	engine->UpdateAllObj();
-
-	if (res_but->IsPressed())
-	{
-		engine->sound.PlaySound("audio_wing.waw");
-		ChangeGameState(start);
-	}
-}
-
-void Game::ChangeGameState(GameState state)
-{
-	game_state = state;
-
-	switch (game_state)
-	{
-		case start:
-			CreateStartScene();
-			break;
-		case playing:
-			CreatePlayingScene();
-			break;
-		case game_over:
-			CreateGameOverScene();
-			break;
-		default:
-			break;
-	}
+	
 }
 
 void Game::CreateStartScene()
 {
+	game_state = start;
+	
 	engine->DeleteAllObj();
 
-	bird = new GameObj_Bird();
-	background = new GameObj_Background();
-	base_v = new Base_vec();
+	bird = new Bird();
+	background = new Background();
+	base = new Base();
 }
 
 void Game::CreatePlayingScene()
 {
-	score = new Score(&score_points);
-	pipe_c_q = new Pipe_c_queue();
+	game_state = playing;
+
+	engine->DeleteAllObj();
 	
-	bird->Jump();
+	bird = new Bird();
+	background = new Background();
+	base = new Base();
+	score = new Score();
 }
 
 void Game::CreateGameOverScene()
 {
-	if (score_points > best_score)
+	game_state = game_over;
+
+	engine->DeleteAllObj();
+	
+	if (points > best_score)
 	{
-		best_score = score_points;
+		best_score = points;
 	}
 
 	delete score;
-	board = new Board_c(&score_points, &best_score);
+
+	bird = new Bird();
+	background = new Background();
+	base = new Base();
+	board = new Board();
 }
