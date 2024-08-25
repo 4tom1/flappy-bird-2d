@@ -1,4 +1,5 @@
 #include <flappy_engine/flappy_engine.h>
+#include <iostream>
 
 #define ONE_IMG "assets/sprites/1.png"
 #define TWO_IMG "assets/sprites/2.png"
@@ -33,7 +34,7 @@ struct Banana : public Button
 		sprite->Create(BANANA_IMG);
 		
 		transform.SetScale(0.4);
-		transform.SetPosition((WINDOW_WIDTH / 2) - (sprite->GetSize().x / 2), (WINDOW_HIGH / 2) - (sprite->GetSize().y / 2), 2.f);
+		transform.SetPosition((WINDOW_WIDTH / 2) - (sprite->GetSize().x / 2), (WINDOW_HIGH / 2) - (sprite->GetSize().y / 2), 2);
 		
 		SetSize(sprite->GetSize().x, sprite->GetSize().y);
 	}
@@ -108,9 +109,9 @@ struct Points : public GameObj
 {
 	Points()
 	{
-		numbers[0].transform.SetPosition((WINDOW_WIDTH / 2) - (numbers[0].sprite->GetSize().x * 1.5), 20, 1);
-		numbers[1].transform.SetPosition(numbers[0].transform.position.x + numbers[1].sprite->GetSize().x, 20, 1);
-		numbers[2].transform.SetPosition(numbers[1].transform.position.x + numbers[2].sprite->GetSize().x, 20, 1);
+		numbers[0].transform.SetPosition((WINDOW_WIDTH / 2) - (numbers[0].sprite->GetSize().x * 1.5), 20, 4);
+		numbers[1].transform.SetPosition(numbers[0].transform.position.x + numbers[1].sprite->GetSize().x, 20, 4);
+		numbers[2].transform.SetPosition(numbers[1].transform.position.x + numbers[2].sprite->GetSize().x, 20, 4);
 	}
 	
 	void Update()
@@ -164,44 +165,41 @@ struct MysteryThing : public GameObj
 	{
 		AddComponent(Component::sprite);
 		sprite->Create(BAPHOMET_IMG);
-		transform.SetPosition(0, 0);
-		transform.SetScale(3);
+		transform.SetPosition(-50, -50, 3);
+		transform.SetScale(2);
 	}
 };
 
 int main()
 {	
-	Engine* engine = InitEngine(WINDOW_WIDTH, WINDOW_HIGH, 60, "Banana game", 100);
+	Engine* engine = InitEngine(WINDOW_WIDTH, WINDOW_HIGH, 60, "Banana Game!", 100);
 
-	Banana* banana = new Banana();
-	Points* points = new Points();
-	Background* background = new Background();
+	Banana banana;
+	Points points;
+	Background background;
 
 	bool was_pressed = false;
 	bool one_time = true;
 
 	while (engine->window.isOpen())
 	{
-		if (banana->IsPressed())
+		if (banana.IsPressed())
 		{
 			was_pressed = true;
 		}
 		
-		if (was_pressed && !banana->IsPressed())
+		if (was_pressed && !banana.IsPressed())
 		{
 			points++;
 			was_pressed = false;
 		}
 
-		if (points->reached_max && one_time)
-		{
-			one_time = false;
-			
-			background->Night();
+		if (points.reached_max && one_time)
+		{	
 			engine->sound.PlaySound(ETO_AUDIO);
 			new MysteryThing;
 
-			points->reached_max = false;
+			one_time = false;
 		}
 
 		engine->UpdateAll();
