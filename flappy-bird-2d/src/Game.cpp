@@ -7,6 +7,11 @@ using namespace flappy_bird;
 Game::Game()
 {
 	engine = flappy_engine::InitEngine(WIDTH, HIGHT, FRAME_RATE, "Flappy Bird Game", VOLUME * 100);
+
+	for (size_t i = 0; i < PIPE; i++)
+	{
+		pipe_c[i] = nullptr;
+	}
 }
 
 Game::~Game()
@@ -70,19 +75,12 @@ void Game::CreatePlayingScene()
 {
 	game_state = playing;
 
-	engine->DeleteAllObj();
-	
-	bird = new Bird();
-	background = new Background();
-	base = new Base();
 	score = new Score();
 }
 
 void Game::CreateGameOverScene()
 {
 	game_state = game_over;
-
-	engine->DeleteAllObj();
 	
 	if (points > best_score)
 	{
@@ -91,8 +89,5 @@ void Game::CreateGameOverScene()
 
 	delete score;
 
-	bird = new Bird();
-	background = new Background();
-	base = new Base();
 	board = new Board();
 }

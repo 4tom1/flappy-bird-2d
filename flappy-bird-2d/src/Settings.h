@@ -18,5 +18,6 @@
 // Pipe settings
 #define PIPE_CLOSENESS 1 // % proc.
 #define PIPE_CONSISTENCY 1 // % proc.
+#define PIPE 4
 
 #endif

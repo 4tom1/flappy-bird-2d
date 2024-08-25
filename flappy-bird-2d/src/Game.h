@@ -11,6 +11,8 @@
 #include "GameObj/Board.h"
 #include "GameObj/Score.h"
 
+#include "Settings.h"
+
 namespace flappy_bird {
 
 	enum GameState
@@ -37,15 +39,15 @@ namespace flappy_bird {
 
 			flappy_engine::Engine* engine;
 
-			GameState game_state;
+			GameState game_state = start;
 			unsigned int points = 0;
 			unsigned int best_score = 0;
 
 			Bird* bird = nullptr;
 			Background* background = nullptr;
 			Base* base = nullptr;
-			Score* score;
-			PipeC* pipe_c[4];
+			Score* score = nullptr;
+			PipeC* pipe_c[PIPE];
 			RestartButton* res_but = nullptr;
 			Board* board = nullptr;
 	};
