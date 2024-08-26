@@ -162,6 +162,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameObj\Destroyer.cpp" />
+    <ClCompile Include="src\GameObj\Spawner.cpp" />
     <ClCompile Include="src\GameObj\Background.cpp" />
     <ClCompile Include="src\GameObj\Board.cpp" />
     <ClCompile Include="src\GameObj\Number.cpp" />
@@ -183,6 +185,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\include\flappy-engine\flappy_engine.h" />
+    <ClInclude Include="src\GameObj\Destroyer.h" />
+    <ClInclude Include="src\GameObj\Spawner.h" />
     <ClInclude Include="src\Assets.h" />
     <ClInclude Include="src\GameObj\Board.h" />
     <ClInclude Include="src\GameObj\Number.h" />
@@ -193,6 +197,7 @@
     <ClInclude Include="src\GameObj\RestartButton.h" />
     <ClInclude Include="src\GameObj\Background.h" />
     <ClInclude Include="src\GameObj\Score.h" />
+    <ClInclude Include="src\GameState.h" />
     <ClInclude Include="src\g_obj\score_sys\Score_c.h" />
     <ClInclude Include="src\GameObj\Bird.h" />
     <ClInclude Include="src\Game.h" />

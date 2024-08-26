@@ -1,8 +1,6 @@
 #ifndef _GAME_
 #define _GAME_
 
-#include <flappy_engine/flappy_engine.h>
-
 #include "GameObj/Bird.h"
 #include "GameObj/Background.h"
 #include "GameObj/RestartButton.h"
@@ -10,15 +8,13 @@
 #include "GameObj/Base.h"
 #include "GameObj/Board.h"
 #include "GameObj/Score.h"
+#include "GameObj/Destroyer.h"
+#include "GameObj/Spawner.h"
 
+#include "GameState.h"
 #include "Settings.h"
 
 namespace flappy_bird {
-
-	enum GameState
-	{
-		start, playing, game_over
-	};
 
 	class Game
 	{
@@ -40,16 +36,18 @@ namespace flappy_bird {
 			flappy_engine::Engine* engine;
 
 			GameState game_state = start;
-			unsigned int points = 0;
-			unsigned int best_score = 0;
+			
+			unsigned char points[3] = { 0, 0, 0 };
+			unsigned char best_score[3] = { 0, 0, 0 };
 
 			Bird* bird = nullptr;
 			Background* background = nullptr;
 			Base* base = nullptr;
 			Score* score = nullptr;
-			PipeC* pipe_c[PIPE];
 			RestartButton* res_but = nullptr;
 			Board* board = nullptr;
+			Spawner* spawner = nullptr;
+			Destroyer* destroyer = nullptr;
 	};
 
 }
