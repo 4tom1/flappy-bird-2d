@@ -3,6 +3,7 @@
 
 #include <flappy_engine/GameObj.h>
 
+#include "../GameState.h"
 #include "../Settings.h"
 
 namespace flappy_bird {
@@ -11,10 +12,18 @@ namespace flappy_bird {
 	{
 		public:
 			
-			Bird();
+			Bird(GameState& game_state);
+			
 			void Jump();
+			void Update();
+			
+			
+
+		private:
 			
 			float jump_lenght = 0;
+			bool is_jumping = false;
+			GameState* game_state;
 	};
 }
 

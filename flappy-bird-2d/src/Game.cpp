@@ -23,10 +23,27 @@ Game::~Game()
 
 void Game::RunTest()
 {
+	game_state = start;
+	
 	base = new Base(game_state);
+	bird = new Bird(game_state);
 	
 	while (engine->window.isOpen())
 	{
+		static bool mouse_clicked = false;
+		static bool spacebar_was_pressed = false;
+
+		if (engine->input.MouseClick()) mouse_clicked = true;
+		if (engine->input.IsKeyPressed(flappy_engine::SPACEBAR)) spacebar_was_pressed = true;
+
+		if (mouse_clicked && !engine->input.MouseClick() || spacebar_was_pressed && !engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
+		{
+			bird->Jump();
+
+			mouse_clicked = false;
+			spacebar_was_pressed = false;
+		}
+		
 		engine->RenderAll();
 		engine->UpdateAll();
 	}
@@ -97,7 +114,7 @@ void Game::CreateStartScene()
 	
 	engine->DeleteAllObj();
 
-	bird = new Bird();
+	bird = new Bird(game_state);
 	background = new Background();
 	base = new Base(game_state);
 }
