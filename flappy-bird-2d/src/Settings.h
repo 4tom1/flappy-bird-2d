@@ -11,9 +11,9 @@
 
 // ***Gameplay settings***
 // Bird settings
-#define BIRD_JUMP_SPEED 1
+#define BIRD_JUMP_SPEED 1 / FRAME_RATE
 #define BIRD_JUMP_LENGHT 1
-#define BIRD_SPEED 1
+#define BIRD_SPEED 180 / FRAME_RATE
 // Pipe settings
 #define PIPE_CLOSENESS 1
 #define PIPE_CONSISTENCY 1

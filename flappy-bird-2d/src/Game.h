@@ -23,6 +23,7 @@ namespace flappy_bird {
 			Game();
 			~Game();
 			void Run();
+			void RunTest();
 		
 		private:
 

@@ -21,6 +21,17 @@ Game::~Game()
 	delete engine;
 }
 
+void Game::RunTest()
+{
+	base = new Base(game_state);
+	
+	while (engine->window.isOpen())
+	{
+		engine->RenderAll();
+		engine->UpdateAll();
+	}
+}
+
 void Game::Run()
 {	
 	CreateStartScene();
@@ -88,14 +99,16 @@ void Game::CreateStartScene()
 
 	bird = new Bird();
 	background = new Background();
-	base = new Base();
+	base = new Base(game_state);
 }
 
 void Game::CreatePlayingScene()
 {
 	game_state = playing;
 
-	score = new Score();
+	score = new Score(points);
+	spawner = new Spawner(pipe_c);
+	destroyer = new Destroyer(pipe_c);
 }
 
 void Game::CreateGameOverScene()
