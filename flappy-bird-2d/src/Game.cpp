@@ -9,6 +9,11 @@ using namespace flappy_bird;
 Game::Game()
 {
 	engine = flappy_engine::InitEngine(WIDTH, HIGHT, FRAME_RATE, "Flappy Bird Game", VOLUME * 100);
+
+	for (size_t i = 0; i < PIPE; i++)
+	{
+		pipe_c[i] = nullptr;
+	}
 }
 
 Game::~Game()

@@ -48,6 +48,7 @@ namespace flappy_bird {
 			Board* board = nullptr;
 			Spawner* spawner = nullptr;
 			Destroyer* destroyer = nullptr;
+			PipeC* pipe_c[PIPE];
 	};
 
 }
