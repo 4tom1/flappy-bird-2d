@@ -22,13 +22,8 @@ void flappy_engine::Sprite::DefaultTex()
 
 void flappy_engine::Sprite::Update()
 {
-	sf::Vector2f center;
-	center.x = GetSize().x / 2;
-	center.y = GetSize().y / 2;
-	
-	sf_transform.rotate(transform->rotation, center);
-
 	setPosition(transform->position.x, transform->position.y);
+	setRotation(transform->rotation);
 	setScale(transform->scale.x, transform->scale.y);
 }
 

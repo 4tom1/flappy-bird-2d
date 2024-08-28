@@ -20,7 +20,6 @@ flappy_bird::Bird::Bird(GameState& game_state) : game_state(&game_state)
 void flappy_bird::Bird::Jump()
 {
 	acceleration = BIRD_PLAYING_ACCELERATION;
-	transform.rotation += 1;
 }
 
 void flappy_bird::Bird::Move()

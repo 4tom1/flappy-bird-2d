@@ -22,10 +22,7 @@ namespace flappy_engine {
 		private:
 			
 			sf::Texture texture;
-			sf::Transform sf_transform;
 			Transform* transform;
-
-			friend class Engine;
 	};
 }
 

@@ -34,7 +34,7 @@ void flappy_engine::Engine::RenderAll()
 		{
 			if (game_obj_manager[i]->sprite) 
 			{
-				window.draw(*(game_obj_manager[i]->sprite), game_obj_manager[i]->sprite->sf_transform);
+				window.draw(*(game_obj_manager[i]->sprite));
 			}	
 		}
 		
