@@ -25,23 +25,36 @@ void Game::RunTest()
 {
 	game_state = start;
 	
+	background = new Background();
 	base = new Base(game_state);
 	bird = new Bird(game_state);
 	
 	while (engine->window.isOpen())
 	{
-		static bool mouse_clicked = false;
-		static bool spacebar_was_pressed = false;
-
-		if (engine->input.MouseClick()) mouse_clicked = true;
-		if (engine->input.IsKeyPressed(flappy_engine::SPACEBAR)) spacebar_was_pressed = true;
-
-		if (mouse_clicked && !engine->input.MouseClick() || spacebar_was_pressed && !engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
+		if (game_state == start)
 		{
-			bird->Jump();
+			if (engine->input.MouseClick())
+			{
+				game_state = playing;
+				bird->Jump();
+			}
+		}
+		
+		else if (game_state == playing)
+		{
+			static bool mouse_clicked = false;
+			static bool spacebar_was_pressed = false;
 
-			mouse_clicked = false;
-			spacebar_was_pressed = false;
+			if (!mouse_clicked && engine->input.MouseClick() || !spacebar_was_pressed && engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
+			{
+				bird->Jump();
+
+				mouse_clicked = true;
+				spacebar_was_pressed = true;
+			}
+
+			if (!engine->input.MouseClick()) mouse_clicked = false;
+			if (!engine->input.IsKeyPressed(flappy_engine::SPACEBAR)) spacebar_was_pressed = false;
 		}
 		
 		engine->RenderAll();

@@ -2,10 +2,8 @@
 #include "../Assets.h"
 #include "../Settings.h"
 
-flappy_bird::Base::Base(GameState& game_state)
+flappy_bird::Base::Base(GameState& game_state) : game_state(&game_state)
 {
-	this->game_state = &game_state;
-	
 	AddComponent(flappy_engine::sprite);
 	AddComponent(flappy_engine::collider);
 	sprite->Create(BASE_IMG);

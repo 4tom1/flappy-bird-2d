@@ -4,7 +4,7 @@
 
 unsigned int flappy_engine::Animator::frame_rate = 0;
 
-void flappy_engine::Animator::Create(const char* file_paths[textures_limit], unsigned int frame_per_sec)
+void flappy_engine::Animator::Animation(const char* file_paths[textures_limit], unsigned int frame_per_sec)
 {
 	animation_frame_rate = frame_per_sec;
 	

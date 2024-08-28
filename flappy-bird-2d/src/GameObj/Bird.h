@@ -15,15 +15,16 @@ namespace flappy_bird {
 			Bird(GameState& game_state);
 			
 			void Jump();
-			void Update();
-			
-			
+			void Update();	
 
 		private:
 			
-			float jump_lenght = 0;
+			void Move();
+
+			float acceleration = 0;
+			bool direction = true;
 			bool is_jumping = false;
-			GameState* game_state;
+			GameState const * const game_state;
 	};
 }
 

@@ -17,7 +17,7 @@ namespace flappy_bird {
 
 		private:
 
-			GameState* game_state = nullptr;
+			GameState const * const game_state = nullptr;
 			float start_pos = 0;
 	};
 }

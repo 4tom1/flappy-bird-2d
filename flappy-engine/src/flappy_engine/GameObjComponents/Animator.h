@@ -13,7 +13,7 @@ namespace flappy_engine {
 
 			Animator(Sprite* game_obj_sprite) : game_obj_sprite(game_obj_sprite) {}
 
-			void Create(const char* file_paths[textures_limit], unsigned int frame_per_sec);
+			void Animation(const char* file_paths[textures_limit], unsigned int frame_per_sec);
 			void Play();
 			void Stop();
 
