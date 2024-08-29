@@ -21,7 +21,6 @@ flappy_bird::Bird::Bird(GameState& game_state) : game_state(&game_state)
 void flappy_bird::Bird::Jump()
 {
 	acceleration = BIRD_PLAYING_ACCELERATION;
-	transform.rotation += 5;
 }
 
 void flappy_bird::Bird::Move()
@@ -76,29 +75,39 @@ void flappy_bird::Bird::Update()
 
 	else if (*game_state == playing)
 	{
-		//acceleration -= BIRD_ACCELERATION_CHANGE;
-		//
-		//float result = acceleration / BIRD_PLAYING_ACCELERATION;
-		//
-		//if (result >= 0)
-		//{
-		//	animator->Play();
-		//	sprite->rotate(-45 * result);
-		//}
+		acceleration -= BIRD_ACCELERATION_CHANGE;
+		
+		if (acceleration > BIRD_PLAYING_ACCELERATION * -1)
+		{
+			animator->Play();
+			
+			transform.rotation = -15;
+		}
 
-		//else
-		//{
-		//	animator->Stop();
-		//	sprite->rotate(90 * abs(result));
-		//}
+		else
+		{
+			animator->Stop();
 
-		//Move();
+			if (transform.rotation < 90)
+			{
+				transform.rotation += BIRD_PLAYING_ROTATION_SPEED;
+			}
+		}
 
-		//if (transform.position.y >= HIGHT - 50) transform.position.y = HIGHT - 50;
+		Move();
 	}
 
 	else
 	{
+		animator->Stop();
+		
+		acceleration -= BIRD_ACCELERATION_CHANGE;
 
+		if (transform.rotation < 90)
+		{
+			transform.rotation += BIRD_PLAYING_ROTATION_SPEED;
+		}
+		
+		Move();
 	}
 }
