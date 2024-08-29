@@ -26,7 +26,8 @@ void flappy_bird::Spawner::Update()
 		{
 			if (!pipe_c[i])
 			{
-				pipe_c[i] = new PipeC(transform.position);
+				flappy_engine::Position new_pos(transform.position.x, transform.position.y + ((rand() % RANDOM_SIZE) * 2 - RANDOM_SIZE), transform.position.z);
+				pipe_c[i] = new PipeC(new_pos);
 				break;
 			}
 		}

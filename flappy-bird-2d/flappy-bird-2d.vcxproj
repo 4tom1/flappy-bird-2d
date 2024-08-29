@@ -170,7 +170,6 @@
     <ClCompile Include="src\GameObj\Base.cpp" />
     <ClCompile Include="src\GameObj\Pipe.cpp" />
     <ClCompile Include="src\GameObj\PipeC.cpp" />
-    <ClCompile Include="src\GameObj\PointCollider.cpp" />
     <ClCompile Include="src\GameObj\RestartButton.cpp" />
     <ClCompile Include="src\GameObj\Score.cpp" />
     <ClCompile Include="src\GameObj\Bird.cpp" />

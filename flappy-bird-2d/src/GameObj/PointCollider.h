@@ -9,9 +9,7 @@ namespace flappy_bird {
 	{
 		public:
 			
-			PointCollider() {};
-			
-			void Update() {};
+			PointCollider() { AddComponent(flappy_engine::collider); };
 	};
 }
 

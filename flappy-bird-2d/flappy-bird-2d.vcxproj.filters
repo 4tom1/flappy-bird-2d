@@ -24,9 +24,6 @@
     <ClCompile Include="src\GameObj\Bird.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\g_obj\score_sys\Score_c.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameObj\RestartButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -34,9 +31,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\GameObj\Pipe.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObj\PointCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\GameObj\Base.cpp">

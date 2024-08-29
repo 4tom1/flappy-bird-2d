@@ -7,7 +7,4 @@ flappy_bird::Pipe::Pipe()
 	AddComponent(flappy_engine::collider);
 	sprite->Create(PIPE_IMG);
 	collider->SetSize(sprite->GetSize().x, sprite->GetSize().y);
-
-	transform.SetPosition(0, 0, 10);
-	transform.SetScale(1, 1);
 }

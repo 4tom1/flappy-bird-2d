@@ -12,9 +12,9 @@ namespace flappy_bird {
 	{
 		public:
 
-		Spawner(PipeC** pipe_c);
+			Spawner(PipeC** pipe_c);
 
-		void Update();
+			void Update();
 
 		private:
 

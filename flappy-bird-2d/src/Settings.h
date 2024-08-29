@@ -25,8 +25,11 @@
 #define BIRD_PLAYING_ROTATION_SPEED 6
 
 // Pipe settings
-#define PIPE_CLOSENESS 1
+#define PIPE_CLOSENESS 100
 #define PIPE_CONSISTENCY 1
 #define PIPE 4
+#define SPAWNPOINT WIDTH + 50
+#define DESPAWNPOINT WIDTH - 50
+#define RANDOM_SIZE 50
 
 #endif
