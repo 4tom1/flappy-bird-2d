@@ -23,7 +23,6 @@ namespace flappy_bird {
 
 			float acceleration = 0;
 			bool direction = true;
-			bool is_jumping = false;
 			GameState const * const game_state;
 	};
 }

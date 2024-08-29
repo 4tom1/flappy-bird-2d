@@ -12,7 +12,7 @@
 // ***Gameplay settings***
 
 // Bird settings
-#define BIRD_SPEED 100 / FRAME_RATE
+#define BIRD_SPEED 150 / FRAME_RATE
 #define BIRD_ACCELERATION_CHANGE 0.1
 #define BIRD_ANIM_FRAME_RATE 12
 // Start

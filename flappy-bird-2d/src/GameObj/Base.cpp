@@ -9,8 +9,8 @@ flappy_bird::Base::Base(GameState& game_state) : game_state(&game_state)
 	sprite->Create(BASE_IMG);
 	collider->SetSize(sprite->GetSize().x, sprite->GetSize().y);
 
-	transform.SetPosition(start_pos = 0, 700, 10);
-	transform.SetScale(2.2, 2.2);
+	transform.SetPosition(start_pos = 0, HIGHT - 70, 10);
+	transform.SetScale(1.7);
 }
 
 void flappy_bird::Base::Update()
@@ -21,7 +21,7 @@ void flappy_bird::Base::Update()
 	{
 		transform.position.x -= BIRD_SPEED;
 
-		if (-1 * transform.position.x >= sprite->GetSize().x - WIDTH - 37)
+		if (-1 * transform.position.x >= sprite->GetSize().x - WIDTH - 30)
 		{
 			transform.position.x = start_pos;
 		}

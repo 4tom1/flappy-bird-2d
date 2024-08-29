@@ -5,12 +5,16 @@ namespace flappy_engine {
 
 	struct Scale
 	{
-		float x = 1.f, y = 1.f;
+		Scale(float x = 1.f, float y = 1.f) : x(x), y(y) {}
+
+		float x, y;
 	};
 
 	struct Position
 	{
-		float x = 0.f, y = 0.f, z = 0.f;
+		Position(float x = 0.f, float y = 0.f, float z = 0.f) : x(x), y(y), z(z) {}
+		
+		float x, y, z;
 	};
 
 	class Transform
