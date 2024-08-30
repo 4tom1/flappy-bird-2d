@@ -13,8 +13,8 @@ flappy_bird::Bird::Bird(GameState& game_state) : game_state(&game_state)
 
 	animator->Animation(file_paths, BIRD_ANIM_FRAME_RATE);
 
+	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x, HIGHT / 2 - sprite->GetSize().y / 2, 20);
 	sprite->setOrigin(sprite->GetSize().x / 2, sprite->GetSize().y / 2);
-	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x, HIGHT / 2 - sprite->GetSize().y / 2, 10);
 	transform.SetScale(1.5);
 }
 

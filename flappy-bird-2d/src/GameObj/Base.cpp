@@ -2,14 +2,12 @@
 #include "../Assets.h"
 #include "../Settings.h"
 
-flappy_bird::Base::Base(GameState& game_state) : game_state(&game_state)
+flappy_bird::Base::Base(GameState& game_state, flappy_engine::Position& bird_pos) : game_state(&game_state), bird_pos(&bird_pos)
 {
 	AddComponent(flappy_engine::sprite);
-	AddComponent(flappy_engine::collider);
 	sprite->Create(BASE_IMG);
-	collider->SetSize(sprite->GetSize().x, sprite->GetSize().y);
 
-	transform.SetPosition(start_pos = 0, HIGHT - 70, 10);
+	transform.SetPosition(0, HIGHT - 70, 10);
 	transform.SetScale(1.7);
 }
 
@@ -23,7 +21,17 @@ void flappy_bird::Base::Update()
 
 		if (-1 * transform.position.x >= sprite->GetSize().x - WIDTH - 30)
 		{
-			transform.position.x = start_pos;
+			transform.position.x = 0;
 		}
 	}
+}
+
+bool flappy_bird::Base::IsTriggered()
+{
+	if (bird_pos->y >= HIGHT - 100)
+	{
+		return true;
+	}
+
+	return false;
 }

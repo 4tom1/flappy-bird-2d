@@ -4,12 +4,10 @@
 #include "GameObj/Bird.h"
 #include "GameObj/Background.h"
 #include "GameObj/RestartButton.h"
-#include "GameObj/PipeC.h"
+#include "GameObj/PipeManager.h"
 #include "GameObj/Base.h"
 #include "GameObj/Board.h"
 #include "GameObj/Score.h"
-#include "GameObj/Destroyer.h"
-#include "GameObj/Spawner.h"
 
 #include "GameState.h"
 #include "Settings.h"
@@ -47,9 +45,7 @@ namespace flappy_bird {
 			Score* score = nullptr;
 			RestartButton* res_but = nullptr;
 			Board* board = nullptr;
-			Spawner* spawner = nullptr;
-			Destroyer* destroyer = nullptr;
-			PipeC* pipe_c[PIPE];
+			PipeManager* pipe_m = nullptr;
 	};
 
 }

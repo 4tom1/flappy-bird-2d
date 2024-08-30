@@ -11,14 +11,16 @@ namespace flappy_bird {
 	{
 		public:
 			
-			Base(GameState& game_state);
+			Base(GameState& game_state, flappy_engine::Position& bird_pos);
 
 			void Update();
 
+			bool IsTriggered();
+
 		private:
 
-			GameState const * const game_state = nullptr;
-			float start_pos = 0;
+			flappy_engine::Position const* const bird_pos;
+			GameState const * const game_state;
 	};
 }
 

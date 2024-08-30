@@ -162,14 +162,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\GameObj\Destroyer.cpp" />
-    <ClCompile Include="src\GameObj\Spawner.cpp" />
+    <ClCompile Include="src\GameObj\PipeManager.cpp" />
     <ClCompile Include="src\GameObj\Background.cpp" />
     <ClCompile Include="src\GameObj\Board.cpp" />
     <ClCompile Include="src\GameObj\Number.cpp" />
     <ClCompile Include="src\GameObj\Base.cpp" />
     <ClCompile Include="src\GameObj\Pipe.cpp" />
-    <ClCompile Include="src\GameObj\PipeC.cpp" />
     <ClCompile Include="src\GameObj\RestartButton.cpp" />
     <ClCompile Include="src\GameObj\Score.cpp" />
     <ClCompile Include="src\GameObj\Bird.cpp" />
@@ -183,15 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\include\flappy-engine\flappy_engine.h" />
-    <ClInclude Include="src\GameObj\Destroyer.h" />
-    <ClInclude Include="src\GameObj\Spawner.h" />
+    <ClInclude Include="src\GameObj\PipeManager.h" />
     <ClInclude Include="src\Assets.h" />
     <ClInclude Include="src\GameObj\Board.h" />
     <ClInclude Include="src\GameObj\Number.h" />
     <ClInclude Include="src\GameObj\Base.h" />
     <ClInclude Include="src\GameObj\Pipe.h" />
-    <ClInclude Include="src\GameObj\PipeC.h" />
-    <ClInclude Include="src\GameObj\PointCollider.h" />
     <ClInclude Include="src\GameObj\RestartButton.h" />
     <ClInclude Include="src\GameObj\Background.h" />
     <ClInclude Include="src\GameObj\Score.h" />

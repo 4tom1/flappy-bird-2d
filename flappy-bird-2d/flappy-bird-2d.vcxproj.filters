@@ -27,9 +27,6 @@
     <ClCompile Include="src\GameObj\RestartButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameObj\PipeC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameObj\Pipe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,10 +45,7 @@
     <ClCompile Include="src\GameObj\Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameObj\Spawner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObj\Destroyer.cpp">
+    <ClCompile Include="src\GameObj\PipeManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,13 +65,7 @@
     <ClInclude Include="src\GameObj\RestartButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameObj\PipeC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\GameObj\Pipe.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObj\PointCollider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\GameObj\Base.h">
@@ -104,10 +92,7 @@
     <ClInclude Include="src\GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameObj\Spawner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObj\Destroyer.h">
+    <ClInclude Include="src\GameObj\PipeManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
