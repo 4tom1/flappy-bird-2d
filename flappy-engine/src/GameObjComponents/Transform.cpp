@@ -12,15 +12,3 @@ void flappy_engine::Transform::SetPosition(float x, float y)
 	position.x = x;
 	position.y = y;
 }
-
-void flappy_engine::Transform::SetScale(float factor_x, float factor_y)
-{
-	scale.x = factor_x;
-	scale.y = factor_y;
-}
-
-void flappy_engine::Transform::SetScale(float factor)
-{
-	scale.x = factor;
-	scale.y = factor;
-}

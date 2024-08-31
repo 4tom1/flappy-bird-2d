@@ -18,15 +18,15 @@ namespace flappy_bird {
 			void Reset();
 			void Update();
 
-			static inline bool PipeIsTriggered() { return pipe_is_triggered; };
-			static inline bool PointCheck() { return point; }
+			inline bool PipeIsTriggered() { return pipe_is_triggered; };
+			inline bool PointCheck() { return point; }
 
 		private:
 
 			Pipe pipes[PIPE];
 
-			static bool pipe_is_triggered;
-			static bool point;
+			bool pipe_is_triggered = false;
+			bool point = false;
 
 			flappy_engine::Position const* const bird_pos;
 			GameState const* const game_state;

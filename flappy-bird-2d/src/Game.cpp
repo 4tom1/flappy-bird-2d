@@ -120,10 +120,19 @@ void Game::Playing()
 
 void Game::GameOver()
 {
-	if (res_but->IsPressed() || engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
+	static bool but_clicked = false;
+	static bool spacebar_was_pressed = false;
+
+	if (!but_clicked && res_but->IsPressed() || !spacebar_was_pressed && engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
 	{
 		StartScene();
+
+		but_clicked = true;
+		spacebar_was_pressed = true;
 	}
+
+	if (!res_but->IsPressed()) but_clicked = false;
+	if (!engine->input.IsKeyPressed(flappy_engine::SPACEBAR)) spacebar_was_pressed = false;
 }
 
 void Game::StartScene()
@@ -131,6 +140,13 @@ void Game::StartScene()
 	game_state = start;
 
 	Reset();
+
+	for (size_t i = 0; i < 3; i++)
+	{
+		std::cout << (int)best_score[i];
+	}
+
+	std::cout << std::endl;
 }
 
 void Game::PlayingScene()
@@ -159,6 +175,11 @@ void Game::GameOverScene()
 
 void Game::Reset()
 {
+	for (size_t i = 0; i < 3; i++)
+	{
+		points[i] = 0;
+	}
+	
 	bird->Reset();
 	score->Hide();
 	res_but->Hide();

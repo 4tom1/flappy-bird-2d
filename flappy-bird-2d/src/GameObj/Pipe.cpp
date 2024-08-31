@@ -9,7 +9,7 @@ flappy_bird::Pipe::Pipe()
 
 	pipe1.sprite->Create(PIPE_DOWN_IMG);
 
-	pipe1.transform.SetScale(PIPE_SIZE);
+	pipe1.sprite->setScale(PIPE_SIZE, PIPE_SIZE);
 
 	pipe1.collider->SetSize(pipe1.sprite->GetSize().x, pipe1.sprite->GetSize().y);
 
@@ -20,13 +20,11 @@ flappy_bird::Pipe::Pipe()
 	
 	pipe2.sprite->Create(PIPE_UP_IMG);
 
-	pipe2.transform.SetScale(PIPE_SIZE);
+	pipe2.sprite->setScale(PIPE_SIZE, PIPE_SIZE);
 
 	pipe2.collider->SetSize(pipe2.sprite->GetSize().x, pipe2.sprite->GetSize().y);
 
 	pipe2.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 + PIPE_CLOSENESS / 2, 5);
-
-	pipe2.transform.position;
 }
 
 void flappy_bird::Pipe::Move()
@@ -37,7 +35,7 @@ void flappy_bird::Pipe::Move()
 
 void flappy_bird::Pipe::StartPosition()
 {
-	int random = -Random(PIPE_RANDOM * -1, PIPE_RANDOM);
+	int random = Random(PIPE_RANDOM * -1, PIPE_RANDOM);
 	
 	pipe1.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 - PIPE_CLOSENESS / 2 - pipe1.sprite->GetSize().y - random);
 	pipe2.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 + PIPE_CLOSENESS / 2 - random);

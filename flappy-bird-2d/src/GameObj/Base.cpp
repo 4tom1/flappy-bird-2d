@@ -10,11 +10,11 @@ flappy_bird::Base::Base(GameState& game_state, flappy_engine::Position& bird_pos
 	base2.AddComponent(flappy_engine::sprite);
 	base2.sprite->Create(BASE_IMG);
 
-	base1.transform.SetPosition(0, HIGHT - 70, 10);
-	base1.transform.SetScale(1.7);
+	base1.transform.SetPosition(0, HIGHT - 70, 20);
+	base1.sprite->setScale(1.7, 1.7);
 
-	base2.transform.SetPosition(base1.sprite->GetSize().x, HIGHT - 70, 10);
-	base2.transform.SetScale(1.7);
+	base2.transform.SetPosition(base1.sprite->GetSize().x, HIGHT - 70, 20);
+	base2.sprite->setScale(1.7, 1.7);
 }
 
 void flappy_bird::Base::Update()
@@ -38,7 +38,7 @@ void flappy_bird::Base::Update()
 
 bool flappy_bird::Base::IsTriggered()
 {
-	if (bird_pos->y >= HIGHT - 110)
+	if (bird_pos->y >= HIGHT - BASE_COLLIDER_HIGHT)
 	{
 		return true;
 	}

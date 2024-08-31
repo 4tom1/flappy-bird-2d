@@ -7,7 +7,7 @@ flappy_bird::Board::Board(unsigned char* score, unsigned char* best_score)
 	AddComponent(flappy_engine::sprite);
 	sprite->Create(BOARD_IMG);
 
-	transform.SetScale(3);
+	sprite->setScale(3, 3);
 	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x / 2, HIGHT / 2 - sprite->GetSize().y / 2, 30);
 
 

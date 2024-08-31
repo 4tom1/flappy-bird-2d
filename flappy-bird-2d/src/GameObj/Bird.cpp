@@ -13,11 +13,11 @@ flappy_bird::Bird::Bird(GameState& game_state) : game_state(&game_state)
 
 	sprite->setOrigin(sprite->GetSize().x / 2, sprite->GetSize().y / 2);
 	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x, HIGHT / 2 - sprite->GetSize().y / 2, 20);
-	transform.SetScale(1.5);
+	sprite->setScale(1.5, 1.5);
 
 	collider_obj.AddComponent(flappy_engine::collider);
-	collider_obj.collider->SetSize(sprite->GetSize().x, sprite->GetSize().y);
-	collider_obj.transform.SetPosition(transform.position.x - sprite->GetSize().x / 2, transform.position.y - sprite->GetSize().y / 2);
+	collider_obj.collider->SetSize(sprite->GetSize().x * BIRD_COLLIDER_WIDTH, sprite->GetSize().y);
+	collider_obj.transform.SetPosition(transform.position.x - sprite->GetSize().x / 2, transform.position.y - sprite->GetSize().y / 2, transform.position.z);
 }
 
 void flappy_bird::Bird::Reset()
@@ -56,6 +56,8 @@ void flappy_bird::Bird::Move()
 
 void flappy_bird::Bird::Update()
 {
+	collider_obj.transform.SetPosition(transform.position.x - sprite->GetSize().x, transform.position.y - sprite->GetSize().y / 2, transform.position.z);
+	
 	if (*game_state == start)
 	{
 		animator->Stop();
@@ -105,8 +107,6 @@ void flappy_bird::Bird::Update()
 		}
 
 		Move();
-
-		collider_obj.transform.position.y = transform.position.y - sprite->GetSize().y / 2;
 	}
 
 	else
@@ -115,7 +115,7 @@ void flappy_bird::Bird::Update()
 		
 		acceleration -= BIRD_ACCELERATION_CHANGE;
 
-		if (transform.position.y < HIGHT - 100)
+		if (transform.position.y < HIGHT - BASE_COLLIDER_HIGHT)
 		{
 			if (transform.rotation < 90)
 			{
@@ -127,7 +127,7 @@ void flappy_bird::Bird::Update()
 
 		else
 		{
-			transform.position.y = HIGHT - 100;
+			transform.position.y = HIGHT - BASE_COLLIDER_HIGHT;
 		}
 	}
 }

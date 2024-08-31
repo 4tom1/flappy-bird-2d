@@ -1,8 +1,5 @@
 #include "PipeManager.h"
 
-bool flappy_bird::PipeManager::pipe_is_triggered = false;
-bool flappy_bird::PipeManager::point = false;
-
 flappy_bird::PipeManager::PipeManager(GameState& game_state, flappy_engine::Position& bird_pos) : game_state(&game_state), bird_pos(&bird_pos) 
 {
 	for (size_t i = 0; i < PIPE; i++)
@@ -20,10 +17,11 @@ void flappy_bird::PipeManager::Reset()
 		pipes[i].StartPosition(); // set random positions
 		pipes[i].pipe1.transform.position.x += i * PIPE_CONSISTENCY;
 		pipes[i].pipe2.transform.position.x += i * PIPE_CONSISTENCY;
-
-		pipe_is_triggered = false;
-		point = false;
+		pipes[i].point = true;
 	}
+
+	pipe_is_triggered = false;
+	point = false;
 }
 
 void flappy_bird::PipeManager::Update()
