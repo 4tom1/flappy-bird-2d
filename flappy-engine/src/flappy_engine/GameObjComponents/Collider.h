@@ -9,13 +9,7 @@ namespace flappy_engine {
 	{
 		public:
 
-		typedef Scale Size;
-
-		Collider(Transform* transform) : transform(transform)
-		{
-			size.x = 0.f;
-			size.y = 0.f;
-		}
+		Collider(Transform* transform) : transform(transform) {}
 
 		void Update(Collider& another_collider);
 
@@ -27,7 +21,7 @@ namespace flappy_engine {
 		private:
 
 		bool is_triggered = false;
-		Size size;
+		float x = 0, y = 0;
 		Transform* transform;
 
 		friend class Button;

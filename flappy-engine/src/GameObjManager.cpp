@@ -70,8 +70,6 @@ size_t flappy_engine::GameObjManager::Size() const
 	return game_obj_ptr_vec.size();
 }
 
-#include <iostream>
-
 void flappy_engine::GameObjManager::Sort()
 {
 	if (game_obj_ptr_vec.size() > 0)

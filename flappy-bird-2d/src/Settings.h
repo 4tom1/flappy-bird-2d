@@ -37,4 +37,13 @@
 // Base settings
 #define BASE_COLLIDER_HIGHT 85
 
+// Board settings
+#define BOARD_HIGHT 100
+#define BOARD_SCORE_HIGHT 75
+#define BOARD_BEST_HIGHT 205
+#define BOARD_NUMBER_SIZE 1.5
+
+// Restart button settings
+#define RESBUT_HIGHT 150
+
 #endif

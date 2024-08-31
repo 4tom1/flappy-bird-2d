@@ -19,7 +19,7 @@ namespace flappy_bird {
 		private:
 
 			Number score[3];
-			unsigned char* points;
+			unsigned char* points = nullptr;
 	};
 }
 

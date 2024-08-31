@@ -15,11 +15,15 @@ namespace flappy_bird {
 
 			void Hide();
 			void Show();
+			void Set();
 
 		private:
 
 			Number score[3];
 			Number best_score[3];
+
+			unsigned char* points = nullptr;
+			unsigned char* best = nullptr;
 	};
 }
 

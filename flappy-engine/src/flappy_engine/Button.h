@@ -7,8 +7,6 @@ namespace flappy_engine {
 
 	class Button : public GameObj
 	{
-		typedef Scale Size;
-	
 		public:
 
 			void SetSize(float x, float y);
@@ -19,7 +17,7 @@ namespace flappy_engine {
 		private:
 
 			bool is_pressed = false;
-			Size size;
+			float x = 0, y = 0;
 	};
 }
 
