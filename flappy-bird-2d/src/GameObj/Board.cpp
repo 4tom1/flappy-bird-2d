@@ -8,7 +8,7 @@ flappy_bird::Board::Board(unsigned char* points, unsigned char* best) : points(p
 	sprite->Create(BOARD_IMG);
 
 	sprite->setScale(3, 3);
-	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x / 2, HIGHT / 2 - sprite->GetSize().y / 2 - BOARD_HIGHT, 30);
+	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x / 2, HIGHT / 2 - sprite->GetSize().y / 2 - BOARD_HIGHT, BOARD_POS_Z);
 
 
 	for (size_t i = 0; i < 3; i++)
@@ -48,7 +48,7 @@ void flappy_bird::Board::Hide()
 
 void flappy_bird::Board::Show()
 {
-	transform.position.z = 30;
+	transform.position.z = BOARD_POS_Z;
 
 	for (size_t i = 0; i < 3; i++)
 	{

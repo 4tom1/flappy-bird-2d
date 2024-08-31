@@ -38,7 +38,7 @@ void flappy_bird::PipeManager::Update()
 				pipe_is_triggered = true;
 			}
 
-			if (pipes[i].point && bird_pos->x >= pipes[i].pipe2.transform.position.x + pipes[i].pipe2.sprite->GetSize().x / 2)
+			if (pipes[i].point && bird_pos->x >= pipes[i].pipe2.transform.position.x)
 			{
 				pipes[i].point = false;
 				point = true;

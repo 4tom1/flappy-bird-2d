@@ -8,7 +8,7 @@ flappy_bird::RestartButton::RestartButton()
 	sprite->Create(RESTART_IMG);
 	
 	sprite->setScale(2, 2);
-	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x / 2, HIGHT / 2 - sprite->GetSize().y / 2 + RESBUT_HIGHT, 40);
+	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x / 2, HIGHT / 2 - sprite->GetSize().y / 2 + RESBUT_HIGHT, RESBUT_POS_Z);
 
 	SetSize(sprite->GetSize().x, sprite->GetSize().y);
 }
@@ -20,5 +20,5 @@ void flappy_bird::RestartButton::Hide()
 
 void flappy_bird::RestartButton::Show()
 {
-	transform.position.z = 40;
+	transform.position.z = RESBUT_POS_Z;
 }

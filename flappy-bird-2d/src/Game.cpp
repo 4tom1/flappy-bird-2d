@@ -95,6 +95,8 @@ void Game::Playing()
 	if (base->IsTriggered() || pipe_m->PipeIsTriggered())
 	{
 		std::cout << "dupa maryna" << std::endl;
+
+		engine->sound.PlaySound(HIT_AUDIO);
 		
 		GameOverScene();
 	}
@@ -115,6 +117,8 @@ void Game::Playing()
 			points[1] = 0;
 			points[0]++;
 		}
+
+		engine->sound.PlaySound(POINT_AUDIO);
 	}
 }
 

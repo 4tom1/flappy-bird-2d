@@ -13,7 +13,7 @@ flappy_bird::Pipe::Pipe()
 
 	pipe1.collider->SetSize(pipe1.sprite->GetSize().x, pipe1.sprite->GetSize().y);
 
-	pipe1.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 - PIPE_CLOSENESS / 2 - pipe1.sprite->GetSize().y, 5);
+	pipe1.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 - PIPE_CLOSENESS / 2 - pipe1.sprite->GetSize().y, PIPE_POS_Z);
 	
 	pipe2.AddComponent(flappy_engine::sprite);
 	pipe2.AddComponent(flappy_engine::collider);
@@ -24,7 +24,7 @@ flappy_bird::Pipe::Pipe()
 
 	pipe2.collider->SetSize(pipe2.sprite->GetSize().x, pipe2.sprite->GetSize().y);
 
-	pipe2.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 + PIPE_CLOSENESS / 2, 5);
+	pipe2.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 + PIPE_CLOSENESS / 2, PIPE_POS_Z);
 }
 
 void flappy_bird::Pipe::Move()
