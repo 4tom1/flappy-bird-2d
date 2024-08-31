@@ -15,7 +15,7 @@
 
 // Bird settings
 #define BIRD_POS_Z 4
-#define BIRD_SPEED 200 / FRAME_RATE
+#define BIRD_SPEED 180 / FRAME_RATE
 #define BIRD_ACCELERATION_CHANGE 0.1
 #define BIRD_ANIM_FRAME_RATE 12
 #define BIRD_COLLIDER_WIDTH 1 // % proc.

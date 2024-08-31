@@ -36,6 +36,11 @@ void Game::Run()
 {	
 	StartScene();
 	
+	//size_t counter = 0;
+	//sf::Clock clock1;
+	//sf::Clock clock2;
+	//sf::Time elapsed;
+
 	while (engine->window.isOpen())
 	{
 		switch (game_state)
@@ -55,6 +60,17 @@ void Game::Run()
 
 		engine->RenderAll();
 		engine->UpdateAll();
+
+		//counter++;
+		//elapsed = clock1.getElapsedTime();
+		//
+		//if (1 <= elapsed.asSeconds())
+		//{
+		//	std::cout << "% Procent per frame: " << counter << std::endl;
+
+		//	counter = 0;
+		//	clock1.restart();
+		//}
 	}
 }
 

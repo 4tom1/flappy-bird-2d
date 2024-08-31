@@ -1,7 +1,7 @@
 #ifndef _ASSETS_
 #define _ASSETS_
 
-#define DEBUG_MODE
+#define RELESE_MODE
 
 #ifdef RELESE_MODE
 
