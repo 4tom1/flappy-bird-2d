@@ -19,6 +19,8 @@ namespace flappy_bird {
 
 		private:
 
+			GameObj base1, base2;
+
 			flappy_engine::Position const* const bird_pos;
 			GameState const * const game_state;
 	};

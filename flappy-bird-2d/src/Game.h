@@ -21,14 +21,17 @@ namespace flappy_bird {
 			Game();
 			~Game();
 			void Run();
-			void RunTest();
 		
 		private:
 
 			void Start();
 			void Playing();
 			void GameOver();
-			void SetBestScore();
+			void StartScene();
+			void PlayingScene();
+			void GameOverScene();
+			void Reset();
+			
 
 			flappy_engine::Engine* engine;
 
@@ -45,7 +48,6 @@ namespace flappy_bird {
 			Board board = { points, best_score };
 			PipeManager pipe_m = { game_state, bird.transform.position };
 	};
-
 }
 
 #endif

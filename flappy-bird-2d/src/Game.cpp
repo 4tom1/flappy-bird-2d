@@ -46,7 +46,7 @@ void Game::Start()
 {
 	if (engine->input.MouseClick() || engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
 	{
-		game_state = playing;
+		PlayingScene();
 		bird.Jump();
 	}
 }
@@ -71,8 +71,7 @@ void Game::Playing()
 	{
 		std::cout << "dupa maryna" << std::endl;
 		
-		game_state = game_over;
-		SetBestScore();
+		GameOverScene();
 	}
 
 	if (pipe_m.PointCheck())
@@ -98,17 +97,46 @@ void Game::GameOver()
 {
 	if (res_but.IsPressed())
 	{
-		game_state = start;
+		StartScene();
 	}
 }
 
-
-void Game::SetBestScore()
+void Game::StartScene()
 {
+	game_state = start;
+
+	Reset();
+}
+
+void Game::PlayingScene()
+{
+	game_state = playing;
+
+	score.Show();
+}
+
+void Game::GameOverScene()
+{
+	game_state = game_over;
+
 	if (points[0] * 100 + points[1] * 10 + points[2] > best_score[0] * 100 + best_score[1] * 10 + best_score[2])
 	{
 		best_score[0] = points[0];
 		best_score[1] = points[1];
 		best_score[2] = points[2];
 	}
+
+	score.Hide();
+	
+	board.Show();
+	res_but.Show();
+}
+
+void Game::Reset()
+{
+	bird.Reset();
+	score.Hide();
+	res_but.Hide();
+	board.Hide();
+	pipe_m.Reset();
 }

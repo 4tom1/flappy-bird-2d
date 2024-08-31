@@ -7,5 +7,5 @@ flappy_bird::Background::Background()
 	sprite->Create(BACKGROUND_IMG);
 
 	transform.SetScale(1.8, 1.8);
-	transform.position.y = -150;
+	transform.SetPosition(0, -150, 1);
 }

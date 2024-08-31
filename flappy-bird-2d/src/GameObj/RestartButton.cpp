@@ -12,3 +12,13 @@ flappy_bird::RestartButton::RestartButton()
 
 	SetSize(sprite->GetSize().x, sprite->GetSize().y);
 }
+
+void flappy_bird::RestartButton::Hide()
+{
+	transform.position.z = 0;
+}
+
+void flappy_bird::RestartButton::Show()
+{
+	transform.position.z = 40;
+}

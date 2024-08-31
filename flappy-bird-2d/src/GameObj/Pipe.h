@@ -22,8 +22,7 @@ namespace flappy_bird {
 
 			bool point = true;
 
-			flappy_engine::GameObj pipe1;
-			flappy_engine::GameObj pipe2;
+			flappy_engine::GameObj pipe1, pipe2;
 	};
 }
 

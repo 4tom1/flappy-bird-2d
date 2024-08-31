@@ -13,6 +13,9 @@ namespace flappy_bird {
 
 			Board(unsigned char* score, unsigned char* best_score);
 
+			void Hide();
+			void Show();
+
 		private:
 
 			Number score[3];

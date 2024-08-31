@@ -15,6 +15,7 @@ namespace flappy_bird {
 
 			PipeManager(GameState& game_state, flappy_engine::Position& bird_pos);
 
+			void Reset();
 			void Update();
 
 			static inline bool PipeIsTriggered() { return pipe_is_triggered; };

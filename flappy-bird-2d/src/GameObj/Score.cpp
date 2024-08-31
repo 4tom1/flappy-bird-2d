@@ -23,6 +23,22 @@ void flappy_bird::Score::Set()
 	}
 }
 
+void flappy_bird::Score::Hide()
+{
+	for (size_t i = 0; i < 3; i++)
+	{
+		score[i].transform.position.z = 0;
+	}
+}
+
+void flappy_bird::Score::Show()
+{
+	for (size_t i = 0; i < 3; i++)
+	{
+		score[i].transform.position.z = 20;
+	}
+}
+
 void flappy_bird::Score::Update()
 {
 	Set();

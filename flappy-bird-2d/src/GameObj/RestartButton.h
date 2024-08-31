@@ -10,6 +10,9 @@ namespace flappy_bird {
 		public:
 			
 			RestartButton();
+
+			void Hide();
+			void Show();
 	};
 }
 

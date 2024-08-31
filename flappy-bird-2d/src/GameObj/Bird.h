@@ -15,7 +15,8 @@ namespace flappy_bird {
 			Bird(GameState& game_state);
 			
 			void Jump();
-			void Update();	
+			void Reset();
+			void Update();
 
 		private:
 			

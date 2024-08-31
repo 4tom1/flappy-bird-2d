@@ -13,6 +13,19 @@ flappy_bird::PipeManager::PipeManager(GameState& game_state, flappy_engine::Posi
 	}
 }
 
+void flappy_bird::PipeManager::Reset()
+{
+	for (size_t i = 0; i < PIPE; i++)
+	{
+		pipes[i].StartPosition(); // set random positions
+		pipes[i].pipe1.transform.position.x += i * PIPE_CONSISTENCY;
+		pipes[i].pipe2.transform.position.x += i * PIPE_CONSISTENCY;
+
+		pipe_is_triggered = false;
+		point = false;
+	}
+}
+
 void flappy_bird::PipeManager::Update()
 {
 	if (*game_state == playing)

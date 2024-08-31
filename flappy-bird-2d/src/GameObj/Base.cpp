@@ -4,24 +4,34 @@
 
 flappy_bird::Base::Base(GameState& game_state, flappy_engine::Position& bird_pos) : game_state(&game_state), bird_pos(&bird_pos)
 {
-	AddComponent(flappy_engine::sprite);
-	sprite->Create(BASE_IMG);
+	base1.AddComponent(flappy_engine::sprite);
+	base1.sprite->Create(BASE_IMG);
 
-	transform.SetPosition(0, HIGHT - 70, 10);
-	transform.SetScale(1.7);
+	base2.AddComponent(flappy_engine::sprite);
+	base2.sprite->Create(BASE_IMG);
+
+	base1.transform.SetPosition(0, HIGHT - 70, 10);
+	base1.transform.SetScale(1.7);
+
+	base2.transform.SetPosition(base1.sprite->GetSize().x, HIGHT - 70, 10);
+	base2.transform.SetScale(1.7);
 }
 
 void flappy_bird::Base::Update()
 {
-	if (*game_state == game_over);
-
-	else
+	if (*game_state == start || *game_state == playing)
 	{
-		transform.position.x -= BIRD_SPEED;
+		base1.transform.position.x -= BIRD_SPEED;
+		base2.transform.position.x -= BIRD_SPEED;
 
-		if (-1 * transform.position.x >= sprite->GetSize().x - WIDTH - 30)
+		if (base1.transform.position.x < base1.sprite->GetSize().x * -1)
 		{
-			transform.position.x = 0;
+			base1.transform.position.x = base2.transform.position.x + base2.sprite->GetSize().x;
+		}
+
+		if (base2.transform.position.x < base2.sprite->GetSize().x * -1)
+		{
+			base2.transform.position.x = base1.transform.position.x + base1.sprite->GetSize().x;
 		}
 	}
 }
