@@ -28,9 +28,7 @@ namespace flappy_bird {
 			void Start();
 			void Playing();
 			void GameOver();
-			void CreateStartScene();
-			void CreatePlayingScene();
-			void CreateGameOverScene();
+			void SetBestScore();
 
 			flappy_engine::Engine* engine;
 
@@ -39,13 +37,13 @@ namespace flappy_bird {
 			unsigned char points[3] = { 0, 0, 0 };
 			unsigned char best_score[3] = { 0, 0, 0 };
 
-			Bird* bird = nullptr;
-			Background* background = nullptr;
-			Base* base = nullptr;
-			Score* score = nullptr;
-			RestartButton* res_but = nullptr;
-			Board* board = nullptr;
-			PipeManager* pipe_m = nullptr;
+			Bird bird = game_state;
+			Background background;
+			Base base = { game_state, bird.transform.position };
+			Score score = points;
+			RestartButton res_but;
+			Board board = { points, best_score };
+			PipeManager pipe_m = { game_state, bird.transform.position };
 	};
 
 }

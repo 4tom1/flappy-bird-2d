@@ -21,6 +21,8 @@ namespace flappy_bird {
 			
 			void Move();
 
+			GameObj collider_obj;
+
 			float acceleration = 0;
 			bool direction = true;
 			GameState const * const game_state;

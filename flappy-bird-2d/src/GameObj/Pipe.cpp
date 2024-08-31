@@ -37,6 +37,18 @@ void flappy_bird::Pipe::Move()
 
 void flappy_bird::Pipe::StartPosition()
 {
-	pipe1.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 - PIPE_CLOSENESS / 2 - pipe1.sprite->GetSize().y);
-	pipe2.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 + PIPE_CLOSENESS / 2);
+	int random = -Random(PIPE_RANDOM * -1, PIPE_RANDOM);
+	
+	pipe1.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 - PIPE_CLOSENESS / 2 - pipe1.sprite->GetSize().y - random);
+	pipe2.transform.SetPosition(PIPE_SPAWNPOINT, HIGHT / 2 + PIPE_CLOSENESS / 2 - random);
+}
+
+float flappy_bird::Pipe::Random(int min, int max)
+{
+	if (min < max)
+	{
+		return rand() % (max - min) + min;
+	}
+
+	return 1;
 }

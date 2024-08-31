@@ -7,11 +7,10 @@ flappy_bird::PipeManager::PipeManager(GameState& game_state, flappy_engine::Posi
 {
 	for (size_t i = 0; i < PIPE; i++)
 	{
+		pipes[i].StartPosition(); // set random positions
 		pipes[i].pipe1.transform.position.x += i * PIPE_CONSISTENCY;
 		pipes[i].pipe2.transform.position.x += i * PIPE_CONSISTENCY;
 	}
-	
-	// set random positions
 }
 
 void flappy_bird::PipeManager::Update()
@@ -37,7 +36,7 @@ void flappy_bird::PipeManager::Update()
 			if (pipes[i].pipe2.transform.position.x <= PIPE_DESPAWNPOINT)
 			{
 				pipes[i].point = true;
-				pipes[i].StartPosition(); // set random positions
+				pipes[i].StartPosition(); // reset positions and set random hight
 			}
 
 			pipes[i].Move();

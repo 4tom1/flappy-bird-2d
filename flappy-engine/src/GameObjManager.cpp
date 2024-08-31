@@ -14,9 +14,11 @@ void flappy_engine::GameObjManager::DeleteGameObj(GameObj* old_game_obj)
 			for (size_t j = i; j < game_obj_ptr_vec.size() - 1; j++)
 			{
 				game_obj_ptr_vec[j] = game_obj_ptr_vec[j + 1];
+				game_obj_ptr_vec[j + 1] = nullptr;
 			}
 
-			game_obj_ptr_vec.pop_back();
+			// without pop
+
 			break;
 		}
 	}
@@ -47,7 +49,11 @@ void flappy_engine::GameObjManager::DeleteAllObj()
 	
 	for (size_t i = 0; i < vec_size; i++)
 	{
-		delete game_obj_ptr_vec[i];
+		if (game_obj_ptr_vec[i])
+		{
+			delete game_obj_ptr_vec[i];
+			game_obj_ptr_vec[i] = nullptr;
+		}
 	}
 }
 

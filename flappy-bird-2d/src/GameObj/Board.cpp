@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "../Settings.h"
 #include "../Assets.h"
 
 flappy_bird::Board::Board(unsigned char* score, unsigned char* best_score)
@@ -6,8 +7,9 @@ flappy_bird::Board::Board(unsigned char* score, unsigned char* best_score)
 	AddComponent(flappy_engine::sprite);
 	sprite->Create(BOARD_IMG);
 
-	transform.SetPosition(0, 0, 20);
-	transform.SetScale(1, 1);
+	transform.SetScale(3);
+	transform.SetPosition(WIDTH / 2 - sprite->GetSize().x / 2, HIGHT / 2 - sprite->GetSize().y / 2, 30);
+
 
 	for (size_t i = 0; i < 3; i++)
 	{
@@ -15,11 +17,11 @@ flappy_bird::Board::Board(unsigned char* score, unsigned char* best_score)
 		this->best_score[i].Set(best_score[i]);
 	}
 
-	this->score[0].transform.SetPosition(transform.position.x, transform.position.y, transform.position.z + 1);
-	this->score[1].transform.SetPosition(transform.position.x, transform.position.y, transform.position.z + 1);
-	this->score[2].transform.SetPosition(transform.position.x, transform.position.y, transform.position.z + 1);
+	this->score[0].transform.SetPosition(transform.position.x + this->score[0].sprite->GetSize().x, transform.position.y, transform.position.z + 1);
+	this->score[1].transform.SetPosition(this->score[0].transform.position.x + this->score[0].sprite->GetSize().x, transform.position.y, transform.position.z + 1);
+	this->score[2].transform.SetPosition(this->score[1].transform.position.x + + this->score[0].sprite->GetSize().x, transform.position.y, transform.position.z + 1);
 
-	this->best_score[0].transform.SetPosition(transform.position.x, transform.position.y, transform.position.z + 1);
-	this->best_score[1].transform.SetPosition(transform.position.x, transform.position.y, transform.position.z + 1);
-	this->best_score[2].transform.SetPosition(transform.position.x, transform.position.y, transform.position.z + 1);
+	this->best_score[0].transform.SetPosition(transform.position.x + this->best_score[0].sprite->GetSize().x, transform.position.y + this->best_score[0].sprite->GetSize().y, transform.position.z + 1);
+	this->best_score[1].transform.SetPosition(this->best_score[0].transform.position.x + this->best_score[0].sprite->GetSize().x, transform.position.y + this->best_score[0].sprite->GetSize().y, transform.position.z + 1);
+	this->best_score[2].transform.SetPosition(this->best_score[1].transform.position.x + this->best_score[0].sprite->GetSize().x, transform.position.y + this->best_score[0].sprite->GetSize().y, transform.position.z + 1);
 }

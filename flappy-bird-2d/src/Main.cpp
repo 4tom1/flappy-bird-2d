@@ -3,6 +3,6 @@
 int main()
 {
 	flappy_bird::Game* game = new flappy_bird::Game();
-	game->RunTest();
+	game->Run();
 	delete game;
 }

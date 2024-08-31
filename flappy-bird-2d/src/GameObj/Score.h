@@ -11,7 +11,7 @@ namespace flappy_bird {
 			
 			Score(unsigned char* points);
 
-			void Set(unsigned char* score);
+			void Set();
 			void Update();
 		
 		private:

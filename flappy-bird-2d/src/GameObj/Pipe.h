@@ -18,6 +18,8 @@ namespace flappy_bird {
 			void Move();
 			void StartPosition();
 
+			static float Random(int min, int max);
+
 			bool point = true;
 
 			flappy_engine::GameObj pipe1;
