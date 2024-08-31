@@ -38,7 +38,7 @@ void flappy_bird::Base::Update()
 
 bool flappy_bird::Base::IsTriggered()
 {
-	if (bird_pos->y >= HIGHT - 100)
+	if (bird_pos->y >= HIGHT - 110)
 	{
 		return true;
 	}

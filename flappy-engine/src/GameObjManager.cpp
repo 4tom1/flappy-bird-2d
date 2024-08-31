@@ -28,16 +28,19 @@ void flappy_engine::GameObjManager::UpdateAllObj()
 {
 	for (size_t i = 0; i < game_obj_ptr_vec.size(); i++)
 	{
-		game_obj_ptr_vec[i]->Update();
-		
-		if (game_obj_ptr_vec[i]->sprite) game_obj_ptr_vec[i]->sprite->Update();
-		if (game_obj_ptr_vec[i]->animator) game_obj_ptr_vec[i]->animator->Update();
-		
-		for (size_t j = 0; j < game_obj_ptr_vec.size(); j++)
+		if (game_obj_ptr_vec[i])
 		{
-			if (i != j)
+			game_obj_ptr_vec[i]->Update();
+
+			if (game_obj_ptr_vec[i]->sprite) game_obj_ptr_vec[i]->sprite->Update();
+			if (game_obj_ptr_vec[i]->animator) game_obj_ptr_vec[i]->animator->Update();
+
+			for (size_t j = 0; j < game_obj_ptr_vec.size(); j++)
 			{
-				if (game_obj_ptr_vec[i]->collider && game_obj_ptr_vec[j]->collider) game_obj_ptr_vec[i]->collider->Update(*game_obj_ptr_vec[j]->collider);
+				if (i != j)
+				{
+					if (game_obj_ptr_vec[i]->collider && game_obj_ptr_vec[j]->collider) game_obj_ptr_vec[i]->collider->Update(*game_obj_ptr_vec[j]->collider);
+				}
 			}
 		}
 	}
@@ -67,25 +70,30 @@ size_t flappy_engine::GameObjManager::Size() const
 	return game_obj_ptr_vec.size();
 }
 
+#include <iostream>
+
 void flappy_engine::GameObjManager::Sort()
 {
-	bool unsolved;
-
-	do
+	if (game_obj_ptr_vec.size() > 0)
 	{
-		unsolved = false;
+		bool unsolved = false;
 
-		for (size_t i = 0; i < game_obj_ptr_vec.size() - 1; i++)
+		do
 		{
-			if (game_obj_ptr_vec[i]->transform.position.z > game_obj_ptr_vec[i + 1]->transform.position.z)
+			unsolved = false;
+
+			for (size_t i = 0; i < game_obj_ptr_vec.size() - 1; i++)
 			{
-				GameObj* helper = game_obj_ptr_vec[i];
-				game_obj_ptr_vec[i] = game_obj_ptr_vec[i + 1];
-				game_obj_ptr_vec[i + 1] = helper;
+				if (game_obj_ptr_vec[i]->transform.position.z > game_obj_ptr_vec[i + 1]->transform.position.z)
+				{
+					GameObj* helper = game_obj_ptr_vec[i];
+					game_obj_ptr_vec[i] = game_obj_ptr_vec[i + 1];
+					game_obj_ptr_vec[i + 1] = helper;
 
-				unsolved = true;
+					unsolved = true;
+				}
 			}
-		}
 
-	} while (unsolved);
+		} while (unsolved);
+	}
 }

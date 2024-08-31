@@ -59,4 +59,5 @@ flappy_engine::GameObj::~GameObj()
 
 	DeleteComponent(flappy_engine::sprite);
 	DeleteComponent(flappy_engine::collider);
+	DeleteComponent(flappy_engine::animator);
 }

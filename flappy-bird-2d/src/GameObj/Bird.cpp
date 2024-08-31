@@ -1,8 +1,6 @@
 #include "Bird.h"
 #include "../Assets.h"
 
-#include <iostream>
-
 flappy_bird::Bird::Bird(GameState& game_state) : game_state(&game_state)
 {
 	AddComponent(flappy_engine::sprite);
@@ -46,7 +44,7 @@ void flappy_bird::Bird::Move()
 		transform.position.y -= acceleration * BIRD_START_JUMP_SPEED;
 	}
 
-	else if (*game_state == playing)
+	else
 	{
 		if (acceleration > BIRD_PLAYING_ACCELERATION) acceleration = BIRD_PLAYING_ACCELERATION;
 		if (acceleration < BIRD_PLAYING_ACCELERATION * -1) acceleration = BIRD_PLAYING_ACCELERATION * -1;

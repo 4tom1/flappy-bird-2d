@@ -11,15 +11,31 @@ using namespace flappy_bird;
 Game::Game()
 {
 	engine = flappy_engine::InitEngine(WIDTH, HIGHT, FRAME_RATE, "Flappy Bird Game", VOLUME * 100);
+
+	bird = new Bird(game_state);
+	background = new Background();
+	base = new Base(game_state, bird->transform.position);
+	score = new Score(points);
+	res_but = new RestartButton();
+	board = new Board(points, best_score);
+	pipe_m = new PipeManager(game_state, bird->transform.position);
 }
 
 Game::~Game()
 {
 	delete engine;
+	delete bird;
+	delete background;
+	delete base;
+	delete res_but;
+	delete board;
+	delete pipe_m;
 }
 
 void Game::Run()
 {	
+	StartScene();
+	
 	while (engine->window.isOpen())
 	{
 		switch (game_state)
@@ -44,11 +60,20 @@ void Game::Run()
 
 void Game::Start()
 {
-	if (engine->input.MouseClick() || engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
+	static bool mouse_clicked = false;
+	static bool spacebar_was_pressed = false;
+
+	if (!mouse_clicked && engine->input.MouseClick() || !spacebar_was_pressed && engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
 	{
 		PlayingScene();
-		bird.Jump();
+		bird->Jump();
+
+		mouse_clicked = true;
+		spacebar_was_pressed = true;
 	}
+
+	if (!engine->input.MouseClick()) mouse_clicked = false;
+	if (!engine->input.IsKeyPressed(flappy_engine::SPACEBAR)) spacebar_was_pressed = false;
 }
 
 void Game::Playing()
@@ -58,7 +83,7 @@ void Game::Playing()
 
 	if (!mouse_clicked && engine->input.MouseClick() || !spacebar_was_pressed && engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
 	{
-		bird.Jump();
+		bird->Jump();
 
 		mouse_clicked = true;
 		spacebar_was_pressed = true;
@@ -67,14 +92,14 @@ void Game::Playing()
 	if (!engine->input.MouseClick()) mouse_clicked = false;
 	if (!engine->input.IsKeyPressed(flappy_engine::SPACEBAR)) spacebar_was_pressed = false;
 
-	if (base.IsTriggered() || pipe_m.PipeIsTriggered())
+	if (base->IsTriggered() || pipe_m->PipeIsTriggered())
 	{
 		std::cout << "dupa maryna" << std::endl;
 		
 		GameOverScene();
 	}
 
-	if (pipe_m.PointCheck())
+	if (pipe_m->PointCheck())
 	{
 		std::cout << "point" << std::endl;
 		points[2]++;
@@ -95,7 +120,7 @@ void Game::Playing()
 
 void Game::GameOver()
 {
-	if (res_but.IsPressed())
+	if (res_but->IsPressed() || engine->input.IsKeyPressed(flappy_engine::SPACEBAR))
 	{
 		StartScene();
 	}
@@ -112,7 +137,7 @@ void Game::PlayingScene()
 {
 	game_state = playing;
 
-	score.Show();
+	score->Show();
 }
 
 void Game::GameOverScene()
@@ -126,17 +151,17 @@ void Game::GameOverScene()
 		best_score[2] = points[2];
 	}
 
-	score.Hide();
+	score->Hide();
 	
-	board.Show();
-	res_but.Show();
+	board->Show();
+	res_but->Show();
 }
 
 void Game::Reset()
 {
-	bird.Reset();
-	score.Hide();
-	res_but.Hide();
-	board.Hide();
-	pipe_m.Reset();
+	bird->Reset();
+	score->Hide();
+	res_but->Hide();
+	board->Hide();
+	pipe_m->Reset();
 }
