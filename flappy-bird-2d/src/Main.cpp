@@ -1,6 +1,6 @@
 #include "Game.h"
 
-int WinMain()
+int main()
 {
 	flappy_bird::Game* game = new flappy_bird::Game();
 	game->Run();

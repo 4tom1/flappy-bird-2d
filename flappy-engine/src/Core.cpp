@@ -25,19 +25,18 @@ void flappy_engine::Engine::UpdateAll()
 void flappy_engine::Engine::RenderAll()
 {
 	window.clear();
-	
+
 	game_obj_manager.Sort();
-	
+
 	for (size_t i = 0; i < game_obj_manager.Size(); i++)
 	{
 		if (game_obj_manager[i])
 		{
-			if (game_obj_manager[i]->sprite) 
+			if (game_obj_manager[i]->sprite)
 			{
 				window.draw(*(game_obj_manager[i]->sprite));
-			}	
+			}
 		}
-		
 	}
 	
 	window.display();
