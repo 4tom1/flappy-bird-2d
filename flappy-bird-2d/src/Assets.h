@@ -12,7 +12,7 @@
 #define BOARD_IMG "res/sprites/score-board.png"
 #define ZERO_IMG "res/sprites/0.png"
 #define ONE_IMG "res/sprites/1.png"
-#define TWO_IMG "/res/sprites/2.png"
+#define TWO_IMG "res/sprites/2.png"
 #define THREE_IMG "res/sprites/3.png"
 #define FOUR_IMG "res/sprites/4.png"
 #define FIVE_IMG "res/sprites/5.png"
