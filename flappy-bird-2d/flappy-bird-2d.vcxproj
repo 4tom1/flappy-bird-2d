@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\include\flappy-engine\flappy_engine.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\GameObj\PipeManager.h" />
     <ClInclude Include="src\Assets.h" />
     <ClInclude Include="src\GameObj\Board.h" />
@@ -195,6 +196,13 @@
     <ClInclude Include="src\GameObj\Bird.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Settings.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\res\bird.ico" />
+    <Image Include="bin\x64-Release\res\sprites\bird-upflap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="flappy-bird-2d.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

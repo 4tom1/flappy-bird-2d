@@ -1,6 +1,8 @@
 #include "Game.h"
 
-int main()
+#include "../resource.h"
+
+int WinMain()
 {
 	flappy_bird::Game* game = new flappy_bird::Game();
 	game->Run();
