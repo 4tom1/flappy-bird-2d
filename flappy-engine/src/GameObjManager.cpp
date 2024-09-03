@@ -56,7 +56,7 @@ size_t flappy_engine::GameObjManager::Size() const
 	return game_obj_ptr_vec.size();
 }
 
-void flappy_engine::GameObjManager::Sort()
+void flappy_engine::GameObjManager::Sort() // Bubble sort algorithm.
 {
 	if (game_obj_ptr_vec.size() > 0)
 	{

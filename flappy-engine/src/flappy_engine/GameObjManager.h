@@ -22,6 +22,7 @@ namespace flappy_engine {
 
 			void Sort();
 			// Sorts game objects pointers in position "z" hierarchy. From the smallest to the largest position "z". (It's for rendering queue.)
+			// Bubble sort algorithm.
 
 			size_t Size() const;
 			// Returns how many is game objects.

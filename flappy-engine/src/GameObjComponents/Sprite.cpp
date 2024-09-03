@@ -24,8 +24,8 @@ void flappy_engine::Sprite::Update()
 sf::Vector2f flappy_engine::Sprite::GetSize()
 {
 	sf::Vector2f vec2f;
-	vec2f.x = texture.getSize().x * getScale().x;
-	vec2f.y = texture.getSize().y * getScale().y;
+	vec2f.x = texture.getSize().x * getScale().x; // It is bad way to do this.
+	vec2f.y = texture.getSize().y * getScale().y; // It is bad way to do this.
 	
 	return vec2f;
 }

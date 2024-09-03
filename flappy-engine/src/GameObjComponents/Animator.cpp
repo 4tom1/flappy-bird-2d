@@ -10,13 +10,11 @@ void flappy_engine::Animator::Animation(const char* file_paths[uint_textures], u
 	
 	for (size_t i = 0; i < uint_textures; i++)
 	{
-		if (!textures[i].loadFromFile(file_paths[i])) // <- Loading all textures from files paths.
+		if (!textures[i].loadFromFile(file_paths[i]))
 		{
 			std::cout << "Error: cannot open a file " << file_paths[i] << ";" << std::endl;
 			std::getchar();
 		}
-
-		// If load of any fail, prints error in console and wait by getchar.
 	}
 }
 
@@ -29,17 +27,15 @@ void flappy_engine::Animator::Stop()
 {
 	play = false;
 	game_obj_sprite->DefaultTex();
-
-	// Stops animation and sets default texture of sprite.
 }
 
 void flappy_engine::Animator::Update()
 {
 	if (animation_frame_rate != 0 && play)
 	{
-		loop++; // Frame counter.
+		loop++;
 
-		if (loop >= frame_rate / animation_frame_rate) // Change texture if 
+		if (loop >= frame_rate / animation_frame_rate)
 		{
 			game_obj_sprite->setTexture(textures[++current_frame % uint_textures]);
 

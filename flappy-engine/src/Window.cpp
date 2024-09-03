@@ -2,7 +2,7 @@
 
 flappy_engine::Window::Window(unsigned int width, unsigned int high, const char* name, unsigned int frame_rate)
 {
-	create(sf::VideoMode(width, high), name, sf::Style::Close);
+	create(sf::VideoMode(width, high), name, sf::Style::Close); // SFML setting. Window cannot be resized or set on fullscreen.
 	setFramerateLimit(frame_rate);
 }
 
