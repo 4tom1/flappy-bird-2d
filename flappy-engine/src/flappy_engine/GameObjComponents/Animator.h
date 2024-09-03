@@ -10,7 +10,7 @@ namespace flappy_engine {
 	// Is simplify for flappy bird game, because bird in game has only 4 frames of animation.
 
 	class Animator // Animator handle animation system. It's part of component system. 
-	// (Unfortunetly for this project only, because it was prepered for flappy bird game.)
+	// (Unfortunetly for this project purpose only.)
 	{
 		public:
 			
@@ -32,7 +32,7 @@ namespace flappy_engine {
 			// Update in animator case update animation every anim. frame rate by set next texture in vector.
 
 			static void SetFrameRate(unsigned int frame_rate);
-			// SetFrameRate, sets window frame rate in engine initialization.
+			// Sets window frame rate in engine initialization.
 			
 			flappy_engine::Sprite* game_obj_sprite;
 			// Sprite pointer is initializing in constructor and is pointing on game object's sprite to change textures while animation.

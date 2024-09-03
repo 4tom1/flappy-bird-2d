@@ -19,7 +19,7 @@ namespace flappy_engine {
 			// Sets size of collider. X is width, Y  is hight. X = Y.
 
 			inline bool IsTriggered() const { return is_triggered; }
-			// Return collider / trigger state.
+			// Returns collider / trigger state.
 
 		private:
 
