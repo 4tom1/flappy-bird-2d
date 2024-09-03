@@ -1,6 +1,6 @@
 #include "Game.h"
 
-#ifdef RELESE_MODE
+#ifdef RELEASE_MODE
 
 int WinMain()
 {
