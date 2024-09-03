@@ -14,15 +14,18 @@ namespace flappy_engine {
 			Sprite(Transform* transform) : transform(transform) {}
 
 			void Create(const char* file_path);
-
 			sf::Vector2f GetSize();
-			void DefaultTex();
-			void Update();
 
 		private:
 			
+			void DefaultTex();
+			void Update();
+
 			sf::Texture texture;
 			Transform* transform;
+
+			friend class GameObjManager;
+			friend class Animator;
 	};
 }
 

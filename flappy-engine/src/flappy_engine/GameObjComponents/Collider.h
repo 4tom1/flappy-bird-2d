@@ -5,26 +5,39 @@
 
 namespace flappy_engine {
 
-	class Collider
+	class Collider // Collider handle trigger system. It's part of component system. (It has no physics implemented.)
 	{
 		public:
 
-		Collider(Transform* transform) : transform(transform) {}
+			Collider(Transform* transform) : transform(transform) {}
+			// Default costructor for initializing transform pointer.
 
-		void Update(Collider& another_collider);
+			void SetSize(float factor_x, float factor_y);
+			// Sets size of collider. X is width, Y  is hight.
 
-		void SetSize(float factor_x, float factor_y);
-		void SetSize(float factor);
+			void SetSize(float factor);
+			// Sets size of collider. X is width, Y  is hight. X = Y.
 
-		inline bool IsTriggered() const { return is_triggered; }
+			inline bool IsTriggered() const { return is_triggered; }
+			// Return collider / trigger state.
 
 		private:
 
-		bool is_triggered = false;
-		float x = 0, y = 0;
-		Transform* transform;
+			void Update(Collider& another_collider);
+			// Updates this and other collider state. (If one is triggered, another is too.)
 
-		friend class Button;
+			bool is_triggered = false;
+			// Collider / trigger state.
+
+			float x = 0, y = 0;
+			// Size in x and y.
+
+			Transform* transform;
+			// Transform pointer is initializing in constructor and is pointing on game object's transform.
+
+			friend class GameObjManager;
+
+			// Friendships for hide non-api parts of engine. (It's only for visuals in this project.)
 	};
 }
 

@@ -27,8 +27,6 @@ namespace flappy_engine {
 			void AddComponent(Component com);
 			void DeleteComponent(Component com);
 
-			static void SetEngine(Engine* engine);
-
 			virtual void Update();
 
 			Transform transform;
@@ -37,6 +35,12 @@ namespace flappy_engine {
 			Animator* animator = nullptr;
 
 			static Engine* engine;
+
+		private:
+
+			static void SetEngine(Engine* engine);
+
+			friend class Engine;
 	};
 }
 

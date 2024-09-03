@@ -11,11 +11,13 @@ namespace flappy_engine {
 
 			Window(unsigned int width, unsigned int high, const char* name, unsigned int frame_rate);
 
-			void Update();
-
 		private:
 
+			void Update();
+
 			sf::Event event;
+
+			friend class Engine;
 	};
 }
 

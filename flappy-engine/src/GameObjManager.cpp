@@ -46,20 +46,6 @@ void flappy_engine::GameObjManager::UpdateAllObj()
 	}
 }
 
-void flappy_engine::GameObjManager::DeleteAllObj()
-{
-	size_t vec_size = game_obj_ptr_vec.size();
-	
-	for (size_t i = 0; i < vec_size; i++)
-	{
-		if (game_obj_ptr_vec[i])
-		{
-			delete game_obj_ptr_vec[i];
-			game_obj_ptr_vec[i] = nullptr;
-		}
-	}
-}
-
 flappy_engine::GameObj* flappy_engine::GameObjManager::operator[](size_t idx) const
 {
 	return game_obj_ptr_vec[idx];

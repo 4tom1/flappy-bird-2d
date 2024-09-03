@@ -42,11 +42,6 @@ void flappy_engine::Engine::RenderAll()
 	window.display();
 }
 
-void flappy_engine::Engine::DeleteAllObj()
-{
-	game_obj_manager.DeleteAllObj();
-}
-
 flappy_engine::GameObj::GameObj()
 {
 	engine->game_obj_manager.AddGameObj(this);

@@ -13,7 +13,6 @@ namespace flappy_engine {
 
 			void AddGameObj(GameObj* new_game_obj);
 			void DeleteGameObj(GameObj* old_game_obj);
-			void DeleteAllObj();
 			void UpdateAllObj();
 			void Sort();
 			size_t Size() const;

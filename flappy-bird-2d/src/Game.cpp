@@ -35,10 +35,6 @@ Game::~Game()
 void Game::Run()
 {	
 	StartScene();
-
-	sf::Clock clock;
-	sf::Time time;
-	size_t counter = 0;
 	
 	while (engine->window.isOpen())
 	{
@@ -59,16 +55,6 @@ void Game::Run()
 
 		engine->RenderAll();
 		engine->UpdateAll();
-
-		counter++;
-		time = clock.getElapsedTime();
-
-		if (time.asSeconds() >= 1)
-		{
-			std::cout << "fps: " << counter << std::endl;
-			counter = 0;
-			clock.restart();
-		}
 	}
 }
 

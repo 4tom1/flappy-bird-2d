@@ -3,7 +3,7 @@
 flappy_engine::Window::Window(unsigned int width, unsigned int high, const char* name, unsigned int frame_rate)
 {
 	create(sf::VideoMode(width, high), name, sf::Style::Close);
-	//setFramerateLimit(frame_rate);
+	setFramerateLimit(frame_rate);
 }
 
 void flappy_engine::Window::Update()
