@@ -95,21 +95,10 @@
     <ClInclude Include="src\GameObj\PipeManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\x64-Release\res\sprites\bird-upflap.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\res\bird.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="flappy-bird-2d.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>

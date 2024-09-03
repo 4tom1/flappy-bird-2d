@@ -1,6 +1,6 @@
 #include "Game.h"
 
-#include "../resource.h"
+#ifdef RELESE_MODE
 
 int WinMain()
 {
@@ -8,3 +8,16 @@ int WinMain()
 	game->Run();
 	delete game;
 }
+
+#endif
+
+#ifdef DEBUG_MODE
+
+int main()
+{
+	flappy_bird::Game* game = new flappy_bird::Game();
+	game->Run();
+	delete game;
+}
+
+#endif

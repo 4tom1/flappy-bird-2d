@@ -16,7 +16,7 @@
 // Bird settings
 #define BIRD_POS_Z 4
 #define BIRD_SPEED 180 / FRAME_RATE
-#define BIRD_ACCELERATION_CHANGE 0.1
+#define BIRD_ACCELERATION_CHANGE 0.1f
 #define BIRD_ANIM_FRAME_RATE 12
 #define BIRD_COLLIDER_WIDTH 1 // % proc.
 #define BIRD_COLLIDER_HIGHT 1 // % proc.
@@ -26,7 +26,7 @@
 #define BIRD_START_FLY 5
 // Playing
 #define BIRD_PLAYING_JUMP_SPEED 180 / FRAME_RATE
-#define BIRD_PLAYING_ACCELERATION 1.5
+#define BIRD_PLAYING_ACCELERATION 1.5f
 #define BIRD_PLAYING_ROTATION_SPEED 6
 
 // Pipe settings
@@ -37,7 +37,7 @@
 #define PIPE_SPAWNPOINT WIDTH + PIPE_CONSISTENCY / 2
 #define PIPE_DESPAWNPOINT PIPE_CONSISTENCY / 2 * -1
 #define PIPE_RANDOM 100
-#define PIPE_SIZE 1.5
+#define PIPE_SIZE 1.5f
 
 // Base settings
 #define BASE_POS_Z 4
@@ -48,7 +48,7 @@
 #define BOARD_HIGHT 100
 #define BOARD_SCORE_HIGHT 75
 #define BOARD_BEST_HIGHT 205
-#define BOARD_NUMBER_SIZE 1.5
+#define BOARD_NUMBER_SIZE 1.5f
 
 // Restart button settings
 #define RESBUT_POS_Z 10
